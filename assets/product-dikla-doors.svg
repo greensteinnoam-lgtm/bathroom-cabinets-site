@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" role="img" aria-label="דיקלה דלתות">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fbf8f3"/>
+      <stop offset="1" stop-color="#ded0c0"/>
+    </linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#4c2f1b" flood-opacity=".14"/>
+    </filter>
+  </defs>
+  <rect width="900" height="620" rx="34" fill="url(#bg)"/>
+  <rect y="460" width="900" height="160" fill="#d7c7b6"/>
+  <g filter="url(#s)">
+    <rect x="312" y="72" width="276" height="178" rx="18" fill="#e7f0f3"/>
+    <rect x="282" y="282" width="336" height="42" rx="21" fill="#fff"/>
+    <rect x="292" y="318" width="316" height="152" rx="12" fill="#2d302d"/>
+    <rect x="310" y="336" width="130" height="116" rx="6" fill="#363936"/>
+    <rect x="460" y="336" width="130" height="116" rx="6" fill="#363936"/>
+    <rect x="436" y="354" width="5" height="80" rx="3" fill="#d5c0a9"/>
+    <rect x="460" y="354" width="5" height="80" rx="3" fill="#d5c0a9"/>
+  </g>
+  <text x="450" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#4c2f1b">דיקלה דלתות</text>
+</svg>
