@@ -225,8 +225,14 @@ if(leadForm){
 const menuBtn = document.getElementById('menuBtn');
 const mainNav = document.getElementById('mainNav');
 if(menuBtn && mainNav){
-  menuBtn.addEventListener('click', () => mainNav.classList.toggle('open'));
-  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mainNav.classList.remove('open')));
+  menuBtn.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
 }
 
 const observer = new IntersectionObserver((entries) => {
