@@ -28,8 +28,9 @@ const products = [
     size: "לפי דגם",
     finish: "סדרת NOVO CHIC",
     price: "מחיר יתווסף בהמשך",
-    description: "דגם דקלה מסדרת NOVO CHIC. פרטי המידות והצבעים יאושרו לפי קישור המוצר המדויק לפני הוספת מחיר.",
-    sizes: ["60", "80", "100", "120"],
+    priceBySize: { "60": 1500, "80": 1750, "100": 2000, "120": 2250, "140": 3500 },
+    description: "דגם דקלה מסדרת NOVO CHIC. בחרו מידה וצבע, והמחיר יתעדכן לפי הבחירה.",
+    sizes: ["60", "80", "100", "120", "140"],
     colors: ["לבן", "אלון", "שחור", "גרייג"],
     image: "https://novo-gal.co.il/wp-content/uploads/2023/10/Dikla-Concrete_app-400x400.jpg",
     source: "https://novo-gal.co.il/product-category/%D7%90%D7%A8%D7%95%D7%A0%D7%95%D7%AA/"
@@ -73,7 +74,7 @@ const products = [
     source: "https://novo-gal.co.il/product/%D7%9E%D7%A8%D7%99%D7%9F-%D7%9E%D7%95%D7%93%D7%95%D7%9C%D7%A8%D7%99/"
   },
   {
-    title: "נובו סוויץ",
+    title: "נובו סנדוויץ",
     category: "תלוי",
     size: "60/46 / 80/46 / 100/46 / 120/46",
     finish: "מגירה + תא פתוח",
