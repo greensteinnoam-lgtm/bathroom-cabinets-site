@@ -116,6 +116,8 @@ h2{letter-spacing:0}
 .about-content{max-width:880px;display:grid;gap:14px;color:#405049;font-size:19px}
 .about-content p{margin:0}
 .about-content a{color:var(--brand);font-weight:900;text-decoration:underline;text-underline-offset:4px}
+.section-cta{margin:28px auto 0;background:#fff;border:1px solid rgba(15,61,53,.1);border-radius:20px;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 14px 44px rgba(16,35,31,.08)}
+.section-cta p{margin:0;font-size:20px;font-weight:900;color:#173d35}
 .cta-band{margin-top:26px;background:var(--brand);color:#fff;border-radius:22px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
 .cta-band p{margin:0;font-size:20px;font-weight:900}
 .cta-band .btn{background:#fff;color:var(--brand)!important}
@@ -199,6 +201,9 @@ img,svg,video{max-width:100%;height:auto}
   .quote-steps li{font-size:16px;line-height:1.45}
   .about-card{padding:20px;border-radius:18px}
   .about-content{font-size:16px;line-height:1.7;gap:12px}
+  .section-cta{align-items:stretch;flex-direction:column;border-radius:18px;padding:18px}
+  .section-cta p{font-size:18px}
+  .section-cta .btn{width:100%}
   .cta-band{border-radius:18px;padding:18px}
   .cta-band p{font-size:18px}
   .area-tags{justify-content:flex-start;gap:8px}

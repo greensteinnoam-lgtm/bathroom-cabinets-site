@@ -105,6 +105,8 @@ function getPriceLabel(product, size){
 
 document.querySelectorAll('#heroWhatsapp,#cardWhatsapp,#contactWhatsapp,#floatingWhatsapp,#navWhatsapp,#productsWhatsapp,#quoteWhatsapp').forEach(el => {
   el.href = whatsappLink();
+  el.target = '_blank';
+  el.rel = 'noopener';
 });
 
 const productGrid = document.getElementById('productGrid');
@@ -130,7 +132,7 @@ function renderProducts(){
     const selectedColor = product.colors?.[0] || product.finish;
     const selectedPrice = getPriceLabel(product, selectedSize);
     const message = `שלום, אני מתעניין/ת ב${product.title}. מידה: ${selectedSize}. צבע: ${selectedColor}. מחיר באתר: ${selectedPrice}. אשמח לקבל פרטים כולל ארון, כיור, מראה מרחפת והתקנה.`;
-    const image = product.image ? `<button class="product-image-btn" type="button" data-full-image="${product.image}" data-image-alt="${product.title}" aria-label="פתיחת תמונה מלאה של ${product.title}"><img src="${product.image}" alt="${product.title}"></button>` : `<div class="product-icon" aria-hidden="true"></div>`;
+    const image = product.image ? `<button class="product-image-btn" type="button" data-full-image="${product.image}" data-image-alt="${product.title}" aria-label="פתיחת תמונה מלאה של ${product.title}"><img src="${product.image}" alt="${product.title}" loading="lazy" decoding="async"></button>` : `<div class="product-icon" aria-hidden="true"></div>`;
     const sizeOptions = (product.sizes || [product.size]).map(option => `<option value="${option}">${option}</option>`).join('');
     const colorOptions = (product.colors || [product.finish]).map(option => `<option value="${option}">${option}</option>`).join('');
     return `<article class="product-card reveal visible">
@@ -233,6 +235,18 @@ if(menuBtn && mainNav){
     mainNav.classList.remove('open');
     menuBtn.setAttribute('aria-expanded', 'false');
   }));
+  document.addEventListener('click', (event) => {
+    if(!mainNav.classList.contains('open')) return;
+    if(mainNav.contains(event.target) || menuBtn.contains(event.target)) return;
+    mainNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('keydown', (event) => {
+    if(event.key !== 'Escape' || !mainNav.classList.contains('open')) return;
+    mainNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.focus();
+  });
 }
 
 const observer = new IntersectionObserver((entries) => {
