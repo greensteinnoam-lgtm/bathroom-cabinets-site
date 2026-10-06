@@ -1,92 +1,156 @@
-// עריכה מהירה של האתר:
-// 1. החלף את מספר הוואטסאפ כאן למספר הרצוי.
-// 2. ערוך/הוסף דגמים בתוך המערך products.
-// 3. כדי להוסיף תמונה אמיתית: שים קובץ בתיקיית האתר וכתוב image: "filename.jpg" בדגם.
+﻿// עריכה מהירה של האתר:
+// 1. פרטי הקשר המאומתים נשמרים כאן.
+// 2. כל מוצר כולל מזהה קבוע, slug, שם מסחרי, שם ספק, תמונות, וריאציות וסטטוס אימות מחיר.
+// 3. מוצרים שהוסבו לעמוד מוצר מקבלים productUrl. מוצרים שטרם הוסבו ממשיכים למסלול וואטסאפ מהכרטיס.
 
 const SITE = {
   whatsappNumber: "972584209429",
-  defaultMessage: "שלום, ראיתי את האתר ואני מתעניין/ת בארון אמבטיה כולל התקנה. אשמח לקבל הצעת מחיר. מצורפת תמונה/מידה של המקום:"
+  defaultMessage: "שלום, ראיתי את האתר ואני מתעניין/ת בארון אמבטיה או מקלחון. אשמח לקבל עזרה בבחירה.",
+  baseUrl: "https://statuesque-eclair-7d0bef.netlify.app/"
 };
 
 const products = [
   {
-    title: "ענתיק עומד מגירות/דלתות",
+    id: "cab-antique",
+    slug: "shoham-antique",
+    categoryGroup: "cabinets",
     category: "עומד",
+    commercialName: "שוהם",
+    supplierName: "ענתיק עומד מגירות/דלתות",
+    title: "שוהם",
+    typeLabel: "ארון עומד מגירות/דלתות",
     size: "60 / 80 / 100 / 120",
     finish: "מגירות / דלתות",
-    price: "מחיר יתווסף בהמשך",
+    price: "מחיר מאומת לפי מידה",
+    priceStatus: "verified",
+    included: "ארון + כיור + מראה מרחפת + התקנה",
     priceBySize: { "60": 1600, "80": 1900, "100": 2250, "120": 2700 },
     description: "ארון עומד בסגנון כפרי עם גוף סנדוויץ וחזיתות MDF, סגירה שקטה ואפשרות בחירת ידיות.",
     sizes: ["60", "80", "100", "120"],
     colors: ["לבן", "גרייג", "תכלת", "שחור"],
+    images: ["https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%94%D7%A0%D7%A8%D7%99-400x400.png"],
     image: "https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%94%D7%A0%D7%A8%D7%99-400x400.png",
+    variations: ["60", "80", "100", "120"].map(size => ({ size, price: { value: { "60": 1600, "80": 1900, "100": 2250, "120": 2700 }[size], status: "verified" } })),
     source: "https://novo-gal.co.il/product/%D7%A2%D7%A0%D7%AA%D7%99%D7%A7/"
   },
   {
-    title: "דקלה",
+    id: "cab-dikla",
+    slug: "sapir-dikla",
+    categoryGroup: "cabinets",
     category: "תלוי",
-    size: "לפי דגם",
+    commercialName: "ספיר",
+    supplierName: "דקלה",
+    title: "ספיר",
+    typeLabel: "ארון תלוי מסדרת NOVO CHIC",
+    size: "60 / 80 / 100 / 120 / 140",
     finish: "סדרת NOVO CHIC",
-    price: "מחיר יתווסף בהמשך",
+    price: "מחיר מאומת לפי מידה",
+    priceStatus: "verified",
+    included: "ארון + כיור + מראה מרחפת + התקנה",
     priceBySize: { "60": 1500, "80": 1750, "100": 2000, "120": 2250, "140": 3500 },
     description: "דגם דקלה מסדרת NOVO CHIC. בחרו מידה וצבע, והמחיר יתעדכן לפי הבחירה.",
     sizes: ["60", "80", "100", "120", "140"],
     colors: ["לבן", "אלון", "שחור", "גרייג"],
+    images: ["https://novo-gal.co.il/wp-content/uploads/2023/10/Dikla-Concrete_app-400x400.jpg"],
     image: "https://novo-gal.co.il/wp-content/uploads/2023/10/Dikla-Concrete_app-400x400.jpg",
+    variations: ["60", "80", "100", "120", "140"].map(size => ({ size, price: { value: { "60": 1500, "80": 1750, "100": 2000, "120": 2250, "140": 3500 }[size], status: "verified" } })),
+    productUrl: "cabinets-sapir.html",
     source: "https://novo-gal.co.il/product-category/%D7%90%D7%A8%D7%95%D7%A0%D7%95%D7%AA/"
   },
   {
-    title: "אופיר דלתות",
+    id: "cab-ofir-doors",
+    slug: "bareket-ofir-doors",
+    categoryGroup: "cabinets",
     category: "תלוי",
+    commercialName: "ברקת",
+    supplierName: "אופיר דלתות",
+    title: "ברקת",
+    typeLabel: "ארון תלוי דלתות",
     size: "60/46 / 80/46 / 100/46 / 120/46",
     finish: "דלתות טריקה שקטה",
-    price: "מחיר יתווסף בהמשך",
+    price: "מחיר מאומת לפי מידה",
+    priceStatus: "verified",
+    included: "ארון + כיור + מראה מרחפת + התקנה",
     priceBySize: { "60": 1500, "80": 1750, "100": 2000, "120": 2450 },
     description: "ארון תלוי דלתות, מותאם לכיור אינטגרלי או מונח. מספר הדלתות משתנה לפי המידה.",
     sizes: ["60", "80", "100", "120"],
     colors: ["בטון", "לבן", "גרפיט", "עץ מאושן", "אגוז אמריקאי", "עץ נטורל"],
+    images: ["https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%A2%D7%A8%D7%91%D7%94-3-550x550.png"],
     image: "https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%A2%D7%A8%D7%91%D7%94-3-550x550.png",
+    variations: ["60", "80", "100", "120"].map(size => ({ size, price: { value: { "60": 1500, "80": 1750, "100": 2000, "120": 2450 }[size], status: "verified" } })),
     source: "https://novo-gal.co.il/product/%D7%90%D7%95%D7%A4%D7%99%D7%A8-%D7%A0%D7%95%D7%A1%D7%A3/"
   },
   {
-    title: "דיקלה דלתות",
+    id: "cab-dikla-doors",
+    slug: "odem-dikla-doors",
+    categoryGroup: "cabinets",
     category: "תלוי",
+    commercialName: "אודם",
+    supplierName: "דיקלה דלתות",
+    title: "אודם",
+    typeLabel: "ארון תלוי דלתות",
     size: "לפי דגם",
     finish: "דלתות",
-    price: "מחיר יתווסף בהמשך",
-    description: "גרסת דלתות לדגם דקלה. פרטי המידות והצבעים יאושרו לפי קישור המוצר המדויק לפני הוספת מחיר.",
+    price: "לקבלת מחיר והזמנה",
+    priceStatus: "unverified",
+    included: "תכולת החבילה תאוּמת לפני הזמנה",
+    description: "גרסת דלתות לדגם דקלה. פרטי המידות, הצבעים והמחיר יאושרו לפי קישור המוצר המדויק לפני הזמנה.",
     sizes: ["60", "80", "100", "120"],
     colors: ["לבן", "אלון", "שחור", "גרייג"],
+    images: ["assets/product-dikla-doors.svg"],
     image: "assets/product-dikla-doors.svg",
+    variations: [],
     source: "https://novo-gal.co.il/product-category/%D7%90%D7%A8%D7%95%D7%A0%D7%95%D7%AA/"
   },
   {
-    title: "מרין מודולרי",
+    id: "cab-marin-modular",
+    slug: "inbar-marin",
+    categoryGroup: "cabinets",
     category: "תלוי",
+    commercialName: "ענבר",
+    supplierName: "מרין מודולרי",
+    title: "ענבר",
+    typeLabel: "ארון תלוי מודולרי",
     size: "עד 240",
     finish: "מגירות / דלתות משולב",
-    price: "מחיר יתווסף בהמשך",
+    price: "מחיר מאומת לפי מידה",
+    priceStatus: "verified",
+    included: "ארון + כיור + מראה מרחפת + התקנה",
     priceBySize: { "60": 1550, "80": 1800, "100": 2150, "120": 2500 },
     description: "ארון תלוי מודולרי: שילוב שני ארונות צמודים לקבלת ארון גדול בחלוקה לפי בחירה.",
     sizes: ["60", "80", "100", "120"],
     colors: ["גרפיט", "פודרה", "לבן מט", "לבן מבריק", "כחול מעושן", "מוקה", "פיסטוק"],
+    images: ["https://novo-gal.co.il/wp-content/uploads/2024/03/%D7%A0%D7%99%D7%95-%D7%9E%D7%90%D7%92-%D7%9C%D7%91%D7%9F-%D7%99%D7%93%D7%99%D7%95%D7%AA-%D7%96%D7%94%D7%91-%D7%9E%D7%98-%D7%9E%D7%99%D7%93%D7%94-604650-%D7%9B%D7%95%D7%9C%D7%9C-%D7%9E%D7%A8%D7%90%D7%94-%D7%9E%D7%A8%D7%97%D7%A4%D7%AA-%D7%9B%D7%99%D7%95%D7%A8-%D7%90%D7%99%D7%A0%D7%98%D7%92%D7%A8%D7%9C%D7%99-%D7%9C%D7%91%D7%9F-43-550x550.png"],
     image: "https://novo-gal.co.il/wp-content/uploads/2024/03/%D7%A0%D7%99%D7%95-%D7%9E%D7%90%D7%92-%D7%9C%D7%91%D7%9F-%D7%99%D7%93%D7%99%D7%95%D7%AA-%D7%96%D7%94%D7%91-%D7%9E%D7%98-%D7%9E%D7%99%D7%93%D7%94-604650-%D7%9B%D7%95%D7%9C%D7%9C-%D7%9E%D7%A8%D7%90%D7%94-%D7%9E%D7%A8%D7%97%D7%A4%D7%AA-%D7%9B%D7%99%D7%95%D7%A8-%D7%90%D7%99%D7%A0%D7%98%D7%92%D7%A8%D7%9C%D7%99-%D7%9C%D7%91%D7%9F-43-550x550.png",
+    variations: ["60", "80", "100", "120"].map(size => ({ size, price: { value: { "60": 1550, "80": 1800, "100": 2150, "120": 2500 }[size], status: "verified" } })),
     source: "https://novo-gal.co.il/product/%D7%9E%D7%A8%D7%99%D7%9F-%D7%9E%D7%95%D7%93%D7%95%D7%9C%D7%A8%D7%99/"
   },
   {
-    title: "נובו סנדוויץ",
+    id: "cab-novo-sandwich",
+    slug: "topaz-novo-sandwich",
+    categoryGroup: "cabinets",
     category: "תלוי",
+    commercialName: "טופז",
+    supplierName: "נובו סנדוויץ",
+    title: "טופז",
+    typeLabel: "ארון תלוי מגירה ותא פתוח",
     size: "60/46 / 80/46 / 100/46 / 120/46",
     finish: "מגירה + תא פתוח",
-    price: "מחיר יתווסף בהמשך",
+    price: "מחיר מאומת לפי מידה",
+    priceStatus: "verified",
+    included: "ארון + כיור + מראה מרחפת + התקנה",
     priceBySize: { "60": 1500, "80": 1750, "100": 2000, "120": 2250 },
     description: "ארון תלוי עם מגירה אחת ותא פתוח, ידית אינטגרלית וטריקה שקטה.",
     sizes: ["60/46", "80/46", "100/46", "120/46"],
     colors: ["פודרה", "כחול מעושן", "עץ זברה", "אגוז אמריקאי", "עץ נטורל"],
+    images: ["https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%A0%D7%95%D7%91%D7%95-%D7%AA%D7%90-%D7%A4%D7%AA%D7%95%D7%97-2-400x400.png"],
     image: "https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%A0%D7%95%D7%91%D7%95-%D7%AA%D7%90-%D7%A4%D7%AA%D7%95%D7%97-2-400x400.png",
+    variations: ["60", "80", "100", "120"].map(size => ({ size: `${size}/46`, price: { value: { "60": 1500, "80": 1750, "100": 2000, "120": 2250 }[size], status: "verified" } })),
     source: "https://novo-gal.co.il/product/%D7%A0%D7%95%D7%91%D7%95-%D7%A1%D7%95%D7%95%D7%99%D7%A5/"
   }
 ];
+
+const productById = Object.fromEntries(products.map(product => [product.id, product]));
 
 function whatsappLink(message = SITE.defaultMessage) {
   return `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -97,7 +161,7 @@ function getSizeKey(size){
 }
 
 function formatPrice(value){
-  return value ? `${Number(value).toLocaleString('he-IL')} ש"ח` : "מחיר יתווסף בהמשך";
+  return value ? `${Number(value).toLocaleString('he-IL')} ש"ח` : "לקבלת מחיר והזמנה";
 }
 
 function getPriceLabel(product, size){
@@ -105,22 +169,50 @@ function getPriceLabel(product, size){
   return price ? formatPrice(price) : product.price;
 }
 
-document.querySelectorAll('#heroWhatsapp,#cardWhatsapp,#contactWhatsapp,#floatingWhatsapp,#navWhatsapp,#productsWhatsapp,#quoteWhatsapp').forEach(el => {
-  el.href = whatsappLink();
-  el.target = '_blank';
-  el.rel = 'noopener';
-});
+function productOrderMessage(product, size, color, pageUrl = ''){
+  const price = getPriceLabel(product, size);
+  const urlLine = pageUrl ? `\nקישור למוצר: ${pageUrl}` : '';
+  return `שלום, אני מעוניין/ת בדגם ${product.commercialName} (${product.supplierName}).\nסוג: ${product.typeLabel}.\nמידה: ${size}.\nצבע/גימור: ${color}.\nמחיר באתר: ${price}.\nתכולה: ${product.included}.${urlLine}`;
+}
 
-const productGrid = document.getElementById('productGrid');
-const filters = document.getElementById('filters');
-const categories = ["הכול", ...new Set(products.map(p => p.category))];
-let currentCategory = "הכול";
+function attachDefaultWhatsappLinks(){
+  document.querySelectorAll('#heroWhatsapp,#cardWhatsapp,#contactWhatsapp,#floatingWhatsapp,#navWhatsapp,#productsWhatsapp,#quoteWhatsapp,#showersWhatsapp,#helpWhatsapp').forEach(el => {
+    el.href = whatsappLink(el.dataset.message || SITE.defaultMessage);
+    el.target = '_blank';
+    el.rel = 'noopener';
+  });
+}
+
+function getCatalogProducts(){
+  return products.filter(product => product.categoryGroup === 'cabinets');
+}
+
+function currentUrlParams(){
+  return new URLSearchParams(window.location.search);
+}
 
 function renderFilters(){
-  filters.innerHTML = categories.map(cat => `<button class="filter-btn ${cat === currentCategory ? 'active' : ''}" data-category="${cat}">${cat}</button>`).join('');
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentCategory = btn.dataset.category;
+  const filters = document.getElementById('filters');
+  if(!filters) return;
+  const params = currentUrlParams();
+  const width = params.get('width') || 'all';
+  const type = params.get('type') || 'all';
+  const widths = ['all', '60', '80', '100', '120', '140'];
+  const types = ['all', 'תלוי', 'עומד'];
+  filters.innerHTML = `
+    <div class="filter-group" aria-label="סינון לפי רוחב">
+      ${widths.map(item => `<button class="filter-btn ${width === item ? 'active' : ''}" data-filter="width" data-value="${item}">${item === 'all' ? 'כל הרוחבים' : item + ' ס״מ'}</button>`).join('')}
+    </div>
+    <div class="filter-group" aria-label="סינון לפי סוג ארון">
+      ${types.map(item => `<button class="filter-btn ${type === item ? 'active' : ''}" data-filter="type" data-value="${item}">${item === 'all' ? 'כל הסוגים' : item}</button>`).join('')}
+    </div>`;
+  filters.querySelectorAll('[data-filter]').forEach(button => {
+    button.addEventListener('click', () => {
+      const next = currentUrlParams();
+      if(button.dataset.value === 'all') next.delete(button.dataset.filter);
+      else next.set(button.dataset.filter, button.dataset.value);
+      const query = next.toString();
+      history.replaceState(null, '', `${location.pathname}${query ? '?' + query : ''}`);
       renderFilters();
       renderProducts();
     });
@@ -128,107 +220,88 @@ function renderFilters(){
 }
 
 function renderProducts(){
-  const shown = currentCategory === "הכול" ? products : products.filter(p => p.category === currentCategory);
-  productGrid.innerHTML = shown.map((product, index) => {
+  const productGrid = document.getElementById('productGrid');
+  if(!productGrid) return;
+  const params = currentUrlParams();
+  const width = params.get('width');
+  const type = params.get('type');
+  const shown = getCatalogProducts().filter(product => {
+    const matchesWidth = !width || product.sizes.some(size => getSizeKey(size) === width);
+    const matchesType = !type || product.category === type;
+    return matchesWidth && matchesType;
+  });
+  productGrid.innerHTML = shown.map(product => {
     const selectedSize = product.sizes?.[0] || product.size;
     const selectedColor = product.colors?.[0] || product.finish;
     const selectedPrice = getPriceLabel(product, selectedSize);
-    const message = `שלום, אני מתעניין/ת ב${product.title}. מידה: ${selectedSize}. צבע: ${selectedColor}. מחיר באתר: ${selectedPrice}. אשמח לקבל פרטים כולל ארון, כיור, מראה מרחפת והתקנה.`;
-    const image = product.image ? `<button class="product-image-btn" type="button" data-full-image="${product.image}" data-image-alt="${product.title}" aria-label="פתיחת תמונה מלאה של ${product.title}"><img src="${product.image}" alt="${product.title}" loading="lazy" decoding="async"></button>` : `<div class="product-icon" aria-hidden="true"></div>`;
-    const sizeOptions = (product.sizes || [product.size]).map(option => `<option value="${option}">${option}</option>`).join('');
-    const colorOptions = (product.colors || [product.finish]).map(option => `<option value="${option}">${option}</option>`).join('');
-    return `<article class="product-card reveal visible">
-      <div class="product-image">${image}</div>
-      <h3>${product.title}</h3>
-      <p>${product.description}</p>
-      <div class="product-meta"><span>${product.size}</span><span>${product.finish}</span><span>${product.category}</span></div>
-      <div class="product-options">
-        <label>מידה
-          <select class="product-select" data-product-index="${index}" data-option="size">${sizeOptions}</select>
-        </label>
-        <label>צבע
-          <select class="product-select" data-product-index="${index}" data-option="color">${colorOptions}</select>
-        </label>
-      </div>
-      <p class="package-note">כולל ארון + כיור + מראה מרחפת + התקנה</p>
-      <div class="price" data-price>${selectedPrice}</div>
-      <a class="btn full product-whatsapp" href="${whatsappLink(message)}" target="_blank" rel="noopener" data-product-title="${product.title}">בדיקת זמינות ומחיר</a>
+    const message = productOrderMessage(product, selectedSize, selectedColor, product.productUrl ? `${SITE.baseUrl}${product.productUrl}` : '');
+    const cta = product.productUrl
+      ? `<a class="btn full" href="${product.productUrl}">לצפייה במוצר</a>`
+      : `<a class="btn full product-whatsapp" href="${whatsappLink(message)}" target="_blank" rel="noopener">הזמנה בוואטסאפ</a>`;
+    const priceNote = product.priceStatus === 'verified' ? selectedPrice : 'לקבלת מחיר והזמנה';
+    return `<article class="product-card catalog-card reveal visible">
+      <a class="product-image product-image-link" href="${product.productUrl || whatsappLink(message)}" ${product.productUrl ? '' : 'target="_blank" rel="noopener"'}>
+        <img src="${product.image}" alt="${product.commercialName} - ${product.supplierName}" loading="lazy" decoding="async">
+      </a>
+      <p class="eyebrow">${product.supplierName}</p>
+      <h3>${product.commercialName}</h3>
+      <p>${product.typeLabel}</p>
+      <div class="product-meta"><span>${product.size}</span><span>${product.category}</span></div>
+      <div class="price">${priceNote}</div>
+      ${cta}
     </article>`;
-  }).join('');
-  bindProductOptions(shown);
-  bindProductImages();
+  }).join('') || `<p class="empty-state">לא נמצאו מוצרים לרוחב או לסוג שנבחרו. אפשר לשלוח הודעה ונעזור בהתאמה.</p>`;
 }
 
-function bindProductOptions(shownProducts){
-  document.querySelectorAll('.product-card').forEach((card, index) => {
-    const product = shownProducts[index];
-    const sizeSelect = card.querySelector('[data-option="size"]');
-    const colorSelect = card.querySelector('[data-option="color"]');
-    const link = card.querySelector('.product-whatsapp');
-    const price = card.querySelector('[data-price]');
-
-    function updateLink(){
-      const selectedPrice = getPriceLabel(product, sizeSelect.value);
-      price.textContent = selectedPrice;
-      const message = `שלום, אני מתעניין/ת ב${product.title}. מידה: ${sizeSelect.value}. צבע: ${colorSelect.value}. מחיר באתר: ${selectedPrice}. אשמח לקבל פרטים כולל ארון, כיור, מראה מרחפת והתקנה.`;
-      link.href = whatsappLink(message);
-    }
-
-    sizeSelect.addEventListener('change', updateLink);
-    colorSelect.addEventListener('change', updateLink);
-    updateLink();
-  });
+function renderFeaturedProducts(){
+  const grid = document.getElementById('homeFeaturedGrid');
+  if(!grid) return;
+  const featured = getCatalogProducts().slice(0, 3);
+  grid.innerHTML = featured.map(product => `<article class="product-card compact-card">
+    <img src="${product.image}" alt="${product.commercialName} - ${product.supplierName}" loading="lazy" decoding="async">
+    <p class="eyebrow">${product.supplierName}</p>
+    <h3>${product.commercialName}</h3>
+    <p>${product.typeLabel}</p>
+    <a class="btn secondary" href="${product.productUrl || 'bathroom-cabinets.html'}">פרטים</a>
+  </article>`).join('');
 }
 
-const imageModal = document.getElementById('imageModal');
-const imageModalImg = document.getElementById('imageModalImg');
-const imageModalClose = document.getElementById('imageModalClose');
-
-function openImageModal(src, alt){
-  imageModalImg.src = src;
-  imageModalImg.alt = alt;
-  imageModal.classList.add('open');
-  imageModal.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('modal-open');
+function bindProductDetail(){
+  const detail = document.querySelector('[data-product-detail]');
+  if(!detail) return;
+  const product = productById[detail.dataset.productId];
+  if(!product) return;
+  const sizeSelect = detail.querySelector('[name="size"]');
+  const colorSelect = detail.querySelector('[name="color"]');
+  const price = detail.querySelector('[data-detail-price]');
+  const whatsapp = detail.querySelector('[data-detail-whatsapp]');
+  function update(){
+    const size = sizeSelect.value;
+    const color = colorSelect.value;
+    const priceLabel = getPriceLabel(product, size);
+    price.textContent = product.priceStatus === 'verified' ? priceLabel : 'לקבלת מחיר והזמנה';
+    whatsapp.href = whatsappLink(productOrderMessage(product, size, color, window.location.href));
+  }
+  sizeSelect.addEventListener('change', update);
+  colorSelect.addEventListener('change', update);
+  update();
 }
 
-function closeImageModal(){
-  imageModal.classList.remove('open');
-  imageModal.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('modal-open');
-  imageModalImg.src = '';
-}
-
-function bindProductImages(){
-  document.querySelectorAll('.product-image-btn').forEach(btn => {
-    btn.addEventListener('click', () => openImageModal(btn.dataset.fullImage, btn.dataset.imageAlt));
-  });
-}
-
-imageModalClose.addEventListener('click', closeImageModal);
-imageModal.addEventListener('click', (event) => {
-  if(event.target === imageModal) closeImageModal();
-});
-document.addEventListener('keydown', (event) => {
-  if(event.key === 'Escape' && imageModal.classList.contains('open')) closeImageModal();
-});
-
-renderFilters();
-renderProducts();
-
-const leadForm = document.getElementById('leadForm');
-if(leadForm){
+function bindLeadForm(){
+  const leadForm = document.getElementById('leadForm');
+  if(!leadForm) return;
   leadForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(leadForm);
-    const msg = `שלום, ראיתי את האתר ואני רוצה הצעת מחיר לארון אמבטיה.\nשם: ${data.get('name')}\nעיר: ${data.get('city')}\nרוחב משוער: ${data.get('width') || 'לא צוין'}\nסוג שירות: ${data.get('service') || 'לא צוין'}\nפירוט: ${data.get('message') || 'לא צוין'}`;
+    const msg = `שלום, ראיתי את האתר ואני רוצה הצעת מחיר.\nשם: ${data.get('name')}\nעיר: ${data.get('city')}\nרוחב משוער: ${data.get('width') || 'לא צוין'}\nסוג שירות: ${data.get('service') || 'לא צוין'}\nפירוט: ${data.get('message') || 'לא צוין'}`;
     window.open(whatsappLink(msg), '_blank');
   });
 }
 
-const menuBtn = document.getElementById('menuBtn');
-const mainNav = document.getElementById('mainNav');
-if(menuBtn && mainNav){
+function bindMenu(){
+  const menuBtn = document.getElementById('menuBtn');
+  const mainNav = document.getElementById('mainNav');
+  if(!menuBtn || !mainNav) return;
   menuBtn.addEventListener('click', () => {
     const isOpen = mainNav.classList.toggle('open');
     menuBtn.setAttribute('aria-expanded', String(isOpen));
@@ -251,12 +324,50 @@ if(menuBtn && mainNav){
   });
 }
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
+function bindImageModal(){
+  const imageModal = document.getElementById('imageModal');
+  const imageModalImg = document.getElementById('imageModalImg');
+  const imageModalClose = document.getElementById('imageModalClose');
+  if(!imageModal || !imageModalImg || !imageModalClose) return;
+  document.querySelectorAll('.product-image-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      imageModalImg.src = btn.dataset.fullImage;
+      imageModalImg.alt = btn.dataset.imageAlt;
+      imageModal.classList.add('open');
+      imageModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    });
   });
-}, {threshold: .12});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  function close(){
+    imageModal.classList.remove('open');
+    imageModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    imageModalImg.src = '';
+  }
+  imageModalClose.addEventListener('click', close);
+  imageModal.addEventListener('click', event => { if(event.target === imageModal) close(); });
+  document.addEventListener('keydown', event => { if(event.key === 'Escape' && imageModal.classList.contains('open')) close(); });
+}
+
+function initReveal(){
+  if(!('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: .12});
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+
+attachDefaultWhatsappLinks();
+renderFilters();
+renderProducts();
+renderFeaturedProducts();
+bindProductDetail();
+bindLeadForm();
+bindMenu();
+bindImageModal();
+initReveal();
