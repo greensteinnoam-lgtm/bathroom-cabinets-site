@@ -1,7 +1,7 @@
 ﻿// עריכה מהירה של האתר:
 // 1. פרטי הקשר המאומתים נשמרים כאן.
 // 2. כל מוצר כולל מזהה קבוע, slug, שם מסחרי, שם ספק, תמונות, וריאציות וסטטוס אימות מחיר.
-// 3. מוצרים שהוסבו לעמוד מוצר מקבלים productUrl. מוצרים שטרם הוסבו ממשיכים למסלול וואטסאפ מהכרטיס.
+// 3. המחירים הם מחירון חבילות גרינשטיין שנמסר בפרויקט, ולא מחיר ספק נובו ללא אסמכתה.
 
 const SITE = {
   whatsappNumber: "972584209429",
@@ -22,8 +22,10 @@ const products = [
     size: "60 / 80 / 100 / 120",
     finish: "מגירות / דלתות",
     price: "מחיר מאומת לפי מידה",
-    priceStatus: "verified",
-    included: "ארון + כיור + מראה מרחפת + התקנה",
+    priceStatus: "business_price_list",
+    included: "חבילת גרינשטיין: ארון + כיור + מראה מרחפת + התקנה",
+    priceSource: "מחירון שנמסר על ידי גרינשטיין בפרויקט",
+    packageSource: "תכולת חבילה שנמסרה על ידי גרינשטיין בפרויקט",
     priceBySize: { "60": 1600, "80": 1900, "100": 2250, "120": 2700 },
     description: "ארון עומד בסגנון כפרי עם גוף סנדוויץ וחזיתות MDF, סגירה שקטה ואפשרות בחירת ידיות.",
     sizes: ["60", "80", "100", "120"],
@@ -31,6 +33,7 @@ const products = [
     images: ["https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%94%D7%A0%D7%A8%D7%99-400x400.png"],
     image: "https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%94%D7%A0%D7%A8%D7%99-400x400.png",
     variations: ["60", "80", "100", "120"].map(size => ({ size, price: { value: { "60": 1600, "80": 1900, "100": 2250, "120": 2700 }[size], status: "verified" } })),
+    productUrl: "cabinets-shoham.html",
     source: "https://novo-gal.co.il/product/%D7%A2%D7%A0%D7%AA%D7%99%D7%A7/"
   },
   {
@@ -45,8 +48,10 @@ const products = [
     size: "60 / 80 / 100 / 120 / 140",
     finish: "סדרת NOVO CHIC",
     price: "מחיר מאומת לפי מידה",
-    priceStatus: "verified",
-    included: "ארון + כיור + מראה מרחפת + התקנה",
+    priceStatus: "business_price_list",
+    included: "חבילת גרינשטיין: ארון + כיור + מראה מרחפת + התקנה",
+    priceSource: "מחירון שנמסר על ידי גרינשטיין בפרויקט",
+    packageSource: "תכולת חבילה שנמסרה על ידי גרינשטיין בפרויקט",
     priceBySize: { "60": 1500, "80": 1750, "100": 2000, "120": 2250, "140": 3500 },
     description: "דגם דקלה מסדרת NOVO CHIC. בחרו מידה וצבע, והמחיר יתעדכן לפי הבחירה.",
     sizes: ["60", "80", "100", "120", "140"],
@@ -69,8 +74,10 @@ const products = [
     size: "60/46 / 80/46 / 100/46 / 120/46",
     finish: "דלתות טריקה שקטה",
     price: "מחיר מאומת לפי מידה",
-    priceStatus: "verified",
-    included: "ארון + כיור + מראה מרחפת + התקנה",
+    priceStatus: "business_price_list",
+    included: "חבילת גרינשטיין: ארון + כיור + מראה מרחפת + התקנה",
+    priceSource: "מחירון שנמסר על ידי גרינשטיין בפרויקט",
+    packageSource: "תכולת חבילה שנמסרה על ידי גרינשטיין בפרויקט",
     priceBySize: { "60": 1500, "80": 1750, "100": 2000, "120": 2450 },
     description: "ארון תלוי דלתות, מותאם לכיור אינטגרלי או מונח. מספר הדלתות משתנה לפי המידה.",
     sizes: ["60", "80", "100", "120"],
@@ -78,6 +85,7 @@ const products = [
     images: ["https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%A2%D7%A8%D7%91%D7%94-3-550x550.png"],
     image: "https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%A2%D7%A8%D7%91%D7%94-3-550x550.png",
     variations: ["60", "80", "100", "120"].map(size => ({ size, price: { value: { "60": 1500, "80": 1750, "100": 2000, "120": 2450 }[size], status: "verified" } })),
+    productUrl: "cabinets-bareket.html",
     source: "https://novo-gal.co.il/product/%D7%90%D7%95%D7%A4%D7%99%D7%A8-%D7%A0%D7%95%D7%A1%D7%A3/"
   },
   {
@@ -93,13 +101,16 @@ const products = [
     finish: "דלתות",
     price: "לקבלת מחיר והזמנה",
     priceStatus: "unverified",
-    included: "תכולת החבילה תאוּמת לפני הזמנה",
+    included: "תכולת החבילה תסוכם לפני הזמנה",
+    priceSource: "חסר מחירון מאומת",
+    packageSource: "חסר פירוט חבילה מאומת",
     description: "גרסת דלתות לדגם דקלה. פרטי המידות, הצבעים והמחיר יאושרו לפי קישור המוצר המדויק לפני הזמנה.",
     sizes: ["60", "80", "100", "120"],
     colors: ["לבן", "אלון", "שחור", "גרייג"],
     images: ["assets/product-dikla-doors.svg"],
     image: "assets/product-dikla-doors.svg",
     variations: [],
+    productUrl: "cabinets-odem.html",
     source: "https://novo-gal.co.il/product-category/%D7%90%D7%A8%D7%95%D7%A0%D7%95%D7%AA/"
   },
   {
@@ -114,8 +125,10 @@ const products = [
     size: "עד 240",
     finish: "מגירות / דלתות משולב",
     price: "מחיר מאומת לפי מידה",
-    priceStatus: "verified",
-    included: "ארון + כיור + מראה מרחפת + התקנה",
+    priceStatus: "business_price_list",
+    included: "חבילת גרינשטיין: ארון + כיור + מראה מרחפת + התקנה",
+    priceSource: "מחירון שנמסר על ידי גרינשטיין בפרויקט",
+    packageSource: "תכולת חבילה שנמסרה על ידי גרינשטיין בפרויקט",
     priceBySize: { "60": 1550, "80": 1800, "100": 2150, "120": 2500 },
     description: "ארון תלוי מודולרי: שילוב שני ארונות צמודים לקבלת ארון גדול בחלוקה לפי בחירה.",
     sizes: ["60", "80", "100", "120"],
@@ -123,6 +136,7 @@ const products = [
     images: ["https://novo-gal.co.il/wp-content/uploads/2024/03/%D7%A0%D7%99%D7%95-%D7%9E%D7%90%D7%92-%D7%9C%D7%91%D7%9F-%D7%99%D7%93%D7%99%D7%95%D7%AA-%D7%96%D7%94%D7%91-%D7%9E%D7%98-%D7%9E%D7%99%D7%93%D7%94-604650-%D7%9B%D7%95%D7%9C%D7%9C-%D7%9E%D7%A8%D7%90%D7%94-%D7%9E%D7%A8%D7%97%D7%A4%D7%AA-%D7%9B%D7%99%D7%95%D7%A8-%D7%90%D7%99%D7%A0%D7%98%D7%92%D7%A8%D7%9C%D7%99-%D7%9C%D7%91%D7%9F-43-550x550.png"],
     image: "https://novo-gal.co.il/wp-content/uploads/2024/03/%D7%A0%D7%99%D7%95-%D7%9E%D7%90%D7%92-%D7%9C%D7%91%D7%9F-%D7%99%D7%93%D7%99%D7%95%D7%AA-%D7%96%D7%94%D7%91-%D7%9E%D7%98-%D7%9E%D7%99%D7%93%D7%94-604650-%D7%9B%D7%95%D7%9C%D7%9C-%D7%9E%D7%A8%D7%90%D7%94-%D7%9E%D7%A8%D7%97%D7%A4%D7%AA-%D7%9B%D7%99%D7%95%D7%A8-%D7%90%D7%99%D7%A0%D7%98%D7%92%D7%A8%D7%9C%D7%99-%D7%9C%D7%91%D7%9F-43-550x550.png",
     variations: ["60", "80", "100", "120"].map(size => ({ size, price: { value: { "60": 1550, "80": 1800, "100": 2150, "120": 2500 }[size], status: "verified" } })),
+    productUrl: "cabinets-inbar.html",
     source: "https://novo-gal.co.il/product/%D7%9E%D7%A8%D7%99%D7%9F-%D7%9E%D7%95%D7%93%D7%95%D7%9C%D7%A8%D7%99/"
   },
   {
@@ -137,8 +151,10 @@ const products = [
     size: "60/46 / 80/46 / 100/46 / 120/46",
     finish: "מגירה + תא פתוח",
     price: "מחיר מאומת לפי מידה",
-    priceStatus: "verified",
-    included: "ארון + כיור + מראה מרחפת + התקנה",
+    priceStatus: "business_price_list",
+    included: "חבילת גרינשטיין: ארון + כיור + מראה מרחפת + התקנה",
+    priceSource: "מחירון שנמסר על ידי גרינשטיין בפרויקט",
+    packageSource: "תכולת חבילה שנמסרה על ידי גרינשטיין בפרויקט",
     priceBySize: { "60": 1500, "80": 1750, "100": 2000, "120": 2250 },
     description: "ארון תלוי עם מגירה אחת ותא פתוח, ידית אינטגרלית וטריקה שקטה.",
     sizes: ["60/46", "80/46", "100/46", "120/46"],
@@ -146,11 +162,59 @@ const products = [
     images: ["https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%A0%D7%95%D7%91%D7%95-%D7%AA%D7%90-%D7%A4%D7%AA%D7%95%D7%97-2-400x400.png"],
     image: "https://novo-gal.co.il/wp-content/uploads/2023/10/%D7%A0%D7%95%D7%91%D7%95-%D7%AA%D7%90-%D7%A4%D7%AA%D7%95%D7%97-2-400x400.png",
     variations: ["60", "80", "100", "120"].map(size => ({ size: `${size}/46`, price: { value: { "60": 1500, "80": 1750, "100": 2000, "120": 2250 }[size], status: "verified" } })),
+    productUrl: "cabinets-topaz.html",
     source: "https://novo-gal.co.il/product/%D7%A0%D7%95%D7%91%D7%95-%D7%A1%D7%95%D7%95%D7%99%D7%A5/"
   }
 ];
 
 const productById = Object.fromEntries(products.map(product => [product.id, product]));
+
+const showers = [
+  {
+    id: "shower-angelo-2",
+    commercialName: "הדס",
+    supplierName: "אנג'לו 2",
+    source: "https://novo-gal.co.il/product/%D7%90%D7%A0%D7%92%D7%9C%D7%95-2/",
+    type: "מקלחון פינתי מרובע",
+    sizes: ["73-75", "77-80", "83-85", "87-90", "97-100"],
+    glass: ["שקופה", "שקופה עם פסים"],
+    finishes: ["ניקל", "שחור מט"],
+    missing: ["מחירון צרכן", "תכולת חבילה לגרינשטיין"]
+  },
+  {
+    id: "shower-angelo-6",
+    commercialName: "רותם",
+    supplierName: "אנג'לו 6",
+    source: "https://novo-gal.co.il/product/%D7%90%D7%A0%D7%92%D7%9C%D7%95-6/",
+    type: "מקלחון פינתי מרובע",
+    sizes: ["73-75", "77-80", "83-85", "87-90"],
+    glass: ["שקופה", "שקופה עם פסים", "פליסה"],
+    finishes: ["ניקל", "שחור מט"],
+    missing: ["מחירון צרכן", "תכולת חבילה לגרינשטיין"]
+  },
+  {
+    id: "shower-magic",
+    commercialName: "מרווה",
+    supplierName: "מג'יק",
+    source: "https://novo-gal.co.il/product/%D7%9E%D7%92%D7%99%D7%A7/",
+    type: "מקלחון פינתי מתקפל",
+    sizes: ["77-80", "83-85", "87-90"],
+    glass: ["שקופה", "שקופה עם פסים", "פליסה"],
+    finishes: ["ניקל", "שחור מט"],
+    missing: ["מחירון צרכן", "תכולת חבילה לגרינשטיין"]
+  },
+  {
+    id: "shower-picasso",
+    commercialName: "אלה",
+    supplierName: "פיקסו",
+    source: "https://novo-gal.co.il/product/%D7%A4%D7%99%D7%A7%D7%A1%D7%95/",
+    type: "מקלחון פינתי הזזה",
+    sizes: ["77-80", "87-90"],
+    glass: ["שקופה", "שקופה עם פסים"],
+    finishes: ["ניקל", "שחור מט"],
+    missing: ["מחירון צרכן", "תכולת חבילה לגרינשטיין"]
+  }
+];
 
 function whatsappLink(message = SITE.defaultMessage) {
   return `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -166,7 +230,25 @@ function formatPrice(value){
 
 function getPriceLabel(product, size){
   const price = product.priceBySize?.[getSizeKey(size)];
-  return price ? formatPrice(price) : product.price;
+  return price ? formatPrice(price) : "לקבלת מחיר והזמנה";
+}
+
+function hasPriceForSize(product, size){
+  return Boolean(product.priceBySize?.[getSizeKey(size)]);
+}
+
+function pageUrlWithSize(product, size){
+  if(!product.productUrl) return '';
+  const url = new URL(product.productUrl, SITE.baseUrl);
+  if(size) url.searchParams.set('width', getSizeKey(size));
+  return `${url.pathname.replace(/^\//, '')}${url.search}`;
+}
+
+function absoluteProductUrl(product, size){
+  if(!product.productUrl) return '';
+  const url = new URL(product.productUrl, SITE.baseUrl);
+  if(size) url.searchParams.set('width', getSizeKey(size));
+  return url.href;
 }
 
 function productOrderMessage(product, size, color, pageUrl = ''){
@@ -231,22 +313,24 @@ function renderProducts(){
     return matchesWidth && matchesType;
   });
   productGrid.innerHTML = shown.map(product => {
-    const selectedSize = product.sizes?.[0] || product.size;
+    const selectedSize = width && product.sizes?.some(size => getSizeKey(size) === width)
+      ? product.sizes.find(size => getSizeKey(size) === width)
+      : product.sizes?.[0] || product.size;
     const selectedColor = product.colors?.[0] || product.finish;
     const selectedPrice = getPriceLabel(product, selectedSize);
-    const message = productOrderMessage(product, selectedSize, selectedColor, product.productUrl ? `${SITE.baseUrl}${product.productUrl}` : '');
+    const productHref = product.productUrl ? pageUrlWithSize(product, selectedSize) : '';
+    const message = productOrderMessage(product, selectedSize, selectedColor, product.productUrl ? absoluteProductUrl(product, selectedSize) : '');
     const cta = product.productUrl
-      ? `<a class="btn full" href="${product.productUrl}">לצפייה במוצר</a>`
+      ? `<a class="btn full" href="${productHref}">לצפייה במוצר</a>`
       : `<a class="btn full product-whatsapp" href="${whatsappLink(message)}" target="_blank" rel="noopener">הזמנה בוואטסאפ</a>`;
-    const priceNote = product.priceStatus === 'verified' ? selectedPrice : 'לקבלת מחיר והזמנה';
+    const priceNote = hasPriceForSize(product, selectedSize) ? selectedPrice : 'לקבלת מחיר והזמנה';
     return `<article class="product-card catalog-card reveal visible">
-      <a class="product-image product-image-link" href="${product.productUrl || whatsappLink(message)}" ${product.productUrl ? '' : 'target="_blank" rel="noopener"'}>
+      <a class="product-image product-image-link" href="${productHref || whatsappLink(message)}" ${product.productUrl ? '' : 'target="_blank" rel="noopener"'}>
         <img src="${product.image}" alt="${product.commercialName} - ${product.supplierName}" loading="lazy" decoding="async">
       </a>
-      <p class="eyebrow">${product.supplierName}</p>
       <h3>${product.commercialName}</h3>
       <p>${product.typeLabel}</p>
-      <div class="product-meta"><span>${product.size}</span><span>${product.category}</span></div>
+      <div class="product-meta"><span>${selectedSize} ס״מ</span><span>${product.category}</span></div>
       <div class="price">${priceNote}</div>
       ${cta}
     </article>`;
@@ -259,7 +343,6 @@ function renderFeaturedProducts(){
   const featured = getCatalogProducts().slice(0, 3);
   grid.innerHTML = featured.map(product => `<article class="product-card compact-card">
     <img src="${product.image}" alt="${product.commercialName} - ${product.supplierName}" loading="lazy" decoding="async">
-    <p class="eyebrow">${product.supplierName}</p>
     <h3>${product.commercialName}</h3>
     <p>${product.typeLabel}</p>
     <a class="btn secondary" href="${product.productUrl || 'bathroom-cabinets.html'}">פרטים</a>
@@ -275,12 +358,47 @@ function bindProductDetail(){
   const colorSelect = detail.querySelector('[name="color"]');
   const price = detail.querySelector('[data-detail-price]');
   const whatsapp = detail.querySelector('[data-detail-whatsapp]');
+  const params = currentUrlParams();
+  const requestedWidth = params.get('width');
+  const image = detail.querySelector('[data-detail-image]');
+  const title = detail.querySelector('[data-detail-title]');
+  const subtitle = detail.querySelector('[data-detail-subtitle]');
+  const description = detail.querySelector('[data-detail-description]');
+  const specs = detail.querySelector('[data-detail-specs]');
+  const backLink = detail.querySelector('[data-back-to-catalog]');
+  if(image){
+    image.src = product.image;
+    image.alt = `${product.commercialName} - ${product.typeLabel}`;
+  }
+  if(title) title.textContent = product.commercialName;
+  if(subtitle) subtitle.textContent = product.typeLabel;
+  if(description) description.textContent = product.description;
+  if(specs){
+    specs.innerHTML = `
+      <div><strong>סוג</strong><span>${product.typeLabel}</span></div>
+      <div><strong>שם ספק</strong><span>${product.supplierName}</span></div>
+      <div><strong>תכולה</strong><span>${product.included}</span></div>`;
+  }
+  if(sizeSelect){
+    sizeSelect.innerHTML = product.sizes.map(size => `<option value="${size}">${size} ס״מ</option>`).join('');
+    if(requestedWidth){
+      const requestedOption = [...sizeSelect.options].find(option => getSizeKey(option.value) === requestedWidth);
+      if(requestedOption) sizeSelect.value = requestedOption.value;
+    }
+  }
+  if(colorSelect){
+    colorSelect.innerHTML = product.colors.map(color => `<option value="${color}">${color}</option>`).join('');
+  }
+  if(backLink){
+    backLink.href = requestedWidth ? `bathroom-cabinets.html?width=${requestedWidth}` : 'bathroom-cabinets.html';
+  }
   function update(){
     const size = sizeSelect.value;
     const color = colorSelect.value;
     const priceLabel = getPriceLabel(product, size);
-    price.textContent = product.priceStatus === 'verified' ? priceLabel : 'לקבלת מחיר והזמנה';
-    whatsapp.href = whatsappLink(productOrderMessage(product, size, color, window.location.href));
+    price.textContent = hasPriceForSize(product, size) ? priceLabel : 'לקבלת מחיר והזמנה';
+    const productUrl = absoluteProductUrl(product, size) || window.location.href;
+    whatsapp.href = whatsappLink(productOrderMessage(product, size, color, productUrl));
   }
   sizeSelect.addEventListener('change', update);
   colorSelect.addEventListener('change', update);
