@@ -54,22 +54,6 @@ const products = [
     source: "https://novo-gal.co.il/product/%D7%90%D7%95%D7%A4%D7%99%D7%A8-%D7%A0%D7%95%D7%A1%D7%A3/"
   },
   {
-    id: "cab-dikla-doors",
-    slug: "odem-dikla-doors",
-    categoryGroup: "cabinets",
-    category: "תלוי",
-    commercialName: "אודם",
-    supplierName: "דיקלה דלתות",
-    typeLabel: "ארון תלוי דלתות",
-    finish: "דלתות",
-    description: "גרסת דלתות לדגם דקלה. נבדוק את המידה והגימור המתאימים לפני אישור הזמנה.",
-    sizes: ["60", "80", "100", "120"],
-    colors: ["לבן", "אלון", "שחור", "גרייג"],
-    image: "assets/product-dikla-doors.svg",
-    productUrl: "cabinets-odem.html",
-    source: "https://novo-gal.co.il/product-category/%D7%90%D7%A8%D7%95%D7%A0%D7%95%D7%AA/"
-  },
-  {
     id: "cab-marin-modular",
     slug: "inbar-marin",
     categoryGroup: "cabinets",
@@ -104,6 +88,7 @@ const products = [
   {
     id: "shower-angelo-2",
     slug: "hadas-angelo-2",
+    image: "assets/catalog/hadas-existing.webp",
     categoryGroup: "showers",
     category: "פינתי",
     commercialName: "הדס",
@@ -119,6 +104,7 @@ const products = [
   {
     id: "shower-angelo-6",
     slug: "rotem-angelo-6",
+    image: "assets/catalog/rotem-existing.webp",
     categoryGroup: "showers",
     category: "פינתי",
     commercialName: "רותם",
@@ -134,6 +120,7 @@ const products = [
   {
     id: "shower-magic",
     slug: "marva-magic",
+    image: "assets/catalog/marva-existing.webp",
     categoryGroup: "showers",
     category: "מתקפל",
     commercialName: "מרווה",
@@ -149,6 +136,7 @@ const products = [
   {
     id: "shower-picasso",
     slug: "ela-picasso",
+    image: "assets/catalog/ela-existing.webp",
     categoryGroup: "showers",
     category: "הזזה",
     commercialName: "אלה",
@@ -435,7 +423,7 @@ function bindProductDetail(){
   if(image && product.image){
     image.src = product.image;
     image.alt = `${product.commercialName} - ${product.typeLabel}`;
-  } else if(imageSlot && !product.image) {
+  } else if(imageSlot) {
     imageSlot.innerHTML = productImage(product);
   }
   const gallery = detail.querySelector('.product-gallery');
