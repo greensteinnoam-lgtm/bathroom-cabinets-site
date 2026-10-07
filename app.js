@@ -163,6 +163,99 @@ const products = [
   }
 ];
 
+products.push(
+  {
+    id: 'cab-aviv-drawers-door', slug: 'ahlama-aviv', categoryGroup: 'cabinets', category: 'תלוי',
+    commercialName: 'אחלמה מגירות ודלת', supplierName: 'אביב מגירות+דלת', typeLabel: 'ארון תלוי מגירות ודלת',
+    description: 'ארון תלוי עם שתי מגירות ודלת, ידית אינטגרלית וסגירה שקטה. מתאים לבחירת כיור אינטגרלי או כיור מונח.',
+    sizes: ['100', '120', '130', '140', '150'], colors: ['לבן', 'שחור', 'גרפיט', 'כחול מעושן', 'תכלת', 'ורוד פודרה', 'פיסטוק', 'גרייג'],
+    specs: [['חומרים', 'גוף וחזיתות סנדוויץ בגימור אפוקסי / עץ מלא'], ['אחסון', 'שתי מגירות ודלת, טריקה שקטה וידית אינטגרלית']],
+    image: 'assets/catalog/ahlama-1.webp', images: ['assets/catalog/ahlama-1.webp', 'assets/catalog/ahlama-2.webp'],
+    productUrl: 'cabinets-ahlama.html', source: 'https://novo-gal.co.il/product/אביב/', requireChoice: true, verifiedOn: '2026-10-07'
+  },
+  {
+    id: 'cab-ofir-drawers', slug: 'bareket-ofir-drawers', categoryGroup: 'cabinets', category: 'תלוי',
+    commercialName: 'ברקת מגירות', supplierName: 'אופיר מגירות', typeLabel: 'ארון תלוי שתי מגירות',
+    description: 'שתי מגירות בסגירה שקטה וחזית נקייה. גוף וחזיתות מסנדוויץ בגימור אפוקסי או פורמייקה, בהתאמה לכיור אינטגרלי או מונח.',
+    sizes: ['60/46', '80/46', '100/46', '120/46'], colors: ['בטון', 'לבן', 'גרפיט', 'עץ מאושן', 'אגוז אמריקאי', 'עץ נטורל'],
+    specs: [['מידות', 'רוחב / עומק בס״מ'], ['חומרים', 'גוף וחזיתות סנדוויץ בגימור אפוקסי / פורמייקה'], ['אחסון', 'שתי מגירות עם טריקה שקטה']],
+    image: 'assets/catalog/bareket-drawers-1.webp', images: ['assets/catalog/bareket-drawers-1.webp', 'assets/catalog/bareket-drawers-2.webp', 'assets/catalog/bareket-drawers-3.webp'],
+    productUrl: 'cabinets-bareket-drawers.html', source: 'https://novo-gal.co.il/product/אופיר/', requireChoice: true, verifiedOn: '2026-10-07'
+  },
+  {
+    id: 'cab-open', slug: 'opal-open', categoryGroup: 'cabinets', category: 'תלוי',
+    commercialName: 'אופל', supplierName: 'אופן', typeLabel: 'ארון תלוי שתי מגירות ודלת',
+    description: 'ארון עם גוף בגוון אלון וחזית לבנה מט. משלב שתי מגירות ודלת בסגירה שקטה, ומיועד לכיור מונח בלבד.',
+    sizes: ['100/46', '120/46'], colors: ['גוף אלון וחזית לבן מט'],
+    specs: [['מידות', 'רוחב / עומק בס״מ'], ['גוף', 'סנדוויץ בציפוי פורניר'], ['חזיתות', 'MDF בצבע אפוקסי'], ['אחסון', 'שתי מגירות ודלת עם טריקה שקטה'], ['התאמת כיור', 'כיור מונח בלבד']],
+    image: 'assets/catalog/opal-1.webp', images: ['assets/catalog/opal-1.webp', 'assets/catalog/opal-2.webp'],
+    productUrl: 'cabinets-opal.html', source: 'https://novo-gal.co.il/product/אופן/', requireChoice: true, verifiedOn: '2026-10-07'
+  },
+  {
+    id: 'cab-design', slug: 'agate-design', categoryGroup: 'cabinets', category: 'עומד',
+    commercialName: 'אגת', supplierName: 'דיזיין', typeLabel: 'ארון עומד דלתות',
+    description: 'ארון עומד במראה כפרי עם משטח פורניר. שתי דלתות ברוחב 60 ו־80 ס״מ ושלוש דלתות ברוחב 100 ו־120 ס״מ. מתאים לכיור מונח בלבד.',
+    sizes: ['60', '80', '100', '120'], colors: ['לבן', 'פיסטוק', 'תכלת', 'גרייג'],
+    specs: [['גוף', 'סנדוויץ'], ['חזיתות', 'MDF בגימור אפוקסי מט'], ['פרזול', 'טריקה שקטה'], ['התאמת כיור', 'כיור מונח בלבד; אינו מתאים למשטח כיור אינטגרלי']],
+    image: 'assets/catalog/agate-1.webp', images: ['assets/catalog/agate-1.webp', 'assets/catalog/agate-2.webp'],
+    productUrl: 'cabinets-agate.html', source: 'https://novo-gal.co.il/product/דיזיין/', requireChoice: true, verifiedOn: '2026-10-07'
+  },
+  {
+    id: 'cab-harel-hanging', slug: 'jade-harel', categoryGroup: 'cabinets', category: 'תלוי',
+    commercialName: 'ירקן תלוי', supplierName: 'הראל תלוי', typeLabel: 'ארון תלוי דלתות ומגירות',
+    description: 'ארון סנדוויץ בגימור אפוקסי עם טריקה שקטה. חלוקת האחסון משתנה לפי המידה; ברוחב 100 ו־120 ס״מ מצוינות שתי דלתות במפרט הספק.',
+    sizes: ['60/46', '80/46', '100/46', '120/46'], colors: ['ירוק', 'לבן', 'מוקה', 'תכלת', 'כחול', 'ורוד'], handles: ['לבן', 'זהב', 'שחור', 'ניקל'],
+    specs: [['מידות', 'רוחב / עומק בס״מ'], ['חומרים', 'גוף וחזיתות סנדוויץ בגימור אפוקסי'], ['פרזול', 'דלתות ומגירות בטריקה שקטה'], ['התאמת כיור', 'כיור אינטגרלי או מונח; חלוקת האחסון לפי המידה']],
+    image: 'assets/catalog/jade-1.webp', images: ['assets/catalog/jade-1.webp', 'assets/catalog/jade-2.webp'],
+    productUrl: 'cabinets-jade.html', source: 'https://novo-gal.co.il/product/הראל/', requireChoice: true, verifiedOn: '2026-10-07'
+  },
+  {
+    id: 'cab-strip', slug: 'onyx-strip', categoryGroup: 'cabinets', category: 'תלוי',
+    commercialName: 'אוניקס', supplierName: 'סטריפ', typeLabel: 'ארון תלוי שתי מגירות',
+    description: 'ארון עם חזית עץ מלא בגוון אלון מבוקע וגוף סנדוויץ. שתי מגירות עם מנגנון PUSH PULL, בהתאמה לכיור אינטגרלי או מונח.',
+    sizes: ['60/46', '80/46', '100/46', '120/46'], colors: ['אלון מבוקע'],
+    specs: [['מידות', 'רוחב / עומק בס״מ'], ['גוף', 'סנדוויץ'], ['חזית', 'עץ מלא'], ['פרזול', 'מנגנון פתיחה PUSH PULL']],
+    image: 'assets/catalog/onyx-1.webp', images: ['assets/catalog/onyx-1.webp', 'assets/catalog/onyx-2.webp', 'assets/catalog/onyx-3.webp'],
+    productUrl: 'cabinets-onyx.html', source: 'https://novo-gal.co.il/product/סטריפ/', requireChoice: true, verifiedOn: '2026-10-07'
+  },
+  {
+    id: 'shower-dali', slug: 'yasmin-dali', categoryGroup: 'showers', category: 'חזיתי',
+    commercialName: 'יסמין', supplierName: 'דאלי', typeLabel: 'מקלחון חזיתי שתי דלתות',
+    description: 'מקלחון מקיר לקיר עם שתי דלתות הנפתחות פנימה והחוצה באמצעות ציר עולה ויורד. פרופיל אלומיניום וידיות כפתור.',
+    sizes: ['75-80', '80-85', '85-90', '90-95', '95-100', '100-105', '105-110', '110-115', '115-120'], colors: ['ניקל', 'שחור מט'], glass: ['שקופה', 'שקופה עם פסים', 'פליסה (גלינה)'],
+    specs: [['זכוכית', 'מחוסמת בעובי 6 מ״מ'], ['גובה', '190 ס״מ'], ['פתיחה', 'שתי דלתות פנימה והחוצה'], ['אטימה', 'זוג מגנטים ומגב רצפה מצוינים במפרט הספק']],
+    image: 'assets/catalog/yasmin-1.webp', images: ['assets/catalog/yasmin-1.webp', 'assets/catalog/yasmin-2.webp', 'assets/catalog/yasmin-3.webp'],
+    productUrl: 'showers-yasmin.html', source: 'https://novo-gal.co.il/product/דאלי/', requireChoice: true, verifiedOn: '2026-10-07'
+  },
+  {
+    id: 'bathscreen-dali', slug: 'shaked-bathscreen', categoryGroup: 'showers', category: 'אמבטיון',
+    commercialName: 'שקד', supplierName: 'אמבטיון דאלי', typeLabel: 'אמבטיון דופן קבועה ודלת',
+    description: 'אמבטיון להתקנה על הדופן הארוכה של האמבטיה. משלב דופן קבועה ודלת הנפתחת פנימה והחוצה, ידית מגבת ומוט חיזוק.',
+    sizes: ['120'], colors: ['ניקל', 'שחור מט'], glass: ['שקופה', 'שקופה עם פסים', 'פליסה (גלינה)'],
+    specs: [['זכוכית', 'מחוסמת בעובי 6 מ״מ'], ['גובה', '140 ס״מ'], ['חלוקה', 'דופן קבועה 50 ס״מ ודלת 70 ס״מ'], ['פרופיל', 'אלומיניום'], ['אטימה', 'מגב תחתון מצוין במפרט הספק']],
+    image: 'assets/catalog/shaked-1.webp', images: ['assets/catalog/shaked-1.webp', 'assets/catalog/shaked-2.webp', 'assets/catalog/shaked-3.webp'],
+    productUrl: 'showers-shaked.html', source: 'https://novo-gal.co.il/product/אמבטיון-דאלי/', requireChoice: true, verifiedOn: '2026-10-07'
+  },
+  {
+    id: 'bathscreen-magic', slug: 'haruv-bathscreen', categoryGroup: 'showers', category: 'אמבטיון מתקפל',
+    commercialName: 'חרוב', supplierName: 'אמבטיון מג׳יק', typeLabel: 'אמבטיון מתקפל',
+    description: 'אמבטיון מתקפל פנימה ונצמד לקיר, עם פתיחה פנימה והחוצה באמצעות ציר עולה ויורד. מיועד לדופן הארוכה של האמבטיה.',
+    sizes: ['120'], colors: ['ניקל', 'שחור מט'], glass: ['שקופה', 'שקופה עם פסים', 'פליסה (גלינה)'],
+    specs: [['זכוכית', 'מחוסמת בעובי 6 מ״מ'], ['גובה', '140 ס״מ'], ['חלוקה', 'שתי כנפיים של 60 ס״מ'], ['פרזול', 'פרופיל אלומיניום, ידית כפתור ומוט חיזוק'], ['אטימה', 'מגב תחתון מצוין במפרט הספק']],
+    image: 'assets/catalog/haruv-1.webp', images: ['assets/catalog/haruv-1.webp', 'assets/catalog/haruv-2.webp', 'assets/catalog/haruv-3.webp'],
+    productUrl: 'showers-haruv.html', source: 'https://novo-gal.co.il/product/אמבטיון-מגיק/', requireChoice: true, verifiedOn: '2026-10-07'
+  },
+  {
+    id: 'bathscreen-fixed', slug: 'arava-bathscreen', categoryGroup: 'showers', category: 'דופן אמבטיה',
+    commercialName: 'ערבה', supplierName: 'דופן אמבטיון', typeLabel: 'דופן קבועה לאמבטיה',
+    description: 'דופן זכוכית קבועה עם פרופיל אלומיניום ומוט חיזוק. מתאימה להתקנה על הדופן הארוכה או הקצרה של האמבטיה.',
+    sizes: ['67-70'], colors: ['ניקל', 'שחור מט'], glass: ['שקופה'],
+    specs: [['זכוכית', 'מחוסמת בעובי 6 מ״מ'], ['גובה', '140 ס״מ'], ['מבנה', 'דופן קבועה, פרופיל אלומיניום ומוט חיזוק']],
+    image: 'assets/catalog/arava-1.webp', images: ['assets/catalog/arava-1.webp', 'assets/catalog/arava-2.webp'],
+    productUrl: 'showers-arava.html', source: 'https://novo-gal.co.il/product/דופן-אמבטיון/', requireChoice: true, verifiedOn: '2026-10-07'
+  }
+);
+
 const productById = Object.fromEntries(products.map(product => [product.id, product]));
 
 function whatsappLink(message = SITE.defaultMessage) {
@@ -189,14 +282,14 @@ function getCatalogProducts(){
 function pageUrlWithSize(product, size){
   if(!product.productUrl) return '';
   const url = new URL(product.productUrl, SITE.baseUrl);
-  if(size) url.searchParams.set('width', getSizeKey(size));
+  if(size) url.searchParams.set('width', product.categoryGroup === 'showers' ? size : getSizeKey(size));
   return `${url.pathname.replace(/^\//, '')}${url.search}`;
 }
 
 function absoluteProductUrl(product, size){
   if(!product.productUrl) return '';
   const url = new URL(product.productUrl, SITE.baseUrl);
-  if(size) url.searchParams.set('width', getSizeKey(size));
+  if(size) url.searchParams.set('width', product.categoryGroup === 'showers' ? size : getSizeKey(size));
   return url.href;
 }
 
@@ -230,7 +323,7 @@ function renderFilters(){
   const type = params.get('type') || 'all';
   const color = params.get('color') || 'all';
   const productsForGroup = getCatalogProducts();
-  const widths = ['all', ...new Set(productsForGroup.flatMap(product => product.sizes.map(getSizeKey)))];
+  const widths = ['all', ...new Set(productsForGroup.flatMap(product => product.sizes.map(size => group === 'showers' ? size : getSizeKey(size))))];
   const types = ['all', ...new Set(productsForGroup.map(product => product.category))];
   const colors = ['all', ...new Set(productsForGroup.flatMap(product => product.colors || []))];
   const widthLabel = group === 'showers' ? 'מידה' : 'רוחב';
@@ -240,7 +333,7 @@ function renderFilters(){
       <button class="filter-clear" type="button" data-clear-filters>ניקוי מסננים</button>
     </div>
     <div class="filter-group" aria-label="סינון לפי ${widthLabel}">
-      ${widths.map(item => `<button class="filter-btn ${width === item ? 'active' : ''}" data-filter="width" data-value="${item}">${item === 'all' ? `כל ה${widthLabel}ים` : item + ' ס״מ'}</button>`).join('')}
+      ${widths.map(item => `<button class="filter-btn ${width === item ? 'active' : ''}" data-filter="width" data-value="${item}">${item === 'all' ? (group === 'showers' ? 'כל המידות' : 'כל הרוחבים') : item + ' ס״מ'}</button>`).join('')}
     </div>
     <div class="filter-group" aria-label="סינון לפי סוג">
       ${types.map(item => `<button class="filter-btn ${type === item ? 'active' : ''}" data-filter="type" data-value="${item}">${item === 'all' ? 'כל הסוגים' : item}</button>`).join('')}
@@ -272,7 +365,7 @@ function matchingCatalogProducts(){
   const type = params.get('type');
   const color = params.get('color');
   return getCatalogProducts().filter(product => {
-    const matchesWidth = !width || product.sizes.some(size => getSizeKey(size) === width);
+    const matchesWidth = !width || product.sizes.some(size => size === width || getSizeKey(size) === width);
     const matchesType = !type || product.category === type;
     const matchesColor = !color || product.colors?.includes(color);
     return matchesWidth && matchesType && matchesColor;
@@ -288,8 +381,8 @@ function renderProducts(){
   const count = document.querySelector('[data-results-count]');
   if(count) count.textContent = `${shown.length} תוצאות`;
   productGrid.innerHTML = shown.map(product => {
-    const selectedSize = width && product.sizes?.some(size => getSizeKey(size) === width)
-      ? product.sizes.find(size => getSizeKey(size) === width)
+    const selectedSize = width && product.sizes?.some(size => size === width || getSizeKey(size) === width)
+      ? product.sizes.find(size => size === width || getSizeKey(size) === width)
       : product.sizes?.[0] || 'לפי התאמה';
     const href = pageUrlWithSize(product, selectedSize);
     const sizesLabel = product.sizes?.length ? product.sizes.join(' / ') : 'לפי התאמה';
@@ -325,6 +418,8 @@ function bindProductDetail(){
   const requestedWidth = params.get('width');
   const sizeSelect = detail.querySelector('[name="size"]');
   const colorSelect = detail.querySelector('[name="color"]');
+  const glassSelect = detail.querySelector('[name="glass"]');
+  const handleSelect = detail.querySelector('[name="handle"]');
   const summary = detail.querySelector('[data-selection-summary]');
   const whatsapp = detail.querySelector('[data-detail-whatsapp]');
   const sticky = document.getElementById('stickyOrderWhatsapp');
@@ -343,6 +438,17 @@ function bindProductDetail(){
   } else if(imageSlot && !product.image) {
     imageSlot.innerHTML = productImage(product);
   }
+  const gallery = detail.querySelector('.product-gallery');
+  if(gallery && product.images?.length > 1){
+    const thumbnails = document.createElement('div');
+    thumbnails.className = 'product-thumbnails';
+    thumbnails.innerHTML = product.images.map((src, index) => `<button type="button" aria-label="תמונה ${index + 1} של ${product.commercialName}" aria-pressed="${index === 0}"><img src="${src}" alt="${product.commercialName} - תמונה ${index + 1}" loading="lazy"></button>`).join('');
+    thumbnails.querySelectorAll('button').forEach((button, index) => button.addEventListener('click', () => {
+      image.src = product.images[index];
+      thumbnails.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    }));
+    gallery.append(thumbnails);
+  }
   if(title) title.textContent = product.commercialName;
   if(subtitle) subtitle.textContent = product.typeLabel;
   if(description) description.textContent = product.description;
@@ -353,33 +459,40 @@ function bindProductDetail(){
       <div><strong>סוג</strong><span>${product.typeLabel}</span></div>
       <div><strong>מידות זמינות</strong><span>${product.sizes.join(' / ')}</span></div>
       <div><strong>${product.categoryGroup === 'showers' ? 'גימורים' : 'צבעים'}</strong><span>${product.colors.join(' / ')}</span></div>
-      ${glassLine}`;
+      ${glassLine}
+      ${(product.specs || []).map(([label, value]) => `<div><strong>${label}</strong><span>${value}</span></div>`).join('')}`;
   }
   if(sizeSelect){
     sizeSelect.innerHTML = product.sizes.map(size => `<option value="${size}">${size} ס״מ</option>`).join('');
     if(requestedWidth){
-      const requestedOption = [...sizeSelect.options].find(option => getSizeKey(option.value) === requestedWidth);
+      const requestedOption = [...sizeSelect.options].find(option => option.value === requestedWidth || getSizeKey(option.value) === requestedWidth);
       if(requestedOption) sizeSelect.value = requestedOption.value;
     }
   }
   if(colorSelect){
-    colorSelect.innerHTML = product.colors.map(color => `<option value="${color}">${color}</option>`).join('');
+    colorSelect.innerHTML = (product.requireChoice ? '<option value="">בחרו צבע / גימור</option>' : '') + product.colors.map(color => `<option value="${color}">${color}</option>`).join('');
   }
+  if(glassSelect) glassSelect.innerHTML = '<option value="">בחרו סוג זכוכית</option>' + (product.glass || []).map(glass => `<option value="${glass}">${glass}</option>`).join('');
+  if(handleSelect) handleSelect.innerHTML = '<option value="">בחרו גימור ידיות</option>' + (product.handles || []).map(handle => `<option value="${handle}">${handle}</option>`).join('');
   if(backLink){
     const backPath = product.categoryGroup === 'showers' ? 'showers.html' : 'bathroom-cabinets.html';
     backLink.href = requestedWidth ? `${backPath}?width=${requestedWidth}` : backPath;
   }
   function update(){
     const size = sizeSelect?.value || 'לפי התאמה';
-    const color = colorSelect?.value || 'לפי התאמה';
+    const color = colorSelect?.value || 'טרם נבחר';
     const url = absoluteProductUrl(product, size) || window.location.href;
-    const msg = productOrderMessage(product, size, color, url);
-    if(summary) summary.textContent = `נבחר: ${size} ס״מ · ${color}`;
+    const glassLine = glassSelect ? `\nזכוכית: ${glassSelect.value || 'טרם נבחרה'}` : '';
+    const handleLine = handleSelect ? `\nידיות: ${handleSelect.value || 'טרם נבחרו'}` : '';
+    const msg = productOrderMessage(product, size, color, url) + glassLine + handleLine;
+    if(summary) summary.textContent = `נבחר: ${size} ס״מ · ${color}${glassSelect ? ' · זכוכית: ' + (glassSelect.value || 'טרם נבחרה') : ''}${handleSelect ? ' · ידיות: ' + (handleSelect.value || 'טרם נבחרו') : ''}`;
     if(whatsapp) whatsapp.href = whatsappLink(msg);
     if(sticky) sticky.href = whatsappLink(msg);
   }
   sizeSelect?.addEventListener('change', update);
   colorSelect?.addEventListener('change', update);
+  glassSelect?.addEventListener('change', update);
+  handleSelect?.addEventListener('change', update);
   update();
 }
 

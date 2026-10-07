@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <link rel="canonical" href="{{url}}">
+  <meta property="og:locale" content="he_IL">
+  <meta property="og:type" content="product">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{url}}">
+  <meta property="og:image" content="{{imageUrl}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">{{schema}}</script>
+</head>
+<body class="product-page">
+  {{header}}
+  <main>
+    <section class="section product-detail" data-product-detail data-product-id="{{id}}">
+      <div class="container product-detail-grid">
+        <div class="product-gallery">
+          <img data-detail-image src="{{image}}" alt="{{name}} - {{type}}" decoding="async">
+          <p class="product-image-note">התמונות להמחשת הדגם; הגימור והמראה בפועל עשויים להשתנות לפי הבחירה. פריטים נלווים שבתמונה אינם בהכרח כלולים בהצעה.</p>
+        </div>
+        <div class="product-info-panel">
+          <p class="eyebrow">{{category}}</p>
+          <h1><span data-detail-title>{{name}}</span> <span data-detail-subtitle>{{type}}</span></h1>
+          <p class="lead" data-detail-description>{{description}}</p>
+          <form class="product-buy-box" aria-label="בחירת אפשרויות למוצר">
+            <label>מידה<select name="size">{{sizes}}</select></label>
+            <label>צבע / גימור<select name="color"><option value="">בחרו צבע / גימור</option>{{colors}}</select></label>
+            {{extraOptions}}
+            <p class="product-option-note">נאשר את התאמת המידה והגימור יחד לפני ההזמנה.</p>
+            <div class="selection-summary" data-selection-summary></div>
+            <a class="btn primary big" data-detail-whatsapp href="{{whatsapp}}" target="_blank" rel="noopener">לקבלת הצעה והזמנה בוואטסאפ</a>
+            <a class="btn secondary" id="helpWhatsapp" data-message="שלום, אשמח לעזרה בבחירת {{name}}." href="{{help}}" target="_blank" rel="noopener">עזרה בבחירה</a>
+            <a class="text-link" data-back-to-catalog href="{{catalog}}">חזרה לקטלוג</a>
+          </form>
+          <h2>מפרט</h2>
+          <div class="spec-list" data-detail-specs>{{specs}}</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <a class="sticky-order" id="stickyOrderWhatsapp" href="{{whatsapp}}" target="_blank" rel="noopener">לקבלת הצעה והזמנה בוואטסאפ</a>
+  {{footer}}
+  <script src="app.js"></script>
+</body>
+</html>
