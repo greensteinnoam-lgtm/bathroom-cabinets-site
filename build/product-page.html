@@ -32,7 +32,7 @@
           <h1><span data-detail-title>{{name}}</span> <span data-detail-subtitle>{{type}}</span></h1>
           <p class="lead" data-detail-description>{{description}}</p>
           <form class="product-buy-box" aria-label="בחירת אפשרויות למוצר">
-            <label>מידה<select name="size">{{sizes}}</select></label>
+            <label>מידה / רוחב מבוקש{{sizeControl}}</label>
             <label>צבע / גימור<select name="color"><option value="">בחרו צבע / גימור</option>{{colors}}</select></label>
             {{extraOptions}}
             <p class="product-option-note">נאשר את התאמת המידה והגימור יחד לפני ההזמנה.</p>
@@ -49,6 +49,7 @@
   </main>
   <a class="sticky-order" id="stickyOrderWhatsapp" href="{{whatsapp}}" target="_blank" rel="noopener">לקבלת הצעה והזמנה בוואטסאפ</a>
   {{footer}}
+  <script src="catalog-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

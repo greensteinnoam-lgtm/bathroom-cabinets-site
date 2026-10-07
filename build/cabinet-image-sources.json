@@ -1,0 +1,317 @@
+[
+  {
+    "id": "cab-antique",
+    "source": "https://novo-gal.co.il/product/%d7%a2%d7%a0%d7%aa%d7%99%d7%a7/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/הנרי.png",
+    "image": "assets/catalog/cab-antique-1.webp",
+    "sha256": "863f666840846491f942c303f744956794d9c80e067464a0c261e0dbd571e4db"
+  },
+  {
+    "id": "cab-antique",
+    "source": "https://novo-gal.co.il/product/%d7%a2%d7%a0%d7%aa%d7%99%d7%a7/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/הנרי-2.png",
+    "image": "assets/catalog/cab-antique-2.webp",
+    "sha256": "be5639507896e3ea66d34f02ebb52101da9abc9a621f75dde2f378a37d283ef4"
+  },
+  {
+    "id": "cab-dikla",
+    "source": "https://novo-gal.co.il/product/%d7%93%d7%a7%d7%9c%d7%94/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/Dikla-Concrete_app.jpg",
+    "image": "assets/catalog/cab-dikla-1.webp",
+    "sha256": "e89241c1576fc1568beba43173e6b04f29eb7bf749c28fede840ba67399680bb"
+  },
+  {
+    "id": "cab-dikla",
+    "source": "https://novo-gal.co.il/product/%d7%93%d7%a7%d7%9c%d7%94/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/Dikla-white_app.jpg",
+    "image": "assets/catalog/cab-dikla-2.webp",
+    "sha256": "9897f93ecc67ed91cd39d8cb131f7bd1531dc0335589f70f575d55ce40805366"
+  },
+  {
+    "id": "cab-ofir-doors",
+    "source": "https://novo-gal.co.il/product/%d7%90%d7%95%d7%a4%d7%99%d7%a8-%d7%a0%d7%95%d7%a1%d7%a3/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/ערבה-3.png",
+    "image": "assets/catalog/cab-ofir-doors-1.webp",
+    "sha256": "306f6a5e58e1e07827c81b10bc87776d3e6c4c5cd14f8a90fe18c2597ed49ab2"
+  },
+  {
+    "id": "cab-ofir-doors",
+    "source": "https://novo-gal.co.il/product/%d7%90%d7%95%d7%a4%d7%99%d7%a8-%d7%a0%d7%95%d7%a1%d7%a3/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/ערבה-9.png",
+    "image": "assets/catalog/cab-ofir-doors-2.webp",
+    "sha256": "34de048869ab3d3b5d85cf8238042642669982241477953bcfd876983887bbf9"
+  },
+  {
+    "id": "cab-marin-modular",
+    "source": "https://novo-gal.co.il/product/%d7%9e%d7%a8%d7%99%d7%9f-%d7%9e%d7%95%d7%93%d7%95%d7%9c%d7%a8%d7%99/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2024/03/ניו-מאג-לבן-ידיות-זהב-מט-מידה-604650-כולל-מראה-מרחפת-כיור-אינטגרלי-לבן-43.png",
+    "image": "assets/catalog/cab-marin-modular-1.webp",
+    "sha256": "00ca1d5c5ab892b21f8bd7f9ca7b30cd139efe1d2ec657cafe6836791d195e10"
+  },
+  {
+    "id": "cab-marin-modular",
+    "source": "https://novo-gal.co.il/product/%d7%9e%d7%a8%d7%99%d7%9f-%d7%9e%d7%95%d7%93%d7%95%d7%9c%d7%a8%d7%99/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2024/03/ניו-מאג-לבן-ידיות-זהב-מט-מידה-604650-כולל-מראה-מרחפת-כיור-אינטגרלי-לבן-44.png",
+    "image": "assets/catalog/cab-marin-modular-2.webp",
+    "sha256": "e309928b73e4a88f0db18dbe18e9ad89ebeefd7ca308f31c5ddf69a3c61fff93"
+  },
+  {
+    "id": "cab-novo-sandwich",
+    "source": "https://novo-gal.co.il/product/%d7%a0%d7%95%d7%91%d7%95-%d7%a1%d7%95%d7%95%d7%99%d7%a5/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/נובו-תא-פתוח-2.png",
+    "image": "assets/catalog/cab-novo-sandwich-1.webp",
+    "sha256": "e604c162402e8b62b53e5f237a21b8fb7ac4bbb64085f9a49ed28c41b01d9c49"
+  },
+  {
+    "id": "cab-novo-sandwich",
+    "source": "https://novo-gal.co.il/product/%d7%a0%d7%95%d7%91%d7%95-%d7%a1%d7%95%d7%95%d7%99%d7%a5/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/נובו-תא-פתוח.png",
+    "image": "assets/catalog/cab-novo-sandwich-2.webp",
+    "sha256": "8bfe50745d51952d1803a878df2899d9f497ac0c68f41d8b7ee1d6a9cb01d882"
+  },
+  {
+    "id": "cab-dekel",
+    "source": "https://novo-gal.co.il/product/%d7%93%d7%a7%d7%9c/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/Dekel-80_Concrete.jpg",
+    "image": "assets/catalog/cab-dekel-1.webp",
+    "sha256": "5f6bea04e9eab2967bb6b35cdc1ed47f68147b6dd28ffb81b6372a12c2368aa3"
+  },
+  {
+    "id": "cab-dekel",
+    "source": "https://novo-gal.co.il/product/%d7%93%d7%a7%d7%9c/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/Dekel-80_White.jpg",
+    "image": "assets/catalog/cab-dekel-2.webp",
+    "sha256": "7a3c1ec408b79ed64bfbbb2e79615190aa6bf209b0001dc9ebfdc1df5fa10f0a"
+  },
+  {
+    "id": "cab-harel-standing",
+    "source": "https://novo-gal.co.il/product/%d7%94%d7%a8%d7%90%d7%9c-%d7%a0%d7%95%d7%a1%d7%a3/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/הראל-עומד.png",
+    "image": "assets/catalog/cab-harel-standing-1.webp",
+    "sha256": "57498d9d3491ab594742bbc5cdaefc383725844aa34a172c248dcb330e684741"
+  },
+  {
+    "id": "cab-harel-standing",
+    "source": "https://novo-gal.co.il/product/%d7%94%d7%a8%d7%90%d7%9c-%d7%a0%d7%95%d7%a1%d7%a3/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/הראל-עומד-2.png",
+    "image": "assets/catalog/cab-harel-standing-2.webp",
+    "sha256": "9ea79bffaa1b94e6955e57801265b3bd29b4958ff825c6b36bd6bc7f124ae6b0"
+  },
+  {
+    "id": "cab-zohar",
+    "source": "https://novo-gal.co.il/product/%d7%96%d7%94%d7%a8-%d7%a9%d7%a8%d7%95%d7%aa/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/זהר.png",
+    "image": "assets/catalog/cab-zohar-1.webp",
+    "sha256": "4c76c1c509973e631f04e7da98a73cfe7545ca8c2d48170d0a5c2a13189f5ea8"
+  },
+  {
+    "id": "cab-zohar",
+    "source": "https://novo-gal.co.il/product/%d7%96%d7%94%d7%a8-%d7%a9%d7%a8%d7%95%d7%aa/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/Zohar_4_app.jpg",
+    "image": "assets/catalog/cab-zohar-2.webp",
+    "sha256": "8066f576cc4349f558ee37d63d223b328a83e3aba18ae9d136fc461163c63f66"
+  },
+  {
+    "id": "cab-hatzav",
+    "source": "https://novo-gal.co.il/product/%d7%97%d7%a6%d7%91/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/Hatzav-80_Concrete.jpg",
+    "image": "assets/catalog/cab-hatzav-1.webp",
+    "sha256": "4a9f8776b8d9a5b78f0d44fb15c92256e9aa173297cf4154faa0ed097ef1291f"
+  },
+  {
+    "id": "cab-hatzav",
+    "source": "https://novo-gal.co.il/product/%d7%97%d7%a6%d7%91/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/Hatzav-80_White.jpg",
+    "image": "assets/catalog/cab-hatzav-2.webp",
+    "sha256": "12fbf5f2b46ae183180df02253ddab16ae5f4c29c56102f55eb5c2141ae1544f"
+  },
+  {
+    "id": "cab-lahav",
+    "source": "https://novo-gal.co.il/product/%d7%9c%d7%94%d7%91/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/1-1.webp",
+    "image": "assets/catalog/cab-lahav-1.webp",
+    "sha256": "6a5206ef2918556f49a6ec2bd25e902437002f114b45bb8028815733b00dcd22"
+  },
+  {
+    "id": "cab-lahav",
+    "source": "https://novo-gal.co.il/product/%d7%9c%d7%94%d7%91/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/2-1.webp",
+    "image": "assets/catalog/cab-lahav-2.webp",
+    "sha256": "68ee04a8b4008af866783457a51a53dc472f8fde7659ad9a85d06e379bf1e682"
+  },
+  {
+    "id": "cab-lahav-double",
+    "source": "https://novo-gal.co.il/product/%d7%9c%d7%94%d7%91-%d7%9b%d7%a4%d7%95%d7%9c/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/להב-כפול.png",
+    "image": "assets/catalog/cab-lahav-double-1.webp",
+    "sha256": "d8a0b2cf21acef40b747e2d7fd90cfbb899439bab8f75fc2679d215f93a027c8"
+  },
+  {
+    "id": "cab-lahav-double",
+    "source": "https://novo-gal.co.il/product/%d7%9c%d7%94%d7%91-%d7%9b%d7%a4%d7%95%d7%9c/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/להב-כפול-1.png",
+    "image": "assets/catalog/cab-lahav-double-2.webp",
+    "sha256": "75fd5818e2c88aba54459ce3a54ef1b1b65fa725127cc5e382447b94c5dbd5bd"
+  },
+  {
+    "id": "cab-diamonds",
+    "source": "https://novo-gal.co.il/product/%d7%9e%d7%a2%d7%95%d7%99%d7%99%d7%a0%d7%99%d7%9d/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/מעויינים-scaled.jpg",
+    "image": "assets/catalog/cab-diamonds-1.webp",
+    "sha256": "90c4f83c20b5c9b3715e380419498ebcb539965ef9869e58f7101c84356a3904"
+  },
+  {
+    "id": "cab-marin-doors",
+    "source": "https://novo-gal.co.il/product/%d7%9e%d7%a8%d7%99%d7%9f/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/ניו-מאג-לבן-ידיות-זהב-מט-מידה-604650-כולל-מראה-מרחפת-כיור-אינטגרלי-לבן-46-1.png",
+    "image": "assets/catalog/cab-marin-doors-1.webp",
+    "sha256": "0c1ab0eeeccf36ffe52d7c7abea1cb97991c037550224277b8df9f7f1d35e826"
+  },
+  {
+    "id": "cab-marin-doors",
+    "source": "https://novo-gal.co.il/product/%d7%9e%d7%a8%d7%99%d7%9f/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/SFP_29613-מרין-100-חזית-scaled.jpg",
+    "image": "assets/catalog/cab-marin-doors-2.webp",
+    "sha256": "f4d72e9ff13288c67aca6445e6003f60f8bccb94da0dd12277d71a4902dd28e6"
+  },
+  {
+    "id": "cab-marin-drawers",
+    "source": "https://novo-gal.co.il/product/%d7%9e%d7%a8%d7%99%d7%9f-%d7%9e%d7%92%d7%99%d7%a8%d7%95%d7%aa/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2024/03/ניו-מאג-לבן-ידיות-זהב-מט-מידה-604650-כולל-מראה-מרחפת-כיור-אינטגרלי-לבן-39.png",
+    "image": "assets/catalog/cab-marin-drawers-1.webp",
+    "sha256": "82c9b1c4c9ce84846bd24d8d9c6bd41bb989495cd40d376044cce04fe249d17c"
+  },
+  {
+    "id": "cab-marin-drawers",
+    "source": "https://novo-gal.co.il/product/%d7%9e%d7%a8%d7%99%d7%9f-%d7%9e%d7%92%d7%99%d7%a8%d7%95%d7%aa/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2024/03/ניו-מאג-לבן-ידיות-זהב-מט-מידה-604650-כולל-מראה-מרחפת-כיור-אינטגרלי-לבן-40.png",
+    "image": "assets/catalog/cab-marin-drawers-2.webp",
+    "sha256": "10564cc4f4ac520b873fedaac203dc3f67da002d70cb732f10e2e624985293d0"
+  },
+  {
+    "id": "cab-new-mag",
+    "source": "https://novo-gal.co.il/product/%d7%a0%d7%99%d7%95-%d7%9e%d7%90%d7%92/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/ניו-מאג-עץ-ידיות-שחורות.webp",
+    "image": "assets/catalog/cab-new-mag-1.webp",
+    "sha256": "655c813fe1a98d13011054a39ac7ab5d33e3348f1c3094f0dbd050a12d0f49a9"
+  },
+  {
+    "id": "cab-new-mag",
+    "source": "https://novo-gal.co.il/product/%d7%a0%d7%99%d7%95-%d7%9e%d7%90%d7%92/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/ניו-מאג-בטון-ידיות-שחורות.webp",
+    "image": "assets/catalog/cab-new-mag-2.webp",
+    "sha256": "a336015c588e152c3ad525d382527ceee8fe104fda8338f2611050c45cd40d27"
+  },
+  {
+    "id": "cab-antique-hanging",
+    "source": "https://novo-gal.co.il/product/%d7%a2%d7%a0%d7%aa%d7%99%d7%a7-%d7%a0%d7%95%d7%a1%d7%a3/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/Antique-Grage_app.jpg",
+    "image": "assets/catalog/cab-antique-hanging-1.webp",
+    "sha256": "46ca1fcf7158ec8bdf00175017ca45bdc0d3c46ad12a4f7e4c60f37b23060df9"
+  },
+  {
+    "id": "cab-antique-hanging",
+    "source": "https://novo-gal.co.il/product/%d7%a2%d7%a0%d7%aa%d7%99%d7%a7-%d7%a0%d7%95%d7%a1%d7%a3/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/Antique-White_app.jpg",
+    "image": "assets/catalog/cab-antique-hanging-2.webp",
+    "sha256": "32316f99958176af05128c634751e49c74d2a78862c3cac619db808a55bd0b23"
+  },
+  {
+    "id": "cab-prime-small",
+    "source": "https://novo-gal.co.il/product/%d7%a4%d7%a8%d7%99%d7%99%d7%9d-%d7%a0%d7%98%d7%99%d7%9c%d7%94/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/1-3.webp",
+    "image": "assets/catalog/cab-prime-small-1.webp",
+    "sha256": "15f74322d0b492b2c7a15a3a5e7f00e0139d77f2f4f25dc9a22448de1a096626"
+  },
+  {
+    "id": "cab-prime-small",
+    "source": "https://novo-gal.co.il/product/%d7%a4%d7%a8%d7%99%d7%99%d7%9d-%d7%a0%d7%98%d7%99%d7%9c%d7%94/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/7.webp",
+    "image": "assets/catalog/cab-prime-small-2.webp",
+    "sha256": "5ae29bca7f3778c2db02eb3b7c8dcf87539667f2009d7b530f27ae9cfec27dd5"
+  },
+  {
+    "id": "cab-coral",
+    "source": "https://novo-gal.co.il/product/%d7%a7%d7%95%d7%a8%d7%9c/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/bathroom_1.webp",
+    "image": "assets/catalog/cab-coral-1.webp",
+    "sha256": "3cf9ebd35ae2283a0e3dfa6789dee2eb60eee36d672de34d4698172201d87347"
+  },
+  {
+    "id": "cab-coral",
+    "source": "https://novo-gal.co.il/product/%d7%a7%d7%95%d7%a8%d7%9c/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/bathroom_2.webp",
+    "image": "assets/catalog/cab-coral-2.webp",
+    "sha256": "b716fe675790a6a6534d7402e3fa01e7d2426c19a47e8d9b79547b87286d5196"
+  },
+  {
+    "id": "cab-retro-small",
+    "source": "https://novo-gal.co.il/product/%d7%a8%d7%98%d7%a8%d7%95-%d7%a0%d7%98%d7%99%d7%9c%d7%94/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2024/03/ניו-מאג-לבן-ידיות-זהב-מט-מידה-604650-כולל-מראה-מרחפת-כיור-אינטגרלי-לבן-76.png",
+    "image": "assets/catalog/cab-retro-small-1.webp",
+    "sha256": "490b5b3884f49a68b1d3eddfeecc1430b1d7cc8a19dcaeeac35e1e0816b9db8e"
+  },
+  {
+    "id": "cab-sagi",
+    "source": "https://novo-gal.co.il/product/%d7%a9%d7%92%d7%99%d7%90/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/8.webp",
+    "image": "assets/catalog/cab-sagi-1.webp",
+    "sha256": "85a21bb98988e4201daea34bbc03b6b4e9a4960fa7dc56eece1b961725fcb178"
+  },
+  {
+    "id": "cab-sagi",
+    "source": "https://novo-gal.co.il/product/%d7%a9%d7%92%d7%99%d7%90/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/13.webp",
+    "image": "assets/catalog/cab-sagi-2.webp",
+    "sha256": "782c549cfbd75227fb1975400b3878c4d1636cceea17efee7c09f259a7c72c72"
+  },
+  {
+    "id": "cab-shahar",
+    "source": "https://novo-gal.co.il/product/%d7%a9%d7%97%d7%a8/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/1-scaled.webp",
+    "image": "assets/catalog/cab-shahar-1.webp",
+    "sha256": "6b1eb627f23f3ae3e8ed8d2f247934b427d35ffca9a3b8fdc253c29aeb852918"
+  },
+  {
+    "id": "cab-shahar",
+    "source": "https://novo-gal.co.il/product/%d7%a9%d7%97%d7%a8/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/2-scaled.webp",
+    "image": "assets/catalog/cab-shahar-2.webp",
+    "sha256": "c6d60b81627f0b910cf16df14db09eda0750374ca07d2cee07ebcdb6a0dfc2c6"
+  },
+  {
+    "id": "cab-shilat",
+    "source": "https://novo-gal.co.il/product/%d7%a9%d7%99%d7%9c%d7%aa/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/שילת-לבן.jpg",
+    "image": "assets/catalog/cab-shilat-1.webp",
+    "sha256": "af9c4c47ab4f1107eed9647ebc501bf378966340a0ac38f0ae9877dbdabb767a"
+  },
+  {
+    "id": "cab-shani",
+    "source": "https://novo-gal.co.il/product/%d7%a9%d7%a0%d7%99/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/1-2.webp",
+    "image": "assets/catalog/cab-shani-1.webp",
+    "sha256": "6928d297e01d3fcfde277e823b561129c8f985718f32a9dbb35e7357b7a9a800"
+  },
+  {
+    "id": "cab-shani",
+    "source": "https://novo-gal.co.il/product/%d7%a9%d7%a0%d7%99/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/2-2.webp",
+    "image": "assets/catalog/cab-shani-2.webp",
+    "sha256": "5bd70566b21b630c9a10d9f21b8a7f0227e6bfa894670386d88c3e2ed2a63871"
+  },
+  {
+    "id": "cab-shaked",
+    "source": "https://novo-gal.co.il/product/%d7%a9%d7%a7%d7%93/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/Shaked_1_app.jpg",
+    "image": "assets/catalog/cab-shaked-1.webp",
+    "sha256": "6c4ad86153dfe2cd550b5a8c5f7ccebdd88bab5f1df03b1c47928fcd44fb699c"
+  },
+  {
+    "id": "cab-shaked",
+    "source": "https://novo-gal.co.il/product/%d7%a9%d7%a7%d7%93/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2023/10/Shaked_5-pink_app.jpg",
+    "image": "assets/catalog/cab-shaked-2.webp",
+    "sha256": "c1b5fd67e557e51a5e032d778e173902615fb68660eb83122586344671330f91"
+  }
+]
