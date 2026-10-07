@@ -1,0 +1,30 @@
+[
+  {
+    "model": "hadas",
+    "page": "https://novo-gal.co.il/product/%D7%90%D7%A0%D7%92%D7%9C%D7%95-2/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2024/02/ניו-מאג-לבן-ידיות-זהב-מט-מידה-604650-כולל-מראה-מרחפת-כיור-אינטגרלי-לבן-14.png",
+    "imagePath": "assets/catalog/hadas-main.webp",
+    "sourceHash": "5baf351a4e5e8a657d37658c9ed3db936442ec8c868d4176a6b1d5bb0a3886a8"
+  },
+  {
+    "model": "rotem",
+    "page": "https://novo-gal.co.il/product/%D7%90%D7%A0%D7%92%D7%9C%D7%95-6/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2024/02/ניו-מאג-לבן-ידיות-זהב-מט-מידה-604650-כולל-מראה-מרחפת-כיור-אינטגרלי-לבן-19.png",
+    "imagePath": "assets/catalog/rotem-main.webp",
+    "sourceHash": "4be06dc456e46b8afd99cd259aff85f58848031d392f3abe48f930d81565af80"
+  },
+  {
+    "model": "marva",
+    "page": "https://novo-gal.co.il/product/%D7%9E%D7%92%D7%99%D7%A7/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2024/02/ניו-מאג-לבן-ידיות-זהב-מט-מידה-604650-כולל-מראה-מרחפת-כיור-אינטגרלי-לבן-32.png",
+    "imagePath": "assets/catalog/marva-main.webp",
+    "sourceHash": "06363282dddeed127f9c9f6f48c8e2adc2c79545be232d8fef2b721b904592e5"
+  },
+  {
+    "model": "ela",
+    "page": "https://novo-gal.co.il/product/%D7%A4%D7%99%D7%A7%D7%A1%D7%95/",
+    "imageSource": "https://novo-gal.co.il/wp-content/uploads/2024/02/ניו-מאג-לבן-ידיות-זהב-מט-מידה-604650-כולל-מראה-מרחפת-כיור-אינטגרלי-לבן-35.png",
+    "imagePath": "assets/catalog/ela-main.webp",
+    "sourceHash": "edda2bc256dfb201fc71078f63d776b09f47fae917359c56cb2f92369a265097"
+  }
+]

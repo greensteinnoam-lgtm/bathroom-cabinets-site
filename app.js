@@ -88,7 +88,8 @@ const products = [
   {
     id: "shower-angelo-2",
     slug: "hadas-angelo-2",
-    image: "assets/catalog/hadas-existing.webp",
+    image: "assets/catalog/hadas-main.webp",
+    images: ["assets/catalog/hadas-main.webp", "assets/catalog/hadas-existing.webp"],
     categoryGroup: "showers",
     category: "פינתי",
     commercialName: "הדס",
@@ -104,7 +105,8 @@ const products = [
   {
     id: "shower-angelo-6",
     slug: "rotem-angelo-6",
-    image: "assets/catalog/rotem-existing.webp",
+    image: "assets/catalog/rotem-main.webp",
+    images: ["assets/catalog/rotem-main.webp", "assets/catalog/rotem-existing.webp"],
     categoryGroup: "showers",
     category: "פינתי",
     commercialName: "רותם",
@@ -120,7 +122,8 @@ const products = [
   {
     id: "shower-magic",
     slug: "marva-magic",
-    image: "assets/catalog/marva-existing.webp",
+    image: "assets/catalog/marva-main.webp",
+    images: ["assets/catalog/marva-main.webp", "assets/catalog/marva-existing.webp"],
     categoryGroup: "showers",
     category: "מתקפל",
     commercialName: "מרווה",
@@ -136,7 +139,8 @@ const products = [
   {
     id: "shower-picasso",
     slug: "ela-picasso",
-    image: "assets/catalog/ela-existing.webp",
+    image: "assets/catalog/ela-main.webp",
+    images: ["assets/catalog/ela-main.webp", "assets/catalog/ela-existing.webp"],
     categoryGroup: "showers",
     category: "הזזה",
     commercialName: "אלה",
