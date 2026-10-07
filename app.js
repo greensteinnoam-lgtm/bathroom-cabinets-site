@@ -89,15 +89,26 @@ function renderFilters(){
       <strong data-results-count></strong>
       <button class="filter-clear" type="button" data-clear-filters>ניקוי מסננים</button>
     </div>
-    <div class="filter-group" aria-label="סינון לפי ${widthLabel}">
+    <label class="catalog-filter-select mobile-width-filter">${widthLabel}
+      <select data-filter-select="width">${widths.map(item => `<option value="${item}" ${width === item ? 'selected' : ''}>${item === 'all' ? (group === 'showers' ? 'כל המידות' : 'כל הרוחבים') : item + ' ס״מ'}</option>`).join('')}</select>
+    </label>
+    <div class="filter-group desktop-width-filter" aria-label="סינון לפי ${widthLabel}">
       ${widths.map(item => `<button class="filter-btn ${width === item ? 'active' : ''}" data-filter="width" data-value="${item}">${item === 'all' ? (group === 'showers' ? 'כל המידות' : 'כל הרוחבים') : item + ' ס״מ'}</button>`).join('')}
     </div>
     <div class="filter-group" aria-label="סינון לפי סוג">
       ${types.map(item => `<button class="filter-btn ${type === item ? 'active' : ''}" data-filter="type" data-value="${item}">${item === 'all' ? 'כל הסוגים' : item}</button>`).join('')}
     </div>
-    <div class="filter-group" aria-label="סינון לפי גימור">
-      ${colors.map(item => `<button class="filter-btn ${color === item ? 'active' : ''}" data-filter="color" data-value="${item}">${item === 'all' ? 'כל הגימורים' : item}</button>`).join('')}
-    </div>`;
+    <label class="catalog-filter-select">צבע / גימור
+      <select data-filter-select="color">${colors.map(item => `<option value="${item}" ${color === item ? 'selected' : ''}>${item === 'all' ? 'כל הגימורים' : item}</option>`).join('')}</select>
+    </label>`;
+  filters.querySelectorAll('[data-filter-select]').forEach(select => select.addEventListener('change', () => {
+    const next = currentUrlParams();
+    if(select.value === 'all') next.delete(select.dataset.filterSelect);
+    else next.set(select.dataset.filterSelect, select.value);
+    history.replaceState(null, '', `${location.pathname}${next.size ? '?' + next.toString() : ''}`);
+    renderFilters();
+    renderProducts();
+  }));
   filters.querySelectorAll('[data-filter]').forEach(button => {
     button.addEventListener('click', () => {
       const next = currentUrlParams();
