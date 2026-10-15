@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /build/
+Disallow: /.design/
+Disallow: /qa-screenshots/
+
+Sitemap: https://statuesque-eclair-7d0bef.netlify.app/sitemap.xml

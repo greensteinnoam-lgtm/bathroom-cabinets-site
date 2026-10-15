@@ -221,7 +221,7 @@ function bindProductDetail(){
       image.src = product.images[index];
       thumbnails.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
     }));
-    gallery.append(thumbnails);
+    gallery.querySelector('.product-image-note')?.before(thumbnails);
   }
   if(title) title.textContent = product.commercialName;
   if(subtitle) subtitle.textContent = product.typeLabel;
@@ -259,7 +259,26 @@ function bindProductDetail(){
     const allowed = returnTo && /^(bathroom-cabinets|showers|products)\.html(?:\?|$)/.test(returnTo);
     backLink.href = allowed ? returnTo : requestedWidth ? `${backPath}?width=${encodeURIComponent(requestedWidth)}` : backPath;
   }
+  const widthError = detail.querySelector('[data-width-error]');
+  const invalidWidth = () => Boolean(customWidth && (customWidth.validity.badInput || (customWidth.value !== '' && !customWidth.checkValidity())));
+  [whatsapp, sticky].filter(Boolean).forEach(link => link.addEventListener('click', event => {
+    if(!invalidWidth()) return;
+    event.preventDefault();
+    customWidth.focus();
+    customWidth.reportValidity();
+  }));
+  detail.querySelector('form')?.addEventListener('submit', event => event.preventDefault());
   function update(){
+    const invalid = invalidWidth();
+    if(customWidth) customWidth.setAttribute('aria-invalid', String(invalid));
+    if(widthError){
+      widthError.hidden = !invalid;
+      widthError.textContent = invalid ? `יש להזין רוחב בטווח ${customWidth.min}${customWidth.max ? '–' + customWidth.max : ' ומעלה'} ס״מ.` : '';
+    }
+    [whatsapp, sticky].filter(Boolean).forEach(link => {
+      if(invalid) link.setAttribute('aria-disabled', 'true');
+      else link.removeAttribute('aria-disabled');
+    });
     const size = customWidth ? (customWidth.value && customWidth.checkValidity() ? `${customWidth.value} ס״מ מבוקש, לאישור התאמה` : 'לפי התאמה') : sizeSelect?.value || 'לפי התאמה';
     const color = colorSelect?.value || 'טרם נבחר';
     const url = new URL(absoluteProductUrl(product, customWidth ? (customWidth.checkValidity() ? customWidth.value : '') : size) || window.location.href);
@@ -274,6 +293,13 @@ function bindProductDetail(){
     if(summary) summary.textContent = `נבחר: ${size}${customWidth ? '' : ' ס״מ'} · ${color}${glassSelect ? ' · זכוכית: ' + (glassSelect.value || 'טרם נבחרה') : ''}${handleSelect ? ' · ידיות: ' + (handleSelect.value || 'טרם נבחרו') : ''}${extraChoices.map(choice => ' · ' + choice.label + ': ' + (choice.select.value || 'טרם נבחר')).join('')}`;
     if(whatsapp) whatsapp.href = whatsappLink(msg);
     if(sticky) sticky.href = whatsappLink(msg);
+    const current = new URL(window.location.href);
+    const chosenSize = customWidth ? (customWidth.checkValidity() ? customWidth.value : '') : size;
+    for(const [name, value] of [['width', chosenSize ? (product.categoryGroup === 'showers' ? chosenSize : getSizeKey(chosenSize)) : ''], ['size', customWidth ? '' : size], ['color', colorSelect?.value || ''], ['glass', glassSelect?.value || ''], ['handle', handleSelect?.value || ''], ...extraChoices.map(choice => [choice.name, choice.select.value])]){
+      if(value) current.searchParams.set(name, value);
+      else current.searchParams.delete(name);
+    }
+    if(current.href !== window.location.href) history.replaceState(null, '', current.pathname + current.search + current.hash);
   }
   sizeSelect?.addEventListener('change', update);
   customWidth?.addEventListener('input', update);
@@ -282,6 +308,57 @@ function bindProductDetail(){
   handleSelect?.addEventListener('change', update);
   extraChoices.forEach(choice => choice.select.addEventListener('change', update));
   update();
+}
+
+function bindImageViewer(){
+  const trigger = document.querySelector('[data-zoom-image]');
+  if(!trigger) return;
+  const detail = document.querySelector('[data-product-detail]');
+  const product = productById[detail.dataset.productId];
+  const mainImage = trigger.querySelector('img');
+  const sources = product.images?.length ? product.images : [product.image];
+  const dialog = document.createElement('dialog');
+  dialog.className = 'image-lightbox';
+  dialog.setAttribute('aria-labelledby', 'imageViewerTitle');
+  dialog.innerHTML = `<div class="image-lightbox-content">
+    <div class="image-lightbox-toolbar"><p id="imageViewerTitle"></p><button type="button" data-viewer-close aria-label="סגירת התמונה" title="סגירת התמונה">&times;</button></div>
+    <img data-viewer-image alt="">
+    <div class="image-lightbox-controls"><button type="button" data-viewer-prev aria-label="התמונה הקודמת" title="התמונה הקודמת">&#8250;</button><span data-viewer-count aria-live="polite"></span><button type="button" data-viewer-next aria-label="התמונה הבאה" title="התמונה הבאה">&#8249;</button></div>
+  </div>`;
+  document.body.append(dialog);
+  const image = dialog.querySelector('[data-viewer-image]');
+  image.src = sources[0];
+  const previous = dialog.querySelector('[data-viewer-prev]');
+  const next = dialog.querySelector('[data-viewer-next]');
+  previous.hidden = next.hidden = sources.length < 2;
+  dialog.querySelector('#imageViewerTitle').textContent = product.commercialName;
+  let index = 0;
+  function showPhoto(value){
+    index = (value + sources.length) % sources.length;
+    image.src = sources[index];
+    image.alt = `${product.commercialName} - תמונה ${index + 1}`;
+    dialog.querySelector('[data-viewer-count]').textContent = `${index + 1} / ${sources.length}`;
+    detail.querySelectorAll('.product-thumbnails button')[index]?.click();
+  }
+  trigger.addEventListener('click', () => {
+    const selected = sources.findIndex(src => new URL(src, location.href).href === mainImage.src);
+    showPhoto(selected < 0 ? 0 : selected);
+    document.body.classList.add('image-view-open');
+    dialog.showModal();
+  });
+  previous.addEventListener('click', () => showPhoto(index - 1));
+  next.addEventListener('click', () => showPhoto(index + 1));
+  dialog.querySelector('[data-viewer-close]').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => { if(event.target === dialog) dialog.close(); });
+  dialog.addEventListener('keydown', event => {
+    if(event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    showPhoto(index + (event.key === 'ArrowLeft' ? 1 : -1));
+  });
+  dialog.addEventListener('close', () => {
+    document.body.classList.remove('image-view-open');
+    trigger.focus({preventScroll:true});
+  });
 }
 
 function bindLeadForm(){
@@ -299,6 +376,11 @@ function bindMenu(){
   const menuBtn = document.getElementById('menuBtn');
   const mainNav = document.getElementById('mainNav');
   if(!menuBtn || !mainNav) return;
+  const route = pathname => pathname.replace(/\.html$/, '').replace(/\/$/, '').replace(/\/index$/, '');
+  mainNav.querySelectorAll('a').forEach(link => {
+    const target = new URL(link.href, location.href);
+    if(target.origin === location.origin && route(target.pathname) === route(location.pathname)) link.setAttribute('aria-current', 'page');
+  });
   menuBtn.addEventListener('click', () => {
     const isOpen = mainNav.classList.toggle('open');
     menuBtn.setAttribute('aria-expanded', String(isOpen));
@@ -345,6 +427,7 @@ if(document.getElementById('productGrid')){
 }
 renderFeaturedProducts();
 bindProductDetail();
+bindImageViewer();
 bindLeadForm();
 bindMenu();
 initReveal();

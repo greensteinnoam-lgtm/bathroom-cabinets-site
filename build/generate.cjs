@@ -9,9 +9,8 @@ context.CATALOG_PRODUCTS = catalog;
 vm.runInContext(source.split('\nattachDefaultWhatsappLinks();')[0] + '\nglobalThis.config = SITE; globalThis.order = productOrderMessage; globalThis.wa = whatsappLink;', context);
 const products = catalog;
 fs.writeFileSync(path.join(site, 'catalog-data.js'), '/* Generated from build/catalog-products.json. */\nconst CATALOG_PRODUCTS = ' + JSON.stringify(catalog, null, 2) + ';\n', 'utf8');
-const reference = fs.readFileSync(path.join(site, 'cabinets-sapir.html'), 'utf8');
-const header = reference.match(/<header\b[\s\S]*?<\/header>/)[0];
-const footer = reference.match(/<footer\b[\s\S]*?<\/footer>/)[0];
+const header = fs.readFileSync(path.join(__dirname, 'header.html'), 'utf8').trim();
+const footer = fs.readFileSync(path.join(__dirname, 'footer.html'), 'utf8').trim();
 const template = fs.readFileSync(path.join(__dirname, 'product-page.html'), 'utf8');
 const escape = value => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const options = values => values.map(value => `<option value="${escape(value)}">${escape(value)}</option>`).join('');
@@ -39,3 +38,15 @@ for (const product of products) {
   fs.writeFileSync(path.join(site, product.productUrl), template.replace(/\{\{(\w+)\}\}/g, (_, name) => fields[name]), 'utf8');
   console.log(product.productUrl);
 }
+const pages = ['index.html', 'bathroom-cabinets.html', 'showers.html', 'products.html', 'installation.html', 'about.html', 'contact.html'];
+for (const file of pages) {
+  const target = path.join(site, file);
+  const html = fs.readFileSync(target, 'utf8')
+    .replace(/<header\b[\s\S]*?<\/header>/, header)
+    .replace(/<footer\b[\s\S]*?<\/footer>/, footer)
+    .replace('<main>', '<main id="main">');
+  fs.writeFileSync(target, html, 'utf8');
+}
+const urls = [...pages.filter(file => file !== 'products.html'), ...products.map(product => product.productUrl)]
+  .map(file => new URL(file === 'index.html' ? '' : file, context.config.baseUrl).href);
+fs.writeFileSync(path.join(site, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls.map(url => `  <url><loc>${escape(url)}</loc></url>`).join('\n') + '\n</urlset>\n');

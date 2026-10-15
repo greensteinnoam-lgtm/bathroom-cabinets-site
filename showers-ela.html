@@ -12,6 +12,7 @@
   <meta property="og:description" content="מקלחון הזזה פינתי, מתאים לחללים שבהם רוצים פתיחה בלי כנף נפתחת החוצה.">
   <meta property="og:url" content="https://statuesque-eclair-7d0bef.netlify.app/showers-ela.html">
   <meta property="og:image" content="https://statuesque-eclair-7d0bef.netlify.app/assets/catalog/ela-main.webp">
+  <meta property="og:site_name" content="גרינשטיין">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -19,23 +20,38 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"אלה","productID":"shower-picasso","description":"מקלחון הזזה פינתי, מתאים לחללים שבהם רוצים פתיחה בלי כנף נפתחת החוצה.","image":["https://statuesque-eclair-7d0bef.netlify.app/assets/catalog/ela-main.webp","https://statuesque-eclair-7d0bef.netlify.app/assets/catalog/ela-existing.webp"],"url":"https://statuesque-eclair-7d0bef.netlify.app/showers-ela.html"}</script>
 </head>
 <body class="product-page">
-  <header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">ג</span><span><strong>גרינשטיין</strong><small>ארונות אמבטיה ומקלחונים</small></span></a><button class="menu-btn" id="menuBtn" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="mainNav">☰</button><nav class="main-nav" id="mainNav"><a href="bathroom-cabinets.html">ארונות אמבטיה</a><a href="showers.html">מקלחונים</a><a href="installation.html">התקנה ושירות</a><a href="about.html">אודות</a><a href="contact.html">יצירת קשר</a><a class="nav-cta" id="navWhatsapp" href="#">וואטסאפ</a></nav></div></header>
-  <main>
+  <header class="site-header" id="top">
+  <a class="skip" href="#main">דלג לתוכן</a>
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html" aria-label="גרינשטיין - דף הבית"><span class="brand-mark">ג</span><span><strong>גרינשטיין</strong><small>ארונות אמבטיה ומקלחונים</small></span></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="mainNav">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="ניווט ראשי">
+      <a href="bathroom-cabinets.html">ארונות אמבטיה</a><a href="showers.html">מקלחונים</a><a href="installation.html">התקנה ושירות</a><a href="about.html">אודות</a><a href="contact.html">יצירת קשר</a><a class="nav-cta" id="navWhatsapp" href="https://wa.me/972584209429">וואטסאפ</a>
+    </nav>
+  </div>
+</header>
+  <main id="main">
     <section class="section product-detail" data-product-detail data-product-id="shower-picasso">
       <div class="container product-detail-grid">
-        <div class="product-gallery">
-          <img data-detail-image src="assets/catalog/ela-main.webp" alt="אלה - מקלחון פינתי הזזה" decoding="async">
-          <p class="product-image-note">התמונות להמחשת הדגם; הגימור והמראה בפועל עשויים להשתנות לפי הבחירה. פריטים נלווים שבתמונה אינם בהכרח כלולים בהצעה.</p>
-        </div>
-        <div class="product-info-panel">
+        <div class="product-heading">
           <p class="eyebrow">מקלחונים ואמבטיונים</p>
           <h1><span data-detail-title>אלה</span> <span data-detail-subtitle>מקלחון פינתי הזזה</span></h1>
+        </div>
+        <div class="product-gallery">
+          <button class="product-image-zoom" type="button" data-zoom-image aria-label="הגדלת התמונה של אלה" title="הגדלת התמונה">
+            <img data-detail-image src="assets/catalog/ela-main.webp" alt="אלה - מקלחון פינתי הזזה" decoding="async" fetchpriority="high">
+            <span class="zoom-indicator" aria-hidden="true">+</span>
+          </button>
+          <p class="product-image-note">התמונות להמחשה. הגימור עשוי להשתנות לפי הבחירה; פריטים נלווים אינם בהכרח כלולים בהצעה.</p>
+        </div>
+        <div class="product-info-panel">
           <p class="lead" data-detail-description>מקלחון הזזה פינתי, מתאים לחללים שבהם רוצים פתיחה בלי כנף נפתחת החוצה.</p>
           <form class="product-buy-box" aria-label="בחירת אפשרויות למוצר">
             <label>מידה / רוחב מבוקש<select name="size"><option value="77-80">77-80</option><option value="87-90">87-90</option></select></label>
             <label>צבע / גימור<select name="color"><option value="">בחרו צבע / גימור</option><option value="ניקל">ניקל</option><option value="שחור מט">שחור מט</option></select></label>
             <label>זכוכית<select name="glass"><option value="">בחרו זכוכית</option><option value="שקופה">שקופה</option><option value="שקופה עם פסים">שקופה עם פסים</option></select></label>
             <p class="product-option-note">נאשר את התאמת המידה והגימור יחד לפני ההזמנה.</p>
+            <p class="product-field-error" data-width-error role="alert" hidden></p>
             <div class="selection-summary" data-selection-summary></div>
             <a class="btn primary big" data-detail-whatsapp href="https://wa.me/972584209429?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%94%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F.%0A%D7%93%D7%92%D7%9D%3A%20%D7%90%D7%9C%D7%94.%0A%D7%9E%D7%96%D7%94%D7%94%20%D7%9E%D7%95%D7%A6%D7%A8%3A%20shower-picasso.%0A%D7%A9%D7%9D%20%D7%A1%D7%A4%D7%A7%3A%20%D7%A4%D7%99%D7%A7%D7%A1%D7%95.%0A%D7%A1%D7%95%D7%92%3A%20%D7%9E%D7%A7%D7%9C%D7%97%D7%95%D7%9F%20%D7%A4%D7%99%D7%A0%D7%AA%D7%99%20%D7%94%D7%96%D7%96%D7%94.%0A%D7%9E%D7%99%D7%93%D7%94%3A%2077-80.%0A%D7%92%D7%99%D7%9E%D7%95%D7%A8%3A%20%D7%98%D7%A8%D7%9D%20%D7%A0%D7%91%D7%97%D7%A8.%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%9C%D7%A2%D7%9E%D7%95%D7%93%3A%20https%3A%2F%2Fstatuesque-eclair-7d0bef.netlify.app%2Fshowers-ela.html" target="_blank" rel="noopener">לקבלת הצעה והזמנה בוואטסאפ</a>
             <a class="btn secondary" id="helpWhatsapp" data-message="שלום, אשמח לעזרה בבחירת אלה." href="https://wa.me/972584209429?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%91%D7%97%D7%99%D7%A8%D7%AA%20%D7%90%D7%9C%D7%94." target="_blank" rel="noopener">עזרה בבחירה</a>
@@ -55,7 +71,12 @@
     </section>
   </main>
   <a class="sticky-order" id="stickyOrderWhatsapp" href="https://wa.me/972584209429?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%94%20%D7%95%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F.%0A%D7%93%D7%92%D7%9D%3A%20%D7%90%D7%9C%D7%94.%0A%D7%9E%D7%96%D7%94%D7%94%20%D7%9E%D7%95%D7%A6%D7%A8%3A%20shower-picasso.%0A%D7%A9%D7%9D%20%D7%A1%D7%A4%D7%A7%3A%20%D7%A4%D7%99%D7%A7%D7%A1%D7%95.%0A%D7%A1%D7%95%D7%92%3A%20%D7%9E%D7%A7%D7%9C%D7%97%D7%95%D7%9F%20%D7%A4%D7%99%D7%A0%D7%AA%D7%99%20%D7%94%D7%96%D7%96%D7%94.%0A%D7%9E%D7%99%D7%93%D7%94%3A%2077-80.%0A%D7%92%D7%99%D7%9E%D7%95%D7%A8%3A%20%D7%98%D7%A8%D7%9D%20%D7%A0%D7%91%D7%97%D7%A8.%0A%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%9C%D7%A2%D7%9E%D7%95%D7%93%3A%20https%3A%2F%2Fstatuesque-eclair-7d0bef.netlify.app%2Fshowers-ela.html" target="_blank" rel="noopener">לקבלת הצעה והזמנה בוואטסאפ</a>
-  <footer class="footer"><div class="container footer-grid"><div><strong>גרינשטיין</strong><p>ארונות אמבטיה, מקלחונים, התאמה והתקנה.</p></div><div><a href="bathroom-cabinets.html">ארונות</a><a href="showers.html">מקלחונים</a><a href="tel:0584209429">058-4209429</a><a href="https://wa.me/972584209429">וואטסאפ</a></div></div></footer>
+  <footer class="footer">
+  <div class="container footer-grid">
+    <div><strong>גרינשטיין</strong><p>ארונות אמבטיה, התאמה והתקנה. מקלחונים בשיתוף מתקינים.</p><a href="tel:0584209429">058-4209429</a><a href="https://wa.me/972584209429">וואטסאפ</a></div>
+    <nav class="footer-nav" aria-label="ניווט תחתון"><a href="index.html">בית</a><a href="bathroom-cabinets.html">ארונות אמבטיה</a><a href="showers.html">מקלחונים</a><a href="installation.html">התקנה ושירות</a><a href="about.html">אודות</a><a href="contact.html">יצירת קשר</a></nav>
+  </div>
+</footer>
   <script src="catalog-data.js"></script>
   <script src="app.js"></script>
 </body>
