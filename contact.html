@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>יצירת קשר | גרינשטיין</title>
-  <meta name="description" content="צרו קשר עם גרינשטיין לקבלת התאמה והצעת מחיר לארונות אמבטיה או מקלחונים.">
+  <title>יצירת קשר וייעוץ לארונות אמבטיה ומקלחונים | גרינשטיין</title>
+  <meta name="description" content="דברו עם גרינשטיין בטלפון 058-4209429 או הכינו פנייה בוואטסאפ לבחירת ארון אמבטיה, התאמת התקנה או מקלחון.">
   <link rel="canonical" href="https://statuesque-eclair-7d0bef.netlify.app/contact.html">
   <meta property="og:title" content="יצירת קשר וייעוץ | גרינשטיין">
   <meta property="og:description" content="ייעוץ והתאמה לארונות אמבטיה ולמקלחונים. התקשרו 058-4209429 או פנו בוואטסאפ.">
@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="information-page">
+<body class="information-page contact-page">
   <header class="site-header" id="top">
   <a class="skip" href="#main">דלג לתוכן</a>
   <div class="container nav-wrap">
@@ -32,8 +32,26 @@
   <main id="main">
     <section class="section contact">
       <div class="container contact-grid">
-        <div><p class="eyebrow">יצירת קשר</p><h1>ייעוץ והתאמה לחדר הרחצה שלכם</h1><p class="lead">ארון אמבטיה, מקלחון או בדיקת התאמה להתקנה. נשמח לשמוע מה אתם מחפשים.</p><p>טלפון: <a href="tel:0584209429">058-4209429</a></p><a class="btn primary big" href="https://wa.me/972584209429">וואטסאפ</a></div>
-        <form class="lead-form" id="leadForm"><label>שם מלא<input name="name" required></label><label>עיר<input name="city" required></label><label>רוחב משוער<input name="width"></label><label>סוג שירות<select name="service"><option>ארון אמבטיה</option><option>מקלחון</option><option>התקנה</option></select></label><label>פירוט<textarea name="message"></textarea></label><button class="btn full" type="submit">שליחה לוואטסאפ</button></form>
+        <div class="contact-intro">
+          <h1>בואו נמצא את מה שמתאים לכם</h1>
+          <p class="lead">ארון אמבטיה במכירה ובהתקנה, או מקלחון בתיאום עם מתקינים. אפשר להתקשר, לשלוח הודעה או להכין פנייה קצרה כאן.</p>
+          <div class="contact-actions">
+            <a class="btn primary" id="contactWhatsapp" href="https://wa.me/972584209429">דברו איתנו בוואטסאפ</a>
+            <a class="btn secondary" href="tel:0584209429">לשיחה: <bdi dir="ltr">058-4209429</bdi></a>
+          </div>
+          <p class="contact-number">וואטסאפ: <bdi dir="ltr">+972 58-420-9429</bdi></p>
+        </div>
+        <form class="lead-form contact-form" id="leadForm" aria-labelledby="contactFormTitle" aria-describedby="contactFormNote">
+          <h2 id="contactFormTitle">הכינו פנייה קצרה</h2>
+          <p class="form-note">ממלאים רק מה שידוע. אפשר לפנות גם בלי דגם או מידה.</p>
+          <label>במה מתעניינים?<select name="service"><option value="">עדיין מתלבטים</option><option>ארון אמבטיה</option><option>מקלחון</option><option>התאמת התקנת ארון</option></select></label>
+          <label>דגם, אם ידוע<input name="model" maxlength="120" autocomplete="off"></label>
+          <label>עיר<input name="city" maxlength="100" autocomplete="address-level2"></label>
+          <label>מידות, אם ידועות<input name="width" maxlength="150" placeholder="למשל: רוחב 80 ס״מ"></label>
+          <label>מה תרצו לשאול?<textarea name="message" maxlength="2000"></textarea></label>
+          <p class="form-note" id="contactFormNote">בלחיצה ייפתח וואטסאפ עם הפרטים שהכנתם. ההודעה תישלח רק לאחר שתלחצו על שליחה בוואטסאפ. אפשר לצרף שם תמונה.</p>
+          <button class="btn full" type="submit">המשך לוואטסאפ</button>
+        </form>
       </div>
     </section>
   </main>

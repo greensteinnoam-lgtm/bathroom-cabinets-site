@@ -418,8 +418,9 @@ function bindLeadForm(){
   leadForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(leadForm);
-    const msg = `שלום, ראיתי את האתר ואני רוצה הצעה.\nשם: ${data.get('name')}\nעיר: ${data.get('city')}\nרוחב משוער: ${data.get('width') || 'לא צוין'}\nסוג שירות: ${data.get('service') || 'לא צוין'}\nפירוט: ${data.get('message') || 'לא צוין'}`;
-    window.open(whatsappLink(msg), '_blank');
+    const value = name => String(data.get(name) || '').trim();
+    const msg = `שלום, אשמח לייעוץ ולהצעה.\nתחום עניין: ${value('service') || 'עזרה בבחירה'}\nדגם: ${value('model') || 'טרם נבחר'}\nעיר: ${value('city') || 'לא צוינה'}\nמידות: ${value('width') || 'טרם נמדדו'}\nשאלה: ${value('message') || 'אשמח לעזרה בהתאמה'}`;
+    window.open(whatsappLink(msg), '_blank', 'noopener');
   });
 }
 
@@ -432,24 +433,25 @@ function bindMenu(){
     const target = new URL(link.href, location.href);
     if(target.origin === location.origin && route(target.pathname) === route(location.pathname)) link.setAttribute('aria-current', 'page');
   });
-  menuBtn.addEventListener('click', () => {
-    const isOpen = mainNav.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(isOpen));
-  });
-  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    mainNav.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  }));
+  function setOpen(open){
+    mainNav.classList.toggle('open', open);
+    document.body.classList.toggle('nav-open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'סגירת תפריט' : 'פתיחת תפריט');
+  }
+  menuBtn.addEventListener('click', () => setOpen(!mainNav.classList.contains('open')));
+  mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
   document.addEventListener('click', (event) => {
     if(!mainNav.classList.contains('open')) return;
     if(mainNav.contains(event.target) || menuBtn.contains(event.target)) return;
-    mainNav.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
+    setOpen(false);
+  });
+  document.addEventListener('focusin', event => {
+    if(mainNav.classList.contains('open') && !mainNav.contains(event.target) && !menuBtn.contains(event.target)) setOpen(false);
   });
   document.addEventListener('keydown', (event) => {
     if(event.key !== 'Escape' || !mainNav.classList.contains('open')) return;
-    mainNav.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
+    setOpen(false);
     menuBtn.focus();
   });
 }
