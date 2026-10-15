@@ -29,13 +29,28 @@ function getCatalogProducts(){
   return products.filter(product => product.categoryGroup === group);
 }
 
+function escapeHtml(value){
+  return String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function safeCatalogReturn(value){
+  if(typeof value !== 'string' || value !== value.trim() || /[\\\u0000-\u001f\u007f]/.test(value)) return null;
+  const pathname = value.split(/[?#]/, 1)[0];
+  if(!/^\/?(?:bathroom-cabinets|showers|products)(?:\.html)?\/?$/.test(pathname)) return null;
+  try {
+    const target = new URL(value, location.origin + '/');
+    if(target.origin !== location.origin || target.username || target.password) return null;
+    return target.pathname.replace(/\/$/, '') + target.search + target.hash;
+  } catch { return null; }
+}
+
 function pageUrlWithSize(product, size){
   if(!product.productUrl) return '';
   const url = new URL(product.productUrl, SITE.baseUrl);
   if(size) url.searchParams.set('width', product.categoryGroup === 'showers' ? size : getSizeKey(size));
   if(size) url.searchParams.set('size', size);
   if(document.getElementById('productGrid')){
-    url.searchParams.set('returnTo', location.pathname.split('/').pop() + location.search);
+    url.searchParams.set('returnTo', location.pathname + location.search + location.hash);
     const color = currentUrlParams().get('color');
     if(color) url.searchParams.set('color', color);
   }
@@ -53,7 +68,7 @@ function absoluteProductUrl(product, size){
 function productOrderMessage(product, size, color, pageUrl = ''){
   const optionLabel = product.categoryGroup === 'showers' ? 'גימור' : 'צבע/גימור';
   const urlLine = pageUrl ? `\nקישור לעמוד: ${pageUrl}` : '';
-  return `שלום, אני מעוניין/ת לקבל הצעה ולהזמין.\nדגם: ${product.commercialName}.\nמזהה מוצר: ${product.id}.\nשם ספק: ${product.supplierName}.\nסוג: ${product.typeLabel}.\nמידה: ${size}.\n${optionLabel}: ${color}.${urlLine}`;
+  return `שלום, אשמח לקבל הצעה.\nדגם: ${product.commercialName}.\nמזהה מוצר: ${product.id}.\nשם ספק: ${product.supplierName}.\nסוג: ${product.typeLabel}.\nמידה: ${size}.\n${optionLabel}: ${color}.${urlLine}`;
 }
 
 function attachDefaultWhatsappLinks(){
@@ -71,59 +86,78 @@ function productImage(product){
   return `<div class="product-placeholder" aria-label="${product.commercialName} - תמונה תתווסף לאחר אישור שימוש"><span>${product.commercialName}</span></div>`;
 }
 
+let catalogFiltersOpen = false;
+
+function setCatalogFilter(key, value){
+  const url = new URL(location.href);
+  if(value && value !== 'all') url.searchParams.set(key, value);
+  else url.searchParams.delete(key);
+  history.replaceState(null, '', url.pathname + url.search + url.hash);
+  renderFilters();
+  renderProducts();
+  const target = matchMedia('(max-width:767px)').matches && !catalogFiltersOpen
+    ? document.querySelector('[data-toggle-filters]')
+    : document.querySelector(`[data-filter-select="${key}"]`);
+  target?.focus({preventScroll:true});
+}
+
 function renderFilters(){
   const filters = document.getElementById('filters');
   if(!filters) return;
   const group = getCatalogGroup();
   const params = currentUrlParams();
-  const width = params.get('width') || 'all';
-  const type = params.get('type') || 'all';
-  const color = params.get('color') || 'all';
   const productsForGroup = getCatalogProducts();
   const widths = ['all', ...[...new Set(productsForGroup.flatMap(product => product.sizes.map(size => group === 'showers' ? size : getSizeKey(size))))].sort((a,b) => Number(getSizeKey(a)) - Number(getSizeKey(b)))];
   const types = ['all', ...new Set(productsForGroup.map(product => product.category))];
   const colors = ['all', ...new Set(productsForGroup.flatMap(product => product.colors || []))];
   const widthLabel = group === 'showers' ? 'מידה' : 'רוחב';
+  const fields = [
+    {key:'width', label:widthLabel, values:widths, all:group === 'showers' ? 'כל המידות' : 'כל הרוחבים'},
+    {key:'type', label:'סוג', values:types, all:'כל הסוגים'},
+    {key:'color', label:'צבע / גימור', values:colors, all:'כל הגימורים'}
+  ];
+  const active = fields.filter(field => params.has(field.key) && params.get(field.key));
+  const options = field => {
+    const selected = params.get(field.key) || 'all';
+    const values = field.values.includes(selected) ? field.values : [...field.values, selected];
+    return values.map(value => `<option value="${escapeHtml(value)}" ${selected === value ? 'selected' : ''}>${escapeHtml(value === 'all' ? field.all : value + (field.key === 'width' ? ' ס״מ' : ''))}</option>`).join('');
+  };
   filters.innerHTML = `
-    <div class="filters-top">
-      <strong data-results-count></strong>
-      <button class="filter-clear" type="button" data-clear-filters>ניקוי מסננים</button>
+    <div class="catalog-toolbar">
+      <button class="filter-toggle" type="button" data-toggle-filters aria-controls="catalogFilterPanel" aria-expanded="${catalogFiltersOpen}">סינון${active.length ? ` (${active.length})` : ''}</button>
+      <strong data-results-count role="status" aria-live="polite"></strong>
+      <button class="filter-clear" type="button" data-clear-filters ${active.length ? '' : 'hidden'}>ניקוי מסננים</button>
     </div>
-    <label class="catalog-filter-select mobile-width-filter">${widthLabel}
-      <select data-filter-select="width">${widths.map(item => `<option value="${item}" ${width === item ? 'selected' : ''}>${item === 'all' ? (group === 'showers' ? 'כל המידות' : 'כל הרוחבים') : item + ' ס״מ'}</option>`).join('')}</select>
-    </label>
-    <div class="filter-group desktop-width-filter" aria-label="סינון לפי ${widthLabel}">
-      ${widths.map(item => `<button class="filter-btn ${width === item ? 'active' : ''}" data-filter="width" data-value="${item}">${item === 'all' ? (group === 'showers' ? 'כל המידות' : 'כל הרוחבים') : item + ' ס״מ'}</button>`).join('')}
+    <div class="catalog-filter-panel ${catalogFiltersOpen ? 'is-open' : ''}" id="catalogFilterPanel">
+      <div class="catalog-filter-fields">${fields.map(field => `<label>${field.label}<select data-filter-select="${field.key}">${options(field)}</select></label>`).join('')}</div>
+      <button class="filter-panel-done" type="button" data-close-filters>הצגת מוצרים</button>
     </div>
-    <div class="filter-group" aria-label="סינון לפי סוג">
-      ${types.map(item => `<button class="filter-btn ${type === item ? 'active' : ''}" data-filter="type" data-value="${item}">${item === 'all' ? 'כל הסוגים' : item}</button>`).join('')}
-    </div>
-    <label class="catalog-filter-select">צבע / גימור
-      <select data-filter-select="color">${colors.map(item => `<option value="${item}" ${color === item ? 'selected' : ''}>${item === 'all' ? 'כל הגימורים' : item}</option>`).join('')}</select>
-    </label>`;
-  filters.querySelectorAll('[data-filter-select]').forEach(select => select.addEventListener('change', () => {
-    const next = currentUrlParams();
-    if(select.value === 'all') next.delete(select.dataset.filterSelect);
-    else next.set(select.dataset.filterSelect, select.value);
-    history.replaceState(null, '', `${location.pathname}${next.size ? '?' + next.toString() : ''}`);
-    renderFilters();
-    renderProducts();
-  }));
-  filters.querySelectorAll('[data-filter]').forEach(button => {
-    button.addEventListener('click', () => {
-      const next = currentUrlParams();
-      if(button.dataset.value === 'all') next.delete(button.dataset.filter);
-      else next.set(button.dataset.filter, button.dataset.value);
-      const query = next.toString();
-      history.replaceState(null, '', `${location.pathname}${query ? '?' + query : ''}`);
-      renderFilters();
-      renderProducts();
-    });
+    ${active.length ? `<div class="active-filters" aria-label="מסננים פעילים">${active.map(field => `<button type="button" data-remove-filter="${field.key}" aria-label="${escapeHtml('הסרת סינון ' + field.label + ': ' + params.get(field.key))}" title="${escapeHtml('הסרת סינון ' + field.label)}">${field.label}: ${escapeHtml(params.get(field.key))}<span aria-hidden="true">×</span></button>`).join('')}</div>` : ''}`;
+  const toggle = filters.querySelector('[data-toggle-filters]');
+  const panel = filters.querySelector('#catalogFilterPanel');
+  const setOpen = open => {
+    catalogFiltersOpen = open;
+    panel.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    if(!open) toggle.focus({preventScroll:true});
+  };
+  toggle.addEventListener('click', () => setOpen(!catalogFiltersOpen));
+  filters.querySelector('[data-close-filters]').addEventListener('click', () => setOpen(false));
+  panel.addEventListener('keydown', event => {
+    if(event.key === 'Escape' && matchMedia('(max-width:767px)').matches){
+      event.preventDefault();
+      setOpen(false);
+    }
   });
+  filters.querySelectorAll('[data-filter-select]').forEach(select => select.addEventListener('change', () => setCatalogFilter(select.dataset.filterSelect, select.value)));
+  filters.querySelectorAll('[data-remove-filter]').forEach(button => button.addEventListener('click', () => setCatalogFilter(button.dataset.removeFilter, 'all')));
   filters.querySelector('[data-clear-filters]')?.addEventListener('click', () => {
-    history.replaceState(null, '', location.pathname);
+    const url = new URL(location.href);
+    fields.forEach(field => url.searchParams.delete(field.key));
+    history.replaceState(null, '', url.pathname + url.search + url.hash);
     renderFilters();
     renderProducts();
+    (matchMedia('(max-width:767px)').matches ? filters.querySelector('[data-toggle-filters]') : filters.querySelector('select'))?.focus({preventScroll:true});
   });
 }
 
@@ -151,21 +185,26 @@ function renderProducts(){
   productGrid.innerHTML = shown.map(product => {
     const selectedSize = product.customWidth ? (width || '') : width && product.sizes?.some(size => size === width || getSizeKey(size) === width)
       ? product.sizes.find(size => size === width || getSizeKey(size) === width)
-      : product.sizes?.[0] || 'לפי התאמה';
+      : '';
     const href = pageUrlWithSize(product, selectedSize);
-    const sizesLabel = product.customWidth ? (product.minimumWidth ? `מ־${product.minimumWidth} ס״מ, לפי התאמה` : `לפי התאמה, עד ${product.maximumWidth} ס״מ`) : product.sizes.join(' / ');
+    const sizesLabel = catalogSizeSummary(product);
     return `<article class="product-card catalog-card reveal visible">
       <a class="product-image product-image-link" href="${href}">${productImage(product)}</a>
       <h3><a href="${href}">${product.commercialName}</a></h3>
       <p>${product.typeLabel}</p>
-      <div class="product-meta"><span>${sizesLabel}</span><span>${product.category}</span></div>
-      <div class="product-card-note">לבחירת מידות ופרטים</div>
-      <a class="btn full" href="${href}">לצפייה במוצר</a>
+      <p class="product-sizes">${sizesLabel}</p>
+      <a class="btn full" href="${href}">מידות ופרטים</a>
     </article>`;
   }).join('') || `<div class="empty-state"><strong>לא נמצאו מוצרים מתאימים</strong><p>אפשר לנקות מסננים או לשלוח הודעה ונעזור בהתאמה.</p></div>`;
   productGrid.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
     try { sessionStorage.setItem('catalogScroll:' + location.pathname + location.search, String(window.scrollY)); } catch {}
   }));
+}
+
+function catalogSizeSummary(product){
+  if(product.customWidth) return product.minimumWidth ? `מ־${product.minimumWidth} ס״מ, בהתאמה` : `עד ${product.maximumWidth} ס״מ, בהתאמה`;
+  const sizes = [...new Set(product.sizes.map(size => product.categoryGroup === 'cabinets' ? getSizeKey(size) : size))];
+  return `${sizes.slice(0,4).join(' / ')} ס״מ${sizes.length > 4 ? ` · ועוד ${sizes.length - 4} מידות` : ''}`;
 }
 
 function renderFeaturedProducts(){
@@ -176,7 +215,8 @@ function renderFeaturedProducts(){
     <a class="product-image product-image-link" href="${product.productUrl}">${productImage(product)}</a>
     <h3><a href="${product.productUrl}">${product.commercialName}</a></h3>
     <p>${product.typeLabel}</p>
-    <a class="btn secondary" href="${product.productUrl}">פרטים</a>
+    <p class="product-sizes">${catalogSizeSummary(product)}</p>
+    <a class="btn secondary" href="${product.productUrl}">מידות ופרטים</a>
   </article>`).join('');
 }
 
@@ -195,6 +235,7 @@ function bindProductDetail(){
   const extraChoices = [['depth','עומק'], ['leg','גימור רגליים'], ['side','גימור דופן'], ['opening','כיוון פתיחה']].map(([name,label]) => ({name,label,select: detail.querySelector(`[name="${name}"]`)})).filter(choice => choice.select);
   const summary = detail.querySelector('[data-selection-summary]');
   const whatsapp = detail.querySelector('[data-detail-whatsapp]');
+  const help = detail.querySelector('#helpWhatsapp');
   const sticky = document.getElementById('stickyOrderWhatsapp');
   let image = detail.querySelector('[data-detail-image]');
   const imageSlot = detail.querySelector('[data-detail-image-slot]');
@@ -237,7 +278,7 @@ function bindProductDetail(){
       ${(product.specs || []).map(([label, value]) => `<div><strong>${label}</strong><span>${value}</span></div>`).join('')}`;
   }
   if(sizeSelect){
-    sizeSelect.innerHTML = product.sizes.map(size => `<option value="${size}">${size} ס״מ</option>`).join('');
+    sizeSelect.innerHTML = '<option value="">בחרו מידה / עזרה בהתאמה</option>' + product.sizes.map(size => `<option value="${size}">${size} ס״מ</option>`).join('');
     if(requestedWidth){
       const requestedOption = [...sizeSelect.options].find(option => option.value === params.get('size')) || [...sizeSelect.options].find(option => option.value === requestedWidth || getSizeKey(option.value) === requestedWidth);
       if(requestedOption) sizeSelect.value = requestedOption.value;
@@ -255,9 +296,7 @@ function bindProductDetail(){
   }
   if(backLink){
     const backPath = product.categoryGroup === 'showers' ? 'showers.html' : 'bathroom-cabinets.html';
-    const returnTo = params.get('returnTo');
-    const allowed = returnTo && /^(bathroom-cabinets|showers|products)\.html(?:\?|$)/.test(returnTo);
-    backLink.href = allowed ? returnTo : requestedWidth ? `${backPath}?width=${encodeURIComponent(requestedWidth)}` : backPath;
+    backLink.href = safeCatalogReturn(params.get('returnTo')) || backPath;
   }
   const widthError = detail.querySelector('[data-width-error]');
   const invalidWidth = () => Boolean(customWidth && (customWidth.validity.badInput || (customWidth.value !== '' && !customWidth.checkValidity())));
@@ -279,9 +318,10 @@ function bindProductDetail(){
       if(invalid) link.setAttribute('aria-disabled', 'true');
       else link.removeAttribute('aria-disabled');
     });
-    const size = customWidth ? (customWidth.value && customWidth.checkValidity() ? `${customWidth.value} ס״מ מבוקש, לאישור התאמה` : 'לפי התאמה') : sizeSelect?.value || 'לפי התאמה';
+    const chosenSize = customWidth ? (customWidth.checkValidity() ? customWidth.value : '') : sizeSelect?.value || '';
+    const size = customWidth ? (chosenSize ? `${chosenSize} ס״מ מבוקש, לאישור התאמה` : 'לפי התאמה') : chosenSize || 'טרם נבחרה';
     const color = colorSelect?.value || 'טרם נבחר';
-    const url = new URL(absoluteProductUrl(product, customWidth ? (customWidth.checkValidity() ? customWidth.value : '') : size) || window.location.href);
+    const url = new URL(absoluteProductUrl(product, chosenSize) || window.location.href);
     if(colorSelect?.value) url.searchParams.set('color', colorSelect.value);
     const extraLines = extraChoices.map(choice => `\n${choice.label}: ${choice.select.value || 'טרם נבחר'}`).join('');
     for(const choice of extraChoices) if(choice.select.value) url.searchParams.set(choice.name, choice.select.value);
@@ -290,12 +330,12 @@ function bindProductDetail(){
     const glassLine = glassSelect ? `\nזכוכית: ${glassSelect.value || 'טרם נבחרה'}` : '';
     const handleLine = handleSelect ? `\nידיות: ${handleSelect.value || 'טרם נבחרו'}` : '';
     const msg = productOrderMessage(product, size, color, url.href) + glassLine + handleLine + extraLines;
-    if(summary) summary.textContent = `נבחר: ${size}${customWidth ? '' : ' ס״מ'} · ${color}${glassSelect ? ' · זכוכית: ' + (glassSelect.value || 'טרם נבחרה') : ''}${handleSelect ? ' · ידיות: ' + (handleSelect.value || 'טרם נבחרו') : ''}${extraChoices.map(choice => ' · ' + choice.label + ': ' + (choice.select.value || 'טרם נבחר')).join('')}`;
+    if(summary) summary.textContent = `מידה: ${size}${!customWidth && chosenSize ? ' ס״מ' : ''} · ${color}${glassSelect ? ' · זכוכית: ' + (glassSelect.value || 'טרם נבחרה') : ''}${handleSelect ? ' · ידיות: ' + (handleSelect.value || 'טרם נבחרו') : ''}${extraChoices.map(choice => ' · ' + choice.label + ': ' + (choice.select.value || 'טרם נבחר')).join('')}`;
     if(whatsapp) whatsapp.href = whatsappLink(msg);
     if(sticky) sticky.href = whatsappLink(msg);
+    if(help) help.href = whatsappLink(msg.replace('שלום, אשמח לקבל הצעה.', 'שלום, אשמח לעזרה בהתאמה ולבירור המידה והגימור.'));
     const current = new URL(window.location.href);
-    const chosenSize = customWidth ? (customWidth.checkValidity() ? customWidth.value : '') : size;
-    for(const [name, value] of [['width', chosenSize ? (product.categoryGroup === 'showers' ? chosenSize : getSizeKey(chosenSize)) : ''], ['size', customWidth ? '' : size], ['color', colorSelect?.value || ''], ['glass', glassSelect?.value || ''], ['handle', handleSelect?.value || ''], ...extraChoices.map(choice => [choice.name, choice.select.value])]){
+    for(const [name, value] of [['width', chosenSize ? (product.categoryGroup === 'showers' ? chosenSize : getSizeKey(chosenSize)) : ''], ['size', customWidth ? '' : chosenSize], ['color', colorSelect?.value || ''], ['glass', glassSelect?.value || ''], ['handle', handleSelect?.value || ''], ...extraChoices.map(choice => [choice.name, choice.select.value])]){
       if(value) current.searchParams.set(name, value);
       else current.searchParams.delete(name);
     }
@@ -308,6 +348,17 @@ function bindProductDetail(){
   handleSelect?.addEventListener('change', update);
   extraChoices.forEach(choice => choice.select.addEventListener('change', update));
   update();
+  if(sticky && 'IntersectionObserver' in window){
+    const visibleControls = new Set();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) visibleControls.add(entry.target);
+        else visibleControls.delete(entry.target);
+      });
+      sticky.hidden = visibleControls.size > 0;
+    });
+    [detail.querySelector('.product-buy-box'), document.querySelector('footer')].filter(Boolean).forEach(element => observer.observe(element));
+  }
 }
 
 function bindImageViewer(){
@@ -422,7 +473,7 @@ renderProducts();
 if(document.getElementById('productGrid')){
   try {
     const savedScroll = Number(sessionStorage.getItem('catalogScroll:' + location.pathname + location.search));
-    if(savedScroll) requestAnimationFrame(() => window.scrollTo(0, savedScroll));
+    if(savedScroll) requestAnimationFrame(() => window.scrollTo({top:savedScroll, behavior:'instant'}));
   } catch {}
 }
 renderFeaturedProducts();

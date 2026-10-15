@@ -28,11 +28,11 @@ for (const product of products) {
     description: escape(product.description), url: escape(url), imageUrl: escape(imageUrl), id: escape(product.id),
     image: escape(product.image), name: escape(product.commercialName), type: escape(product.typeLabel),
     category: product.categoryGroup === 'cabinets' ? 'ארון אמבטיה' : 'מקלחונים ואמבטיונים',
-    sizeControl: product.customWidth ? `<input name="customWidth" type="number" inputmode="numeric" ${product.minimumWidth ? `min="${product.minimumWidth}"` : 'min="1"'} ${product.maximumWidth ? `max="${product.maximumWidth}"` : ''} placeholder="רוחב מבוקש בס״מ" aria-label="רוחב מבוקש בס״מ">` : `<select name="size">${options(product.sizes)}</select>`,
+    sizeControl: product.customWidth ? `<input name="customWidth" type="number" inputmode="numeric" ${product.minimumWidth ? `min="${product.minimumWidth}"` : 'min="1"'} ${product.maximumWidth ? `max="${product.maximumWidth}"` : ''} placeholder="רוחב מבוקש בס״מ" aria-label="רוחב מבוקש בס״מ">` : `<select name="size"><option value="">בחרו מידה / עזרה בהתאמה</option>${options(product.sizes)}</select>`,
     colors: options(product.colors), extraOptions, specs, header, footer,
     catalog: product.categoryGroup === 'cabinets' ? 'bathroom-cabinets.html' : 'showers.html',
-    whatsapp: escape(context.wa(context.order(product, product.sizes[0] || 'לפי התאמה', 'טרם נבחר', url))),
-    help: escape(context.wa(`שלום, אשמח לעזרה בבחירת ${product.commercialName}.`)),
+    whatsapp: escape(context.wa(context.order(product, 'טרם נבחרה', 'טרם נבחר', url))),
+    help: escape(context.wa(context.order(product, 'טרם נבחרה', 'טרם נבחר', url).replace('שלום, אשמח לקבל הצעה.', 'שלום, אשמח לעזרה בהתאמה.'))),
     schema: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Product', name: product.commercialName, productID: product.id, description: product.description, image: (product.images || [product.image]).map(image => new URL(image, context.config.baseUrl).href), url }).replace(/</g, '\\u003c')
   };
   fs.writeFileSync(path.join(site, product.productUrl), template.replace(/\{\{(\w+)\}\}/g, (_, name) => fields[name]), 'utf8');
