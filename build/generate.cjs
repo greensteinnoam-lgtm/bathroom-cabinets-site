@@ -6,7 +6,7 @@ const source = fs.readFileSync(path.join(site, 'app.js'), 'utf8');
 const context = vm.createContext({ URL, URLSearchParams });
 const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, 'catalog-products.json'), 'utf8'));
 context.CATALOG_PRODUCTS = catalog;
-vm.runInContext(source.split('\nattachDefaultWhatsappLinks();')[0] + '\nglobalThis.config = SITE; globalThis.order = productOrderMessage; globalThis.wa = whatsappLink;', context);
+vm.runInContext(source.split('\nattachDefaultWhatsappLinks();')[0] + '\nglobalThis.config = SITE; globalThis.order = productOrderMessage; globalThis.wa = whatsappLink; globalThis.card = productCard;', context);
 const products = catalog;
 fs.writeFileSync(path.join(site, 'catalog-data.js'), '/* Generated from build/catalog-products.json. */\nconst CATALOG_PRODUCTS = ' + JSON.stringify(catalog, null, 2) + ';\n', 'utf8');
 const header = fs.readFileSync(path.join(__dirname, 'header.html'), 'utf8').trim();
@@ -41,10 +41,18 @@ for (const product of products) {
 const pages = ['index.html', 'bathroom-cabinets.html', 'showers.html', 'products.html', 'installation.html', 'about.html', 'contact.html'];
 for (const file of pages) {
   const target = path.join(site, file);
-  const html = fs.readFileSync(target, 'utf8')
+  let html = fs.readFileSync(target, 'utf8')
     .replace(/<header\b[\s\S]*?<\/header>/, header)
     .replace(/<footer\b[\s\S]*?<\/footer>/, footer)
     .replace('<main>', '<main id="main">');
+  if(!html.includes('rel="icon"')) html = html.replace('</head>', '  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">\n</head>');
+  if(html.includes('<!-- catalog-cards:start -->')){
+    const featured = file === 'index.html';
+    const group = file === 'showers.html' ? 'showers' : 'cabinets';
+    const selected = products.filter(product => product.categoryGroup === group);
+    const cards = (featured ? selected.slice(0,3) : selected).map(product => context.card(product, product.productUrl, featured)).join('\n');
+    html = html.replace(/<!-- catalog-cards:start -->[\s\S]*?<!-- catalog-cards:end -->/, '<!-- catalog-cards:start -->\n' + cards + '\n<!-- catalog-cards:end -->');
+  }
   fs.writeFileSync(target, html, 'utf8');
 }
 const urls = [...pages.filter(file => file !== 'products.html'), ...products.map(product => product.productUrl)]

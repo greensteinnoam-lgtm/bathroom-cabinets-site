@@ -187,18 +187,21 @@ function renderProducts(){
       ? product.sizes.find(size => size === width || getSizeKey(size) === width)
       : '';
     const href = pageUrlWithSize(product, selectedSize);
-    const sizesLabel = catalogSizeSummary(product);
-    return `<article class="product-card catalog-card reveal visible">
-      <a class="product-image product-image-link" href="${href}">${productImage(product)}</a>
-      <h3><a href="${href}">${product.commercialName}</a></h3>
-      <p>${product.typeLabel}</p>
-      <p class="product-sizes">${sizesLabel}</p>
-      <a class="btn full" href="${href}">מידות ופרטים</a>
-    </article>`;
+    return productCard(product, href);
   }).join('') || `<div class="empty-state"><strong>לא נמצאו מוצרים מתאימים</strong><p>אפשר לנקות מסננים או לשלוח הודעה ונעזור בהתאמה.</p></div>`;
   productGrid.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
     try { sessionStorage.setItem('catalogScroll:' + location.pathname + location.search, String(window.scrollY)); } catch {}
   }));
+}
+
+function productCard(product, href, compact = false){
+  return `<article class="product-card ${compact ? 'compact-card' : 'catalog-card reveal visible'}">
+    <a class="product-image product-image-link" href="${href}">${productImage(product)}</a>
+    <h3><a href="${href}">${product.commercialName}</a></h3>
+    <p>${product.typeLabel}</p>
+    <p class="product-sizes">${catalogSizeSummary(product)}</p>
+    <a class="btn ${compact ? 'secondary' : 'full'}" href="${href}">מידות ופרטים</a>
+  </article>`;
 }
 
 function catalogSizeSummary(product){
@@ -211,13 +214,7 @@ function renderFeaturedProducts(){
   const grid = document.getElementById('homeFeaturedGrid');
   if(!grid) return;
   const featured = products.filter(product => product.categoryGroup === 'cabinets').slice(0, 3);
-  grid.innerHTML = featured.map(product => `<article class="product-card compact-card">
-    <a class="product-image product-image-link" href="${product.productUrl}">${productImage(product)}</a>
-    <h3><a href="${product.productUrl}">${product.commercialName}</a></h3>
-    <p>${product.typeLabel}</p>
-    <p class="product-sizes">${catalogSizeSummary(product)}</p>
-    <a class="btn secondary" href="${product.productUrl}">מידות ופרטים</a>
-  </article>`).join('');
+  grid.innerHTML = featured.map(product => productCard(product, product.productUrl, true)).join('');
 }
 
 function bindProductDetail(){
