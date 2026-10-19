@@ -1,6 +1,7 @@
 const SITE = {
+  brandName: "אבן ומים",
   whatsappNumber: "972584209429",
-  defaultMessage: "שלום, ראיתי את האתר ואני מתעניין/ת בארון אמבטיה או מקלחון. אשמח לקבל עזרה בבחירה.",
+  defaultMessage: "שלום, הגעתי דרך אתר אבן ומים ואני מתעניין/ת בארון אמבטיה או מקלחון. אשמח לקבל עזרה בבחירה.",
   baseUrl: "https://statuesque-eclair-7d0bef.netlify.app/"
 };
 
@@ -68,12 +69,13 @@ function absoluteProductUrl(product, size){
 function productOrderMessage(product, size, color, pageUrl = ''){
   const optionLabel = product.categoryGroup === 'showers' ? 'גימור' : 'צבע/גימור';
   const urlLine = pageUrl ? `\nקישור לעמוד: ${pageUrl}` : '';
-  return `שלום, אשמח לקבל הצעה.\nדגם: ${product.commercialName}.\nמזהה מוצר: ${product.id}.\nשם ספק: ${product.supplierName}.\nסוג: ${product.typeLabel}.\nמידה: ${size}.\n${optionLabel}: ${color}.${urlLine}`;
+  return `שלום, אשמח לקבל הצעה.\nדרך אתר ${SITE.brandName}.\nדגם: ${product.commercialName}.\nמזהה מוצר: ${product.id}.\nשם ספק: ${product.supplierName}.\nסוג: ${product.typeLabel}.\nמידה: ${size}.\n${optionLabel}: ${color}.${urlLine}`;
 }
 
 function attachDefaultWhatsappLinks(){
   document.querySelectorAll('#heroWhatsapp,#cardWhatsapp,#contactWhatsapp,#floatingWhatsapp,#navWhatsapp,#productsWhatsapp,#quoteWhatsapp,#showersWhatsapp,#helpWhatsapp').forEach(el => {
-    el.href = whatsappLink(el.dataset.message || SITE.defaultMessage);
+    const message = el.dataset.message ? `${el.dataset.message}\nדרך אתר ${SITE.brandName}.` : SITE.defaultMessage;
+    el.href = whatsappLink(message);
     el.target = '_blank';
     el.rel = 'noopener';
   });
@@ -416,7 +418,7 @@ function bindLeadForm(){
     e.preventDefault();
     const data = new FormData(leadForm);
     const value = name => String(data.get(name) || '').trim();
-    const msg = `שלום, אשמח לייעוץ ולהצעה.\nתחום עניין: ${value('service') || 'עזרה בבחירה'}\nדגם: ${value('model') || 'טרם נבחר'}\nעיר: ${value('city') || 'לא צוינה'}\nמידות: ${value('width') || 'טרם נמדדו'}\nשאלה: ${value('message') || 'אשמח לעזרה בהתאמה'}`;
+    const msg = `שלום, אשמח לייעוץ ולהצעה מאבן ומים.\nתחום עניין: ${value('service') || 'עזרה בבחירה'}\nדגם: ${value('model') || 'טרם נבחר'}\nעיר: ${value('city') || 'לא צוינה'}\nמידות: ${value('width') || 'טרם נמדדו'}\nשאלה: ${value('message') || 'אשמח לעזרה בהתאמה'}`;
     window.open(whatsappLink(msg), '_blank', 'noopener');
   });
 }

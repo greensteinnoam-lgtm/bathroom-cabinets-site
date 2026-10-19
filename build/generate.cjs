@@ -24,7 +24,7 @@ for (const product of products) {
   const specs = [['סוג', product.typeLabel], ['מידות', sizeLabel], ['צבעים / גימורים', product.colors.join(' / ')], ...(product.specs || [])]
     .map(([label, value]) => `<div><strong>${escape(label)}</strong><span>${escape(value)}</span></div>`).join('\n');
   const fields = {
-    title: escape(`${product.commercialName} - ${product.typeLabel} | גרינשטיין`),
+    title: escape(`${product.commercialName} - ${product.typeLabel} | ${context.config.brandName}`),
     description: escape(product.description), url: escape(url), imageUrl: escape(imageUrl), id: escape(product.id),
     image: escape(product.image), name: escape(product.commercialName), type: escape(product.typeLabel),
     category: product.categoryGroup === 'cabinets' ? 'ארון אמבטיה' : 'מקלחונים ואמבטיונים',
@@ -45,7 +45,12 @@ for (const file of pages) {
     .replace(/<header\b[\s\S]*?<\/header>/, header)
     .replace(/<footer\b[\s\S]*?<\/footer>/, footer)
     .replace('<main>', '<main id="main">');
-  if(!html.includes('rel="icon"')) html = html.replace('</head>', '  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">\n</head>');
+  if(!html.includes('rel="icon"')) html = html.replace('</head>', '  <link rel="icon" type="image/svg+xml" href="assets/brand/symbol.svg">\n</head>');
+  if(!html.includes('href="brand.css"')) html = html.replace('</head>', '  <link rel="stylesheet" href="brand.css">\n</head>');
+  html = html.replace(/<body\b([^>]*)>/, (tag, attributes) => {
+    if(/\beven-mayim\b/.test(attributes)) return tag;
+    return attributes.includes('class="') ? '<body' + attributes.replace(/class="([^"]*)"/, 'class="$1 even-mayim"') + '>' : '<body' + attributes + ' class="even-mayim">';
+  });
   if(html.includes('<!-- catalog-cards:start -->')){
     const featured = file === 'index.html';
     const group = file === 'showers.html' ? 'showers' : 'cabinets';
