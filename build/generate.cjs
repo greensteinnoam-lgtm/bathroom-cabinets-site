@@ -6,7 +6,7 @@ const source = fs.readFileSync(path.join(site, 'app.js'), 'utf8');
 const context = vm.createContext({ URL, URLSearchParams });
 const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, 'catalog-products.json'), 'utf8'));
 context.CATALOG_PRODUCTS = catalog;
-vm.runInContext(source.split('\nattachDefaultWhatsappLinks();')[0] + '\nglobalThis.config = SITE; globalThis.order = productOrderMessage; globalThis.wa = whatsappLink; globalThis.card = productCard;', context);
+vm.runInContext(source.split('\nattachDefaultWhatsappLinks();')[0] + '\nglobalThis.config = SITE; globalThis.order = productOrderMessage; globalThis.wa = whatsappLink; globalThis.card = productCard; globalThis.related = relatedProducts; globalThis.gallery = productGalleryImages;', context);
 const products = catalog;
 fs.writeFileSync(path.join(site, 'catalog-data.js'), '/* Generated from build/catalog-products.json. */\nconst CATALOG_PRODUCTS = ' + JSON.stringify(catalog, null, 2) + ';\n', 'utf8');
 const header = fs.readFileSync(path.join(__dirname, 'header.html'), 'utf8').trim();
@@ -30,12 +30,15 @@ for (const product of products) {
     category: product.categoryGroup === 'cabinets' ? 'ארון אמבטיה' : 'מקלחונים ואמבטיונים',
     sizeControl: product.customWidth ? `<input name="customWidth" type="number" inputmode="numeric" ${product.minimumWidth ? `min="${product.minimumWidth}"` : 'min="1"'} ${product.maximumWidth ? `max="${product.maximumWidth}"` : ''} placeholder="רוחב מבוקש בס״מ" aria-label="רוחב מבוקש בס״מ">` : `<select name="size"><option value="">בחרו מידה / עזרה בהתאמה</option>${options(product.sizes)}</select>`,
     colors: options(product.colors), extraOptions, specs, header, footer,
+    thumbnails: context.gallery(product).length > 1 ? `<div class="product-thumbnails" aria-label="תמונות נוספות">${context.gallery(product).map((image,index) => `<button type="button" aria-label="תמונה ${index + 1} של ${escape(product.commercialName)}" aria-pressed="${index === 0}"><img src="${escape(image)}" alt="${escape(product.commercialName)} - תמונה ${index + 1}" width="56" height="56" loading="lazy" decoding="async"></button>`).join('')}</div>` : '',
+    related: context.related(product).map(other => context.card(other, other.productUrl, true)).join('\n'),
+    installation: product.categoryGroup === 'cabinets' ? 'מכירת ארונות אמבטיה והתאמת התקנה לפי המידות, הקיר והתשתיות בבית.' : 'מכירת מקלחונים ואמבטיונים ותיאום התקנה בשיתוף מתקינים, לאחר בדיקת התאמה.',
     catalog: product.categoryGroup === 'cabinets' ? 'bathroom-cabinets.html' : 'showers.html',
-    whatsapp: escape(context.wa(context.order(product, 'טרם נבחרה', 'טרם נבחר', url))),
-    help: escape(context.wa(context.order(product, 'טרם נבחרה', 'טרם נבחר', url).replace('שלום, אשמח לקבל הצעה.', 'שלום, אשמח לעזרה בהתאמה.'))),
-    schema: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Product', name: product.commercialName, productID: product.id, description: product.description, image: (product.images || [product.image]).map(image => new URL(image, context.config.baseUrl).href), url }).replace(/</g, '\\u003c')
+    whatsapp: escape(context.wa(context.order(product, '', '', url))),
+    help: escape(context.wa(context.order(product, '', '', url).replace('שלום, אשמח לקבל הצעה.', 'שלום, אשמח לעזרה בהתאמה.'))),
+    schema: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Product', name: product.commercialName, description: product.description, image: context.gallery(product).map(image => new URL(image, context.config.baseUrl).href), url }).replace(/</g, '\\u003c')
   };
-  fs.writeFileSync(path.join(site, product.productUrl), template.replace(/\{\{(\w+)\}\}/g, (_, name) => fields[name]), 'utf8');
+  fs.writeFileSync(path.join(site, product.productUrl), template.replace(/\{\{(\w+)\}\}/g, (_, name) => fields[name]).replace(/^[ \t]+$/gm, ''), 'utf8');
   console.log(product.productUrl);
 }
 const pages = ['index.html', 'bathroom-cabinets.html', 'showers.html', 'products.html', 'installation.html', 'about.html', 'contact.html'];

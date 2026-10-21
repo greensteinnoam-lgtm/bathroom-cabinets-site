@@ -68,8 +68,22 @@ function absoluteProductUrl(product, size){
 
 function productOrderMessage(product, size, color, pageUrl = ''){
   const optionLabel = product.categoryGroup === 'showers' ? 'גימור' : 'צבע/גימור';
-  const urlLine = pageUrl ? `\nקישור לעמוד: ${pageUrl}` : '';
-  return `שלום, אשמח לקבל הצעה.\nדרך אתר ${SITE.brandName}.\nדגם: ${product.commercialName}.\nמזהה מוצר: ${product.id}.\nשם ספק: ${product.supplierName}.\nסוג: ${product.typeLabel}.\nמידה: ${size}.\n${optionLabel}: ${color}.${urlLine}`;
+  const lines = ['שלום, אשמח לקבל הצעה.', `דרך אתר ${SITE.brandName}.`, `דגם: ${product.commercialName}`, `סוג: ${product.typeLabel}`];
+  if(size) lines.push(`מידה: ${size}`);
+  if(color) lines.push(`${optionLabel}: ${color}`);
+  if(!size || !color) lines.push('אשמח לעזרה בבחירת המידה/הגימור.');
+  if(pageUrl) lines.push(`קישור לעמוד: ${pageUrl}`);
+  return lines.join('\n');
+}
+
+function productGalleryImages(product){
+  return [...new Set([product.image, ...(product.galleryImages || product.images || [])].filter(Boolean))];
+}
+
+function relatedProducts(product){
+  return products.filter(other => other.id !== product.id && other.categoryGroup === product.categoryGroup)
+    .map((other, index) => ({other, index, score: (other.category === product.category ? 4 : 0) + (other.typeLabel === product.typeLabel ? 2 : 0) + (other.sizes.some(size => product.sizes.some(current => getSizeKey(size) === getSizeKey(current))) ? 1 : 0)}))
+    .sort((a,b) => b.score - a.score || a.index - b.index).slice(0,3).map(item => item.other);
 }
 
 function attachDefaultWhatsappLinks(){
@@ -253,15 +267,24 @@ function bindProductDetail(){
     image = imageSlot.querySelector('img');
   }
   const gallery = detail.querySelector('.product-gallery');
-  if(gallery && image && product.images?.length > 1){
-    const thumbnails = document.createElement('div');
-    thumbnails.className = 'product-thumbnails';
-    thumbnails.innerHTML = product.images.map((src, index) => `<button type="button" aria-label="תמונה ${index + 1} של ${product.commercialName}" aria-pressed="${index === 0}"><img src="${src}" alt="${product.commercialName} - תמונה ${index + 1}" loading="lazy"></button>`).join('');
-    thumbnails.querySelectorAll('button').forEach((button, index) => button.addEventListener('click', () => {
-      image.src = product.images[index];
-      thumbnails.querySelectorAll('button').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-    }));
-    gallery.querySelector('.product-image-note')?.before(thumbnails);
+  const galleryImages = productGalleryImages(product);
+  const thumbnails = gallery?.querySelector('.product-thumbnails');
+  if(thumbnails && image){
+    const buttons = [...thumbnails.querySelectorAll('button')];
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        image.src = galleryImages[index];
+        image.alt = `${product.commercialName} - תמונה ${index + 1}`;
+        buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      });
+      button.addEventListener('keydown', event => {
+        if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+        event.preventDefault();
+        const next = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1 : (index + (event.key === 'ArrowLeft' ? 1 : -1) + buttons.length) % buttons.length;
+        buttons[next].click();
+        buttons[next].focus();
+      });
+    });
   }
   if(title) title.textContent = product.commercialName;
   if(subtitle) subtitle.textContent = product.typeLabel;
@@ -285,7 +308,7 @@ function bindProductDetail(){
   }
   if(customWidth && requestedWidth && Number(requestedWidth) >= Number(customWidth.min || 1) && (!customWidth.max || Number(requestedWidth) <= Number(customWidth.max))) customWidth.value = requestedWidth;
   if(colorSelect){
-    colorSelect.innerHTML = (product.requireChoice ? '<option value="">בחרו צבע / גימור</option>' : '') + product.colors.map(color => `<option value="${color}">${color}</option>`).join('');
+    colorSelect.innerHTML = '<option value="">בחרו צבע / גימור</option>' + product.colors.map(color => `<option value="${color}">${color}</option>`).join('');
   }
   if(glassSelect) glassSelect.innerHTML = '<option value="">בחרו סוג זכוכית</option>' + (product.glass || []).map(glass => `<option value="${glass}">${glass}</option>`).join('');
   if(handleSelect) handleSelect.innerHTML = '<option value="">בחרו גימור ידיות</option>' + (product.handles || []).map(handle => `<option value="${handle}">${handle}</option>`).join('');
@@ -318,18 +341,20 @@ function bindProductDetail(){
       else link.removeAttribute('aria-disabled');
     });
     const chosenSize = customWidth ? (customWidth.checkValidity() ? customWidth.value : '') : sizeSelect?.value || '';
-    const size = customWidth ? (chosenSize ? `${chosenSize} ס״מ מבוקש, לאישור התאמה` : 'לפי התאמה') : chosenSize || 'טרם נבחרה';
-    const color = colorSelect?.value || 'טרם נבחר';
+    const size = chosenSize ? `${chosenSize} ס״מ${customWidth ? ' מבוקש, לאישור התאמה' : ''}` : '';
+    const color = colorSelect?.value || '';
     const url = new URL(absoluteProductUrl(product, chosenSize) || window.location.href);
     if(colorSelect?.value) url.searchParams.set('color', colorSelect.value);
-    const extraLines = extraChoices.map(choice => `\n${choice.label}: ${choice.select.value || 'טרם נבחר'}`).join('');
+    const extraLines = extraChoices.filter(choice => choice.select.value).map(choice => `\n${choice.label}: ${choice.select.value}`).join('');
     for(const choice of extraChoices) if(choice.select.value) url.searchParams.set(choice.name, choice.select.value);
     if(glassSelect?.value) url.searchParams.set('glass', glassSelect.value);
     if(handleSelect?.value) url.searchParams.set('handle', handleSelect.value);
-    const glassLine = glassSelect ? `\nזכוכית: ${glassSelect.value || 'טרם נבחרה'}` : '';
-    const handleLine = handleSelect ? `\nידיות: ${handleSelect.value || 'טרם נבחרו'}` : '';
-    const msg = productOrderMessage(product, size, color, url.href) + glassLine + handleLine + extraLines;
-    if(summary) summary.textContent = `מידה: ${size}${!customWidth && chosenSize ? ' ס״מ' : ''} · ${color}${glassSelect ? ' · זכוכית: ' + (glassSelect.value || 'טרם נבחרה') : ''}${handleSelect ? ' · ידיות: ' + (handleSelect.value || 'טרם נבחרו') : ''}${extraChoices.map(choice => ' · ' + choice.label + ': ' + (choice.select.value || 'טרם נבחר')).join('')}`;
+    const glassLine = glassSelect?.value ? `\nזכוכית: ${glassSelect.value}` : '';
+    const handleLine = handleSelect?.value ? `\nידיות: ${handleSelect.value}` : '';
+    const missingExtra = [glassSelect, handleSelect, ...extraChoices.map(choice => choice.select)].some(select => select && !select.value);
+    const extraHelp = missingExtra ? '\nאשמח לעזרה בהשלמת האפשרויות שלא בחרתי.' : '';
+    const msg = productOrderMessage(product, size, color) + glassLine + handleLine + extraLines + extraHelp + `\nקישור לעמוד: ${url.href}`;
+    if(summary) summary.textContent = [size ? `מידה: ${size}` : 'מידה: נבחר יחד', color ? `גימור: ${color}` : 'גימור: נבחר יחד', ...(glassSelect?.value ? ['זכוכית: ' + glassSelect.value] : []), ...(handleSelect?.value ? ['ידיות: ' + handleSelect.value] : []), ...extraChoices.filter(choice => choice.select.value).map(choice => choice.label + ': ' + choice.select.value)].join(' · ');
     if(whatsapp) whatsapp.href = whatsappLink(msg);
     if(sticky) sticky.href = whatsappLink(msg);
     if(help) help.href = whatsappLink(msg.replace('שלום, אשמח לקבל הצעה.', 'שלום, אשמח לעזרה בהתאמה ולבירור המידה והגימור.'));
@@ -366,7 +391,7 @@ function bindImageViewer(){
   const detail = document.querySelector('[data-product-detail]');
   const product = productById[detail.dataset.productId];
   const mainImage = trigger.querySelector('img');
-  const sources = product.images?.length ? product.images : [product.image];
+  const sources = productGalleryImages(product);
   const dialog = document.createElement('dialog');
   dialog.className = 'image-lightbox';
   dialog.setAttribute('aria-labelledby', 'imageViewerTitle');

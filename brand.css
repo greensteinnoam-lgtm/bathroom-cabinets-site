@@ -54,7 +54,26 @@
 .even-mayim .product-buy-box :is(select,input){border-color:var(--line);border-radius:6px;background:#fff}
 .even-mayim .selection-summary{background:var(--bg2);color:var(--brand-dark);border-radius:4px}
 .even-mayim .product-option-note{color:var(--muted)}
-.even-mayim .product-info-panel h2{font-size:26px;font-weight:700}
+.even-mayim .product-info-panel h2{font-size:24px;font-weight:700}
+.even-mayim .product-heading .product-description{font-size:17px;line-height:1.7;margin:14px 0 0;max-width:60ch}
+.even-mayim .product-gallery{align-self:start}
+.even-mayim .product-buy-box{gap:12px}
+.even-mayim .product-buy-box :is(select,input,.btn){scroll-margin-block:110px}
+.even-mayim .product-option-note{line-height:1.6;font-size:16px}
+.even-mayim .selection-summary{line-height:1.7;padding:12px 14px;min-height:52px;overflow-wrap:anywhere}
+.even-mayim .product-service{background:var(--bg2);padding:28px 0}
+.even-mayim .product-service h2,.even-mayim .related-products h2{font-size:24px;margin:0 0 18px}
+.even-mayim .product-service p{max-width:80ch;margin:12px 0;line-height:1.8}
+.even-mayim .product-service .text-link{display:inline-flex;align-items:center;min-height:48px;margin-inline-end:24px;gap:6px}
+.even-mayim .order-process{list-style:decimal;display:grid;gap:12px;padding-inline-start:24px;margin:0 0 20px;font-weight:600}
+.even-mayim .related-products{padding:32px 0}
+.even-mayim .related-products .product-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.even-mayim .related-products .product-image img{object-fit:contain;height:240px;width:100%}
+.even-mayim .product-thumbnails button:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+@media(min-width:768px){
+  .even-mayim .order-process{grid-template-columns:repeat(4,minmax(0,1fr));column-gap:30px}
+  .even-mayim .related-products .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
 .even-mayim .product-thumbnails button{border-radius:4px;border-color:var(--line)}
 .even-mayim .product-thumbnails button[aria-pressed="true"]{border-color:var(--brand)}
 .even-mayim .filter-toggle,.even-mayim .filter-clear,.even-mayim .catalog-filter-panel{border-color:var(--line);border-radius:6px}

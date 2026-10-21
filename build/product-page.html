@@ -29,12 +29,14 @@
       <div class="container product-detail-grid">
         <div class="product-heading">
           <h1><span data-detail-title>{{name}}</span> <span data-detail-subtitle>{{type}}</span></h1>
+          <p class="product-description" data-detail-description>{{description}}</p>
         </div>
         <div class="product-gallery">
           <button class="product-image-zoom" type="button" data-zoom-image aria-label="הגדלת התמונה של {{name}}" title="הגדלת התמונה">
             <img data-detail-image src="{{image}}" alt="{{name}} - {{type}}" decoding="async" fetchpriority="high">
             <span class="zoom-indicator" aria-hidden="true">+</span>
           </button>
+          {{thumbnails}}
           <p class="product-image-note">התמונה להמחשה; הגימור עשוי להשתנות ואביזרים נלווים אינם בהכרח כלולים.</p>
         </div>
         <div class="product-info-panel">
@@ -42,19 +44,32 @@
             <label>מידה / רוחב מבוקש{{sizeControl}}</label>
             <label>צבע / גימור<select name="color"><option value="">בחרו צבע / גימור</option>{{colors}}</select></label>
             {{extraOptions}}
-            <p class="product-option-note">נאשר את התאמת המידה והגימור יחד לפני ההזמנה.</p>
+            <p class="product-option-note">אפשר לפנות גם בלי להשלים הכול. נבדוק יחד את התאמת המידה, הגימור ושאר האפשרויות לפני ההזמנה.</p>
             <p class="product-field-error" data-width-error role="alert" hidden></p>
-            <div class="selection-summary" data-selection-summary></div>
+            <div class="selection-summary" data-selection-summary role="status" aria-live="polite">אפשר לבחור אפשרויות או לבקש עזרה בהתאמה.</div>
             <a class="btn primary big" data-detail-whatsapp href="{{whatsapp}}" target="_blank" rel="noopener">לקבלת הצעה בוואטסאפ</a>
             <a class="btn secondary" id="helpWhatsapp" data-message="שלום, אשמח לעזרה בהתאמה של {{name}}." href="{{help}}" target="_blank" rel="noopener">עזרה בהתאמה</a>
             <a class="text-link" data-back-to-catalog href="{{catalog}}">חזרה לקטלוג</a>
           </form>
-          <p class="product-description" data-detail-description>{{description}}</p>
           <h2>מפרט</h2>
           <div class="spec-list" data-detail-specs>{{specs}}</div>
         </div>
       </div>
     </section>
+    <section class="product-service" aria-labelledby="orderProcessTitle">
+      <div class="container">
+        <h2 id="orderProcessTitle">מהבחירה ועד להזמנה</h2>
+        <ol class="order-process"><li>בוחרים דגם</li><li>מתאימים מידות וגימור</li><li>מקבלים הצעה</li><li>מתאמים הזמנה והתקנה</li></ol>
+        <p>{{installation}}</p>
+        <p>תכולת המוצר, האביזרים, ההובלה, ההתקנה ועבודות נלוות יסוכמו בהצעה לפני ההזמנה. פריטים שמופיעים בתמונה אינם בהכרח כלולים.</p>
+        <a class="text-link" href="installation.html">פרטים על התקנה ושירות</a>
+        <a class="text-link" href="tel:0584209429">לשיחה: <bdi>058-4209429</bdi></a>
+      </div>
+    </section>
+    <section class="related-products" aria-labelledby="relatedTitle"><div class="container">
+      <h2 id="relatedTitle">עוד דגמים לבחירה</h2>
+      <div class="product-grid">{{related}}</div>
+    </div></section>
   </main>
   <a class="sticky-order" id="stickyOrderWhatsapp" href="{{whatsapp}}" target="_blank" rel="noopener">לקבלת הצעה בוואטסאפ</a>
   {{footer}}

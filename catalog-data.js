@@ -41,7 +41,11 @@ const CATALOG_PRODUCTS = [
       ],
       [
         "פרזול",
-        "מגירות ודלתות בסגירה שקטה"
+        "מגירות / דלתות בסגירה שקטה"
+      ],
+      [
+        "התאמת כיור ומשטח",
+        "כיור אינטגרלי, משטח טופדק או בוצ׳ר עם כיור מונח"
       ]
     ],
     "requireChoice": true,
@@ -51,7 +55,25 @@ const CATALOG_PRODUCTS = [
     "images": [
       "assets/catalog/cab-antique-1.webp",
       "assets/catalog/cab-antique-2.webp"
-    ]
+    ],
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "source-conflict",
+      "evidenceSha256": "5f784e722cc41d677e287e215c3ac22887dafaf1be69a39ba6f7147f1b7a451c",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [
+        "כותרת המוצר והקטגוריה מציינות עומד, אך התיאור הקצר מציין תלוי. סוג המוצר נשמר לפי הכותרת והקטגוריה."
+      ],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "cab-dikla",
@@ -87,6 +109,10 @@ const CATALOG_PRODUCTS = [
         "דלתות בטריקה שקטה"
       ],
       [
+        "התאמת כיור",
+        "כיור אינטגרלי או משטח עם כיור מונח"
+      ],
+      [
         "מידות",
         "רוחב / עומק בס״מ"
       ]
@@ -98,7 +124,23 @@ const CATALOG_PRODUCTS = [
     "images": [
       "assets/catalog/cab-dikla-1.webp",
       "assets/catalog/cab-dikla-2.webp"
-    ]
+    ],
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "9a024d1047c21c78c2bd303b8a01e1ad79d000c7f8a79c3169c47174840444bf",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "cab-ofir-doors",
@@ -109,7 +151,7 @@ const CATALOG_PRODUCTS = [
     "supplierName": "אופיר דלתות",
     "typeLabel": "ארון תלוי דלתות",
     "finish": "דלתות טריקה שקטה",
-    "description": "ארון תלוי עם דלתות, מתאים למי שמעדיף חזית נקייה ונגישות פשוטה לאחסון.",
+    "description": "ארון דלתות תלוי עם גוף וחזיתות סנדוויץ בגימור אפוקסי או פורמייקה. הדלתות בטריקה שקטה ומספרן משתנה לפי המידה; מתאים לכיור אינטגרלי או מונח.",
     "sizes": [
       "60/46",
       "80/46",
@@ -152,7 +194,23 @@ const CATALOG_PRODUCTS = [
     "images": [
       "assets/catalog/cab-ofir-doors-1.webp",
       "assets/catalog/cab-ofir-doors-2.webp"
-    ]
+    ],
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "602c23f228b790aadf133c53c7ab3eed81c4ed98e84ca2a24e45b7d17f30dd49",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "cab-marin-modular",
@@ -186,7 +244,7 @@ const CATALOG_PRODUCTS = [
     "specs": [
       [
         "רוחב",
-        "שילוב שתי יחידות עד 240 ס״מ, בהתאמה"
+        "שילוב שתי יחידות צמודות עד 240 ס״מ, בהתאמה"
       ],
       [
         "גוף",
@@ -198,11 +256,15 @@ const CATALOG_PRODUCTS = [
       ],
       [
         "פרזול",
-        "מגירות ודלתות בטריקה שקטה"
+        "מגירות / דלתות בטריקה שקטה"
       ],
       [
-        "התאמת כיור",
-        "כיור אינטגרלי כפול או משטח עם כיור מונח; מיקום הכיור בהתאמה"
+        "התאמת כיור ומשטח",
+        "כיור אינטגרלי כפול, משטח טופדק או בוצ׳ר וכיור מונח"
+      ],
+      [
+        "מיקום כיורים מונחים",
+        "שני כיורים או כיור באחד הצדדים; לא ניתן למקם כיור מונח במרכז"
       ]
     ],
     "requireChoice": true,
@@ -212,7 +274,23 @@ const CATALOG_PRODUCTS = [
     "images": [
       "assets/catalog/cab-marin-modular-1.webp",
       "assets/catalog/cab-marin-modular-2.webp"
-    ]
+    ],
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "2550547fe5d6d765595e7f26d53e0fe3e90a60d17c3b2f6262690d8a79a1367f",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "cab-novo-sandwich",
@@ -220,10 +298,13 @@ const CATALOG_PRODUCTS = [
     "categoryGroup": "cabinets",
     "category": "תלוי",
     "commercialName": "טופז",
-    "supplierName": "נובו סנדוויץ",
+    "supplierName": "נובו סוויץ",
+    "supplierAliases": [
+      "נובו סנדוויץ"
+    ],
     "typeLabel": "ארון תלוי מגירה ותא פתוח",
     "finish": "מגירה + תא פתוח",
-    "description": "ארון תלוי עם מגירה ותא פתוח, מתאים למראה קליל ונגיש בחדר הרחצה.",
+    "description": "ארון תלוי עם מגירה אחת ותא פתוח. גוף וחזיתות סנדוויץ בגימור אפוקסי או פורמייקה, טריקה שקטה וידית אינטגרלית. מתאים לכיור אינטגרלי או מונח.",
     "sizes": [
       "60/46",
       "80/46",
@@ -269,7 +350,23 @@ const CATALOG_PRODUCTS = [
     "images": [
       "assets/catalog/cab-novo-sandwich-1.webp",
       "assets/catalog/cab-novo-sandwich-2.webp"
-    ]
+    ],
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "5a872d8e024e532f79debcefaf09f09fa2a8f78568083ba326890bab10532206",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "shower-angelo-2",
@@ -284,7 +381,7 @@ const CATALOG_PRODUCTS = [
     "commercialName": "הדס",
     "supplierName": "אנג'לו 2",
     "typeLabel": "מקלחון פינתי מרובע",
-    "description": "מקלחון פינתי מרובע עם מידות וגימורים שנבדקים לפי התאמת החלל.",
+    "description": "מקלחון פינתי מרובע עם שתי דפנות קבועות ושתי דלתות הנפתחות פנימה והחוצה באמצעות ציר עולה ויורד. זכוכית מחוסמת בעובי 6 מ״מ, פרופיל אלומיניום וידיות כפתור.",
     "sizes": [
       "73-75",
       "77-80",
@@ -306,7 +403,11 @@ const CATALOG_PRODUCTS = [
     "specs": [
       [
         "מבנה",
-        "שתי דפנות קבועות ושתי דלתות הנפתחות פנימה והחוצה"
+        "שתי דפנות קבועות ושתי דלתות"
+      ],
+      [
+        "פתיחה",
+        "פנימה והחוצה באמצעות ציר עולה ויורד"
       ],
       [
         "זכוכית",
@@ -323,9 +424,30 @@ const CATALOG_PRODUCTS = [
       [
         "ידיות",
         "כפתור"
+      ],
+      [
+        "רכיבי אטימה",
+        "זוג מגנטים ומגב רצפה"
       ]
     ],
-    "verifiedOn": "2026-10-07"
+    "verifiedOn": "2026-10-07",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "4a11c54ed3b0ba343f784325c919108aebcd47bf2769e3bd2cb206f1b7f655ee",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "glass",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "shower-angelo-6",
@@ -340,7 +462,7 @@ const CATALOG_PRODUCTS = [
     "commercialName": "רותם",
     "supplierName": "אנג'לו 6",
     "typeLabel": "מקלחון פינתי מרובע",
-    "description": "מקלחון פינתי מרובע במבחר מידות וגימורים לפי נתוני הדגם.",
+    "description": "מקלחון פינתי מרובע עם שתי דלתות הנפתחות פנימה והחוצה באמצעות ציר עולה ויורד. זכוכית מחוסמת בעובי 6 מ״מ, פרופיל אלומיניום וידיות כפתור.",
     "sizes": [
       "73-75",
       "77-80",
@@ -362,7 +484,11 @@ const CATALOG_PRODUCTS = [
     "specs": [
       [
         "מבנה",
-        "שתי דלתות הנפתחות פנימה והחוצה"
+        "שתי דלתות"
+      ],
+      [
+        "פתיחה",
+        "פנימה והחוצה באמצעות ציר עולה ויורד"
       ],
       [
         "זכוכית",
@@ -379,9 +505,30 @@ const CATALOG_PRODUCTS = [
       [
         "ידיות",
         "כפתור"
+      ],
+      [
+        "רכיבי אטימה",
+        "זוג מגנטים ומגב רצפה"
       ]
     ],
-    "verifiedOn": "2026-10-07"
+    "verifiedOn": "2026-10-07",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "b1a6de8cdb93c1078a696f19c147a3f6ce496627e3241f38a2c68244adf40e15",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "glass",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "shower-magic",
@@ -396,7 +543,7 @@ const CATALOG_PRODUCTS = [
     "commercialName": "מרווה",
     "supplierName": "מג'יק",
     "typeLabel": "מקלחון פינתי מתקפל",
-    "description": "מקלחון מתקפל לחדרי רחצה שבהם חשוב לשמור על פתיחה נוחה ומעבר פנוי.",
+    "description": "מקלחון פינתי מרובע עם שתי דלתות המתקפלות פנימה ונצמדות לקיר. פתיחה פנימה והחוצה באמצעות ציר עולה ויורד, זכוכית מחוסמת בעובי 6 מ״מ ופרופיל אלומיניום.",
     "sizes": [
       "77-80",
       "83-85",
@@ -417,7 +564,11 @@ const CATALOG_PRODUCTS = [
     "specs": [
       [
         "מבנה",
-        "שתי דלתות מתקפלות הנצמדות לקיר; פתיחה פנימה והחוצה"
+        "שתי דלתות מתקפלות פנימה ונצמדות לקיר"
+      ],
+      [
+        "פתיחה",
+        "פנימה והחוצה באמצעות ציר עולה ויורד"
       ],
       [
         "זכוכית",
@@ -434,9 +585,30 @@ const CATALOG_PRODUCTS = [
       [
         "ידיות",
         "כפתור"
+      ],
+      [
+        "רכיבי אטימה",
+        "זוג מגנטים ומגב רצפה"
       ]
     ],
-    "verifiedOn": "2026-10-07"
+    "verifiedOn": "2026-10-07",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "30745603bcc7f593bfc2cdb0b3efb00b5ba49a24da087ff4dd93f2f1b784d28c",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "glass",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "shower-picasso",
@@ -451,7 +623,7 @@ const CATALOG_PRODUCTS = [
     "commercialName": "אלה",
     "supplierName": "פיקסו",
     "typeLabel": "מקלחון פינתי הזזה",
-    "description": "מקלחון הזזה פינתי, מתאים לחללים שבהם רוצים פתיחה בלי כנף נפתחת החוצה.",
+    "description": "מקלחון פינתי מרובע עם שתי דפנות קבועות ושתי דלתות הזזה במסילה עליונה ותחתונה. זכוכית מחוסמת בעובי 6 מ״מ, פרופיל אלומיניום וידיות מאורכות.",
     "sizes": [
       "77-80",
       "87-90"
@@ -470,7 +642,11 @@ const CATALOG_PRODUCTS = [
     "specs": [
       [
         "מבנה",
-        "שתי דפנות קבועות ושתי דלתות הזזה במסילה עליונה ותחתונה"
+        "שתי דפנות קבועות ושתי דלתות הזזה"
+      ],
+      [
+        "מסילות",
+        "עליונה ותחתונה"
       ],
       [
         "זכוכית",
@@ -487,9 +663,30 @@ const CATALOG_PRODUCTS = [
       [
         "ידיות",
         "מאורכות"
+      ],
+      [
+        "רכיבי אטימה",
+        "זוג מגנטים ומגב בין דלתות ההזזה"
       ]
     ],
-    "verifiedOn": "2026-10-07"
+    "verifiedOn": "2026-10-07",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "9b45a8b306df406eaad10e5ab7a7918dff35ff45f43ac5e88891633c8d0e15c3",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "glass",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "cab-aviv-drawers-door",
@@ -524,7 +721,15 @@ const CATALOG_PRODUCTS = [
       ],
       [
         "אחסון",
-        "שתי מגירות ודלת, טריקה שקטה וידית אינטגרלית"
+        "שתי מגירות ודלת"
+      ],
+      [
+        "פרזול",
+        "טריקה שקטה וידית אינטגרלית"
+      ],
+      [
+        "התאמת כיור",
+        "כיור אינטגרלי או מונח"
       ]
     ],
     "image": "assets/catalog/ahlama-1.webp",
@@ -537,7 +742,23 @@ const CATALOG_PRODUCTS = [
     "requireChoice": true,
     "verifiedOn": "2026-10-07",
     "supplierSku": "PR111-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1",
-    "supplierSkuStatus": "unconfirmed-template"
+    "supplierSkuStatus": "unconfirmed-template",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "0b96e375f73cd6538876ec0bae733032bced7ba119c9509b6abadb2f1985afee",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "cab-ofir-drawers",
@@ -574,6 +795,10 @@ const CATALOG_PRODUCTS = [
       [
         "אחסון",
         "שתי מגירות עם טריקה שקטה"
+      ],
+      [
+        "התאמת כיור",
+        "כיור אינטגרלי או מונח"
       ]
     ],
     "image": "assets/catalog/bareket-drawers-1.webp",
@@ -587,7 +812,23 @@ const CATALOG_PRODUCTS = [
     "requireChoice": true,
     "verifiedOn": "2026-10-07",
     "supplierSku": "PR111-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1",
-    "supplierSkuStatus": "unconfirmed-template"
+    "supplierSkuStatus": "unconfirmed-template",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "5000dcf0c19f3bc21f22a5c2adabc14123b0e9e87758a6947de7db34f059dae8",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "cab-open",
@@ -637,7 +878,23 @@ const CATALOG_PRODUCTS = [
     "requireChoice": true,
     "verifiedOn": "2026-10-07",
     "supplierSku": "PR111-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1",
-    "supplierSkuStatus": "unconfirmed-template"
+    "supplierSkuStatus": "unconfirmed-template",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "bdbab6df8615612c970b9524600fbc735fc6a5a289f448c81d4c5adb7c7dcc22",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "cab-design",
@@ -670,6 +927,14 @@ const CATALOG_PRODUCTS = [
         "MDF בגימור אפוקסי מט"
       ],
       [
+        "משטח",
+        "פורניר"
+      ],
+      [
+        "אחסון לפי רוחב",
+        "60 ו־80 ס״מ: שתי דלתות; 100 ו־120 ס״מ: שלוש דלתות"
+      ],
+      [
         "פרזול",
         "טריקה שקטה"
       ],
@@ -688,7 +953,23 @@ const CATALOG_PRODUCTS = [
     "requireChoice": true,
     "verifiedOn": "2026-10-07",
     "supplierSku": "PR111-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1",
-    "supplierSkuStatus": "unconfirmed-template"
+    "supplierSkuStatus": "unconfirmed-template",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "f94517e98904e4be19af61cd0af02e15f45b859499248a3d892b41762761e88d",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "cab-harel-hanging",
@@ -733,8 +1014,12 @@ const CATALOG_PRODUCTS = [
         "דלתות ומגירות בטריקה שקטה"
       ],
       [
+        "חלוקת אחסון",
+        "משתנה לפי המידה; ברוחב 100 ו־120 ס״מ שתי דלתות"
+      ],
+      [
         "התאמת כיור",
-        "כיור אינטגרלי או מונח; חלוקת האחסון לפי המידה"
+        "כיור אינטגרלי או מונח"
       ]
     ],
     "image": "assets/catalog/jade-1.webp",
@@ -747,7 +1032,23 @@ const CATALOG_PRODUCTS = [
     "requireChoice": true,
     "verifiedOn": "2026-10-07",
     "supplierSku": "PR111-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1",
-    "supplierSkuStatus": "unconfirmed-template"
+    "supplierSkuStatus": "unconfirmed-template",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "6455c1b9ba313fb70d430686dd5992849c9b46a3450e268955b7565b3474d7b2",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "cab-strip",
@@ -778,11 +1079,19 @@ const CATALOG_PRODUCTS = [
       ],
       [
         "חזית",
-        "עץ מלא"
+        "עץ מלא בגוון אלון מבוקע"
+      ],
+      [
+        "אחסון",
+        "שתי מגירות"
       ],
       [
         "פרזול",
         "מנגנון פתיחה PUSH PULL"
+      ],
+      [
+        "התאמת כיור",
+        "כיור אינטגרלי או מונח"
       ]
     ],
     "image": "assets/catalog/onyx-1.webp",
@@ -796,7 +1105,23 @@ const CATALOG_PRODUCTS = [
     "requireChoice": true,
     "verifiedOn": "2026-10-07",
     "supplierSku": "PR111-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1",
-    "supplierSkuStatus": "unconfirmed-template"
+    "supplierSkuStatus": "unconfirmed-template",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "304dde6a30e50734f3770d4d6b5a2c17e7d8a6ace31d6fe50f0a9707358d32b3",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "shower-dali",
@@ -829,6 +1154,10 @@ const CATALOG_PRODUCTS = [
     ],
     "specs": [
       [
+        "מבנה",
+        "מקלחון חזיתי מקיר לקיר עם שתי דלתות"
+      ],
+      [
         "זכוכית",
         "מחוסמת בעובי 6 מ״מ"
       ],
@@ -838,11 +1167,19 @@ const CATALOG_PRODUCTS = [
       ],
       [
         "פתיחה",
-        "שתי דלתות פנימה והחוצה"
+        "פנימה והחוצה באמצעות ציר עולה ויורד"
       ],
       [
-        "אטימה",
-        "זוג מגנטים ומגב רצפה מצוינים במפרט הספק"
+        "פרופיל",
+        "אלומיניום"
+      ],
+      [
+        "ידיות",
+        "כפתור"
+      ],
+      [
+        "רכיבי אטימה",
+        "זוג מגנטים ומגב רצפה"
       ]
     ],
     "image": "assets/catalog/yasmin-1.webp",
@@ -854,7 +1191,24 @@ const CATALOG_PRODUCTS = [
     "productUrl": "showers-yasmin.html",
     "source": "https://novo-gal.co.il/product/דאלי/",
     "requireChoice": true,
-    "verifiedOn": "2026-10-07"
+    "verifiedOn": "2026-10-07",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "304669099964ed930de819d33764aacf8fa0801d140ddd66139d444b4f4d0e45",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "glass",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "bathscreen-dali",
@@ -891,12 +1245,24 @@ const CATALOG_PRODUCTS = [
         "דופן קבועה 50 ס״מ ודלת 70 ס״מ"
       ],
       [
+        "פתיחה",
+        "פנימה והחוצה באמצעות ציר עולה ויורד"
+      ],
+      [
         "פרופיל",
         "אלומיניום"
       ],
       [
-        "אטימה",
-        "מגב תחתון מצוין במפרט הספק"
+        "פרזול",
+        "ידית מגבת ומוט חיזוק"
+      ],
+      [
+        "מיקום התקנה",
+        "על הדופן הארוכה של האמבטיה"
+      ],
+      [
+        "רכיבי אטימה",
+        "מגב תחתון"
       ]
     ],
     "image": "assets/catalog/shaked-1.webp",
@@ -908,7 +1274,24 @@ const CATALOG_PRODUCTS = [
     "productUrl": "showers-shaked.html",
     "source": "https://novo-gal.co.il/product/אמבטיון-דאלי/",
     "requireChoice": true,
-    "verifiedOn": "2026-10-07"
+    "verifiedOn": "2026-10-07",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "523ef1930ce4883a0290e3a934608a20a042c7125e1f47136c352a8e5bc28c40",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "glass",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "bathscreen-magic",
@@ -916,7 +1299,7 @@ const CATALOG_PRODUCTS = [
     "categoryGroup": "showers",
     "category": "אמבטיון מתקפל",
     "commercialName": "חרוב",
-    "supplierName": "אמבטיון מג׳יק",
+    "supplierName": "אמבטיון מג'יק",
     "typeLabel": "אמבטיון מתקפל",
     "description": "אמבטיון מתקפל פנימה ונצמד לקיר, עם פתיחה פנימה והחוצה באמצעות ציר עולה ויורד. מיועד לדופן הארוכה של האמבטיה.",
     "sizes": [
@@ -945,12 +1328,20 @@ const CATALOG_PRODUCTS = [
         "שתי כנפיים של 60 ס״מ"
       ],
       [
+        "פתיחה",
+        "מתקפל פנימה ונצמד לקיר; פתיחה פנימה והחוצה בציר עולה ויורד"
+      ],
+      [
         "פרזול",
         "פרופיל אלומיניום, ידית כפתור ומוט חיזוק"
       ],
       [
-        "אטימה",
-        "מגב תחתון מצוין במפרט הספק"
+        "מיקום התקנה",
+        "על הדופן הארוכה של האמבטיה"
+      ],
+      [
+        "רכיבי אטימה",
+        "מגב תחתון"
       ]
     ],
     "image": "assets/catalog/haruv-1.webp",
@@ -962,7 +1353,27 @@ const CATALOG_PRODUCTS = [
     "productUrl": "showers-haruv.html",
     "source": "https://novo-gal.co.il/product/אמבטיון-מגיק/",
     "requireChoice": true,
-    "verifiedOn": "2026-10-07"
+    "verifiedOn": "2026-10-07",
+    "supplierAliases": [
+      "אמבטיון מג׳יק"
+    ],
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "00791c60f89574b1c89d942df1efae65de729e71c0d6f01bf5be678ca43a653e",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "glass",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "id": "bathscreen-fixed",
@@ -995,6 +1406,10 @@ const CATALOG_PRODUCTS = [
       [
         "מבנה",
         "דופן קבועה, פרופיל אלומיניום ומוט חיזוק"
+      ],
+      [
+        "מיקום התקנה",
+        "על הדופן הארוכה או הקצרה של האמבטיה"
       ]
     ],
     "image": "assets/catalog/arava-1.webp",
@@ -1005,7 +1420,24 @@ const CATALOG_PRODUCTS = [
     "productUrl": "showers-arava.html",
     "source": "https://novo-gal.co.il/product/דופן-אמבטיון/",
     "requireChoice": true,
-    "verifiedOn": "2026-10-07"
+    "verifiedOn": "2026-10-07",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "9e8927f2a2afc9130a15700d531dea8d398f91a6078fe5d5f29c45f2bc1ef03d",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "glass",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "דקל",
@@ -1029,11 +1461,15 @@ const CATALOG_PRODUCTS = [
     "specs": [
       [
         "גוף",
-        "במבו בגימור אפוקסי או מלמין"
+        "במבו בגימור אפוקסי / מלמין"
       ],
       [
         "פרזול",
         "דלתות בטריקה שקטה"
+      ],
+      [
+        "התאמת כיור",
+        "כיור אינטגרלי או משטח עם כיור מונח"
       ],
       [
         "מידות",
@@ -1052,7 +1488,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-dekel-1.webp",
       "assets/catalog/cab-dekel-2.webp"
     ],
-    "image": "assets/catalog/cab-dekel-1.webp"
+    "image": "assets/catalog/cab-dekel-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "d8e6f47eb2aaaf427bde01da9ed3e61381fe8eaa94189928a9ab0ad40f42c53e",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "הראל עומד",
@@ -1098,6 +1550,14 @@ const CATALOG_PRODUCTS = [
         "דלתות ומגירות בטריקה שקטה"
       ],
       [
+        "חלוקת אחסון",
+        "משתנה לפי המידה"
+      ],
+      [
+        "התאמת כיור",
+        "כיור אינטגרלי או מונח"
+      ],
+      [
         "מידות",
         "רוחב / עומק בס״מ"
       ]
@@ -1114,7 +1574,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-harel-standing-1.webp",
       "assets/catalog/cab-harel-standing-2.webp"
     ],
-    "image": "assets/catalog/cab-harel-standing-1.webp"
+    "image": "assets/catalog/cab-harel-standing-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "964618c4a756c6a9409e6ea4fb04b3d18aa981bf833763e050d810587f039928",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "זהר",
@@ -1153,8 +1629,16 @@ const CATALOG_PRODUCTS = [
         "MDF בצבע אפוקסי"
       ],
       [
+        "חלוקת אחסון",
+        "60 ו־80 ס״מ: שתי מגירות; 100, 120, 130, 140 ו־150 ס״מ: שתי מגירות ודלת"
+      ],
+      [
         "פרזול",
-        "טריקה שקטה"
+        "דלתות בטריקה שקטה"
+      ],
+      [
+        "התאמת כיור",
+        "כיור אינטגרלי או מונח"
       ]
     ],
     "categoryGroup": "cabinets",
@@ -1169,7 +1653,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-zohar-1.webp",
       "assets/catalog/cab-zohar-2.webp"
     ],
-    "image": "assets/catalog/cab-zohar-1.webp"
+    "image": "assets/catalog/cab-zohar-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "8f0641f161dc2e7e72638781995cce43401b10a314aa4e2a11127e05d66315b1",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "חצב",
@@ -1220,7 +1720,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-hatzav-1.webp",
       "assets/catalog/cab-hatzav-2.webp"
     ],
-    "image": "assets/catalog/cab-hatzav-1.webp"
+    "image": "assets/catalog/cab-hatzav-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "a6d7159444db04a23dd7c4eb31163177bbb22956dba32d4e078949574637a565",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "להב",
@@ -1260,6 +1776,10 @@ const CATALOG_PRODUCTS = [
         "מגירות בטריקה שקטה"
       ],
       [
+        "התאמת כיור",
+        "כיור אינטגרלי או מונח"
+      ],
+      [
         "מידות",
         "רוחב / עומק בס״מ"
       ]
@@ -1276,7 +1796,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-lahav-1.webp",
       "assets/catalog/cab-lahav-2.webp"
     ],
-    "image": "assets/catalog/cab-lahav-1.webp"
+    "image": "assets/catalog/cab-lahav-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "ee2de6e7da74911c100d5effa54c1117ae0dc4d4ee9256d39133d10ac66cb481",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "להב כפול",
@@ -1336,7 +1872,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-lahav-double-1.webp",
       "assets/catalog/cab-lahav-double-2.webp"
     ],
-    "image": "assets/catalog/cab-lahav-double-1.webp"
+    "image": "assets/catalog/cab-lahav-double-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "2291285a54c46f393bc236a5f1f1f2e325084e1d606802ae8c5ae1d3cfc534a1",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "מעויינים",
@@ -1366,11 +1918,19 @@ const CATALOG_PRODUCTS = [
       ],
       [
         "פרזול",
-        "מגירות בטריקה שקטה"
+        "מגירות בטריקה שקטה וידית אינטגרלית"
+      ],
+      [
+        "התאמת כיור",
+        "כיור מונח בלבד"
       ],
       [
         "מידות",
         "רוחב / עומק בס״מ"
+      ],
+      [
+        "חלוקה במידות נוספות",
+        "מ־140 ס״מ ומעלה: ארבע מגירות. מידות אלו דורשות בירור התאמה ואינן ברשימת המידות המפורטת"
       ]
     ],
     "categoryGroup": "cabinets",
@@ -1384,7 +1944,25 @@ const CATALOG_PRODUCTS = [
     "images": [
       "assets/catalog/cab-diamonds-1.webp"
     ],
-    "image": "assets/catalog/cab-diamonds-1.webp"
+    "image": "assets/catalog/cab-diamonds-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "source-conflict",
+      "evidenceSha256": "16ab275c8d931b60f751e7b21dec82bd17584f875481eb8287a87060f12eba6f",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [
+        "רשימת המידות מסתיימת ב־120; הערת חלוקת המגירות מתייחסת ל־140 ומעלה. ההערה מוצגת במפרט בלבד, ללא הוספת מידות לבחירה."
+      ],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "מרין דלתות",
@@ -1427,8 +2005,12 @@ const CATALOG_PRODUCTS = [
         "MDF בצבע אפוקסי"
       ],
       [
-        "התאמת כיור",
-        "כיור אינטגרלי או משטח עם כיור מונח"
+        "פרזול",
+        "מגירות / דלתות בסגירה שקטה"
+      ],
+      [
+        "התאמת כיור ומשטח",
+        "כיור אינטגרלי, משטח טופדק או בוצ׳ר עם כיור מונח"
       ]
     ],
     "categoryGroup": "cabinets",
@@ -1443,7 +2025,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-marin-doors-1.webp",
       "assets/catalog/cab-marin-doors-2.webp"
     ],
-    "image": "assets/catalog/cab-marin-doors-1.webp"
+    "image": "assets/catalog/cab-marin-doors-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "6866306374fb5daa0307bb49e7f605e4a2ef5dddf469d9443d1770777585d120",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "מרין מגירות",
@@ -1487,6 +2085,10 @@ const CATALOG_PRODUCTS = [
       [
         "פרזול",
         "מגירות בטריקה שקטה"
+      ],
+      [
+        "התאמת כיור ומשטח",
+        "כיור אינטגרלי, משטח טופדק או בוצ׳ר עם כיור מונח"
       ]
     ],
     "categoryGroup": "cabinets",
@@ -1501,7 +2103,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-marin-drawers-1.webp",
       "assets/catalog/cab-marin-drawers-2.webp"
     ],
-    "image": "assets/catalog/cab-marin-drawers-1.webp"
+    "image": "assets/catalog/cab-marin-drawers-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "a4b5e84a6139e4d40295a7b511ea8eaf8acac912617fc49305bf7eb16cd8d618",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "ניו מאג",
@@ -1532,6 +2150,14 @@ const CATALOG_PRODUCTS = [
         "MDF בציפוי פורניר"
       ],
       [
+        "אחסון",
+        "שתי מגירות וידית אינטגרלית"
+      ],
+      [
+        "התאמת כיור",
+        "משטח כיור אינטגרלי או משטח וכיור מונח"
+      ],
+      [
         "מידות",
         "רוחב / עומק בס״מ"
       ]
@@ -1548,7 +2174,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-new-mag-1.webp",
       "assets/catalog/cab-new-mag-2.webp"
     ],
-    "image": "assets/catalog/cab-new-mag-1.webp"
+    "image": "assets/catalog/cab-new-mag-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "e4b0d62b98905797c6f33403825f4be554be6320f7c42d8ba79b4b591cf5694e",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "ענתיק תלוי מגירות/ דלתות",
@@ -1574,7 +2216,7 @@ const CATALOG_PRODUCTS = [
       "שחור",
       "לבן"
     ],
-    "description": "גרסת ענתיק התלויה, עם גוף סנדוויץ וחזיתות MDF בגימור צבע. סגירה שקטה והתאמה לכיור אינטגרלי.",
+    "description": "ארון תלוי עם גוף סנדוויץ וחזיתות MDF בצבע אפוקסי. מגירות / דלתות בסגירה שקטה ובחירת גימור לידיות. מותאם לכיור אינטגרלי.",
     "specs": [
       [
         "גוף",
@@ -1605,7 +2247,25 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-antique-hanging-1.webp",
       "assets/catalog/cab-antique-hanging-2.webp"
     ],
-    "image": "assets/catalog/cab-antique-hanging-1.webp"
+    "image": "assets/catalog/cab-antique-hanging-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "source-conflict",
+      "evidenceSha256": "c8d7bbd9c7f608ac2b01edc00f0a84e7c9a21cb9aba8fca3a0dea94d6de45a8f",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [
+        "כותרת המוצר והקטגוריה מציינות תלוי, אך התיאור הקצר מציין עומד. סוג המוצר נשמר לפי הכותרת והקטגוריה."
+      ],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "פריים נטילה",
@@ -1632,12 +2292,20 @@ const CATALOG_PRODUCTS = [
     "description": "ארונית תלויה לפינת נטילה או לחלל קטן, עם ידית מזוודה ובחירת כיוון פתיחת הדלת. מתאימה לכיור אינטגרלי או למשטח עם כיור מונח.",
     "specs": [
       [
-        "מידות ספק",
+        "מידות",
         "50/46/26 ס״מ; סדר הממדים יאושר בהתאמה"
       ],
       [
         "פתיחה",
         "ניתן להתקין עם פתיחה לימין או לשמאל"
+      ],
+      [
+        "ידית",
+        "מזוודה"
+      ],
+      [
+        "התאמת כיור",
+        "כיור אינטגרלי או משטח עם כיור מונח"
       ]
     ],
     "categoryGroup": "cabinets",
@@ -1652,7 +2320,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-prime-small-1.webp",
       "assets/catalog/cab-prime-small-2.webp"
     ],
-    "image": "assets/catalog/cab-prime-small-1.webp"
+    "image": "assets/catalog/cab-prime-small-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "53a99e698046b6574877583c7857f1fa8c0b39b1e857da35ab2f39fd8b8cf671",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "קורל",
@@ -1672,7 +2356,7 @@ const CATALOG_PRODUCTS = [
       "לבן בשילוב עץ נטורל",
       "מוקה בשילוב עץ אגוז"
     ],
-    "description": "ארון אמבטיה תלוי עם מגירה ותא אחסון פתוח, המשלב גישה נוחה לפריטים יומיומיים עם אחסון סגור.",
+    "description": "ארון תלוי עם מגירה בטריקה שקטה ותא פתוח בפורמיקה דמוי עץ. גוף וחזיתות סנדוויץ בגימור אפוקסי, בהתאמה לכיור אינטגרלי או למשטח עם כיור מונח.",
     "specs": [
       [
         "גוף וחזיתות",
@@ -1681,6 +2365,10 @@ const CATALOG_PRODUCTS = [
       [
         "תא פתוח",
         "פורמיקה דמוי עץ"
+      ],
+      [
+        "פרזול",
+        "מגירה בטריקה שקטה"
       ],
       [
         "התאמת כיור",
@@ -1703,7 +2391,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-coral-1.webp",
       "assets/catalog/cab-coral-2.webp"
     ],
-    "image": "assets/catalog/cab-coral-1.webp"
+    "image": "assets/catalog/cab-coral-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "8ad7f0b199dd0b4a4906470f57ec74247366aba28fb0c179ac0beb889811132f",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "רטרו נטילה",
@@ -1725,7 +2429,7 @@ const CATALOG_PRODUCTS = [
     "description": "ארונית קומפקטית לפינת נטילה ולחדר שירותים קטן. מתאימה לכיור אינטגרלי אקרילי לבן או למשטח עם כיור מונח, בהתאם להצעה.",
     "specs": [
       [
-        "מידות ספק",
+        "מידות",
         "50/28/50 ס״מ; סדר הממדים יאושר בהתאמה"
       ],
       [
@@ -1744,7 +2448,23 @@ const CATALOG_PRODUCTS = [
     "images": [
       "assets/catalog/cab-retro-small-1.webp"
     ],
-    "image": "assets/catalog/cab-retro-small-1.webp"
+    "image": "assets/catalog/cab-retro-small-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "79e2e3733a3a6fde63986e73395bfd36b2f46188526732ec080ee0c5896b4403",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "שגיא עומד",
@@ -1790,6 +2510,14 @@ const CATALOG_PRODUCTS = [
         "דלתות ומגירות בטריקה שקטה"
       ],
       [
+        "חלוקת אחסון",
+        "משתנה לפי המידה"
+      ],
+      [
+        "התאמת כיור",
+        "כיור אינטגרלי"
+      ],
+      [
         "מידות",
         "רוחב / עומק בס״מ"
       ]
@@ -1806,7 +2534,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-sagi-1.webp",
       "assets/catalog/cab-sagi-2.webp"
     ],
-    "image": "assets/catalog/cab-sagi-1.webp"
+    "image": "assets/catalog/cab-sagi-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "06966a6cb3eab3287abeb81f7746499dcdf48f4b80dc50ca5cc32db77f9a986a",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "שחר",
@@ -1846,6 +2590,10 @@ const CATALOG_PRODUCTS = [
         "דלתות בטריקה שקטה"
       ],
       [
+        "התאמת כיור",
+        "כיור אינטגרלי או מונח"
+      ],
+      [
         "מידות",
         "רוחב / עומק בס״מ"
       ]
@@ -1862,7 +2610,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-shahar-1.webp",
       "assets/catalog/cab-shahar-2.webp"
     ],
-    "image": "assets/catalog/cab-shahar-1.webp"
+    "image": "assets/catalog/cab-shahar-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "eba2d32eaffdfc870af381934ca463a447fd5ceb2fe8a6728beac733234aa92a",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "שילת",
@@ -1898,12 +2662,20 @@ const CATALOG_PRODUCTS = [
         "עץ מלא"
       ],
       [
+        "אחסון במידות המפורטות",
+        "שתי מגירות"
+      ],
+      [
         "פרזול",
         "טריקה שקטה"
       ],
       [
         "התאמת כיור",
         "כיור מונח בלבד"
+      ],
+      [
+        "חלוקה במידות נוספות",
+        "מ־150 ס״מ ומעלה: ארבע מגירות. מידות אלו דורשות בירור התאמה ואינן ברשימת המידות המפורטת"
       ]
     ],
     "categoryGroup": "cabinets",
@@ -1917,7 +2689,25 @@ const CATALOG_PRODUCTS = [
     "images": [
       "assets/catalog/cab-shilat-1.webp"
     ],
-    "image": "assets/catalog/cab-shilat-1.webp"
+    "image": "assets/catalog/cab-shilat-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "source-conflict",
+      "evidenceSha256": "dcbab4cc9520bd2e73faaf0ab25641e34edf70e3f3df6303575cf45a5af11028",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [
+        "התיאור מגדיר שתי מגירות; שורת הפרזול מציינת דלתות בטריקה שקטה. נשמרו שתי מגירות ונוסח פרזול כללי של טריקה שקטה."
+      ],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "שני",
@@ -1973,7 +2763,23 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-shani-1.webp",
       "assets/catalog/cab-shani-2.webp"
     ],
-    "image": "assets/catalog/cab-shani-1.webp"
+    "image": "assets/catalog/cab-shani-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "3aa36ed695db10888f853e83150806022c0c8db0133137456ce05eb50139797a",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   },
   {
     "supplierName": "שקד",
@@ -2026,6 +2832,22 @@ const CATALOG_PRODUCTS = [
       "assets/catalog/cab-shaked-1.webp",
       "assets/catalog/cab-shaked-2.webp"
     ],
-    "image": "assets/catalog/cab-shaked-1.webp"
+    "image": "assets/catalog/cab-shaked-1.webp",
+    "supplierReview": {
+      "checkedOn": "2026-10-21",
+      "status": "reviewed",
+      "evidenceSha256": "992564ad674417dc25ece931e43c5f672d462979aa73221f521a66cd295b4518",
+      "reviewedFields": [
+        "typeLabel",
+        "category",
+        "sizes",
+        "colors",
+        "specs",
+        "description"
+      ],
+      "conflicts": [],
+      "combinationsStatus": "not-listed",
+      "packageStatus": "not-fully-defined"
+    }
   }
 ];
