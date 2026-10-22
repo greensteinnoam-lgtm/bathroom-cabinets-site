@@ -81,6 +81,19 @@
 .even-mayim .footer{background:#123d35;color:#fff}
 .even-mayim .footer a{color:#fff}
 .even-mayim .footer strong{font-size:24px;font-weight:700}
+.even-mayim .social-links{display:flex;gap:8px;width:100%;padding-inline:16px;margin:16px auto 0;max-width:1160px}
+.even-mayim .social-links a{display:grid;place-items:center;flex:none;width:44px;height:44px;margin:0;color:#fff;border-radius:6px}
+.even-mayim .social-links a:hover{background:rgba(255,255,255,.1)}
+.even-mayim .social-links a:focus-visible{outline:3px solid #d9c5a8;outline-offset:3px}
+.even-mayim .social-links svg{display:block;width:20px;height:20px}
+@media(min-width:1024px){
+  .even-mayim .social-links{position:fixed;left:12px;top:50%;transform:translateY(-50%);z-index:60;flex-direction:column;width:44px;padding:0;margin:0}
+  .even-mayim .social-links a{color:var(--brand);background:var(--bg)}
+  .even-mayim .social-links a:hover{background:var(--bg2)}
+  .even-mayim .social-links a:focus-visible{outline-color:var(--brand)}
+  .even-mayim :is(main,.footer) .container{max-width:calc(100% - 128px)}
+  .image-view-open .social-links{visibility:hidden}
+}
 .even-mayim .floating-whatsapp{background:var(--brand);color:#fff;border-radius:6px;box-shadow:none}
 .even-mayim .menu-btn{border-radius:6px;box-shadow:none;border:1px solid var(--line)}
 @media(min-width:768px) and (max-width:1100px){
